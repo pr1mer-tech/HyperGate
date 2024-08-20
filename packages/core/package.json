@@ -20,6 +20,7 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
+    "xrpl": "^4.0.0",
     "xumm": "^1.7.7"
   }
 }

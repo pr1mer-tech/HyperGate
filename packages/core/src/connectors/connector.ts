@@ -1,3 +1,4 @@
+import { BaseTransaction } from "xrpl"
 import type { Address } from "../utils/address"
 
 export type Connector<
@@ -21,13 +22,12 @@ provider = unknown
     disconnect(): Promise<void>
     getAccounts(): Promise<readonly Address[]>
     getChainId(): Promise<number>
-    getProvider(
-      parameters?: { chainId?: number | undefined } | undefined,
-    ): Promise<provider>
     isAuthorized(): Promise<boolean>
 
-    onAccountsChanged(accounts: string[]): void
-    onChainChanged(chainId: string): void
-    onConnect?(): void
-    onDisconnect(error?: Error | undefined): void
+    registerOnAccountsChanged(callback: (accounts: string[]) => void): void
+    registerOnChainChanged(callback: (chainId: string) => void): void
+    registerOnError(callback: (error: Error) => void): void
+
+    // Actions such as signing transactions, sending messages, etc.
+    signTransaction(transaction: BaseTransaction): Promise<object>
   }
