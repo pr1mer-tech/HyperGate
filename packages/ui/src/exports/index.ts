@@ -1,2 +1,2 @@
-export * from '../config';
-export * from '../account';
+export * from "../hooks/useConfig";
+export * from "../hooks/useAccount";

@@ -2,7 +2,7 @@ import type { BaseTransaction } from "xrpl";
 import type { Address } from "../utils/address";
 import type { Connector, ConnectorEventMap } from "./connector";
 import { Xumm } from "xumm";
-import { Emitter } from "../createEmitter";
+import type { Emitter } from "../createEmitter";
 
 export class XummConnector implements Connector {
 	icon =

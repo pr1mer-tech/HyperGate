@@ -20,7 +20,7 @@ export type Config = {
 	setState(value: State | ((state: State) => State)): void;
 	subscribe<T>(
 		selector: (state: State) => T,
-		listener: (state: T) => void,
+		listener: (state: T, prevState: T) => void,
 		options?: {
 			equalityFn?: ((a: T, b: T) => boolean) | undefined;
 			fireImmediately?: boolean | undefined;
@@ -38,7 +38,7 @@ export type Config = {
 							state: Compute<Connector & ConnectorInit>[],
 					  ) => Compute<Connector & ConnectorInit>[]),
 			): void;
-			subscribe<T>(listener: (state: T) => void): () => void;
+			subscribe<T>(listener: (state: T, prevState: T) => void): () => void;
 		};
 		events: {
 			change: (data: EventData<ConnectorEventMap, "change">) => void;
@@ -324,3 +324,5 @@ export function createConfig(options: ConfigOptions): Config {
 		},
 	};
 }
+
+export type { Connector } from "./connectors/connector.js";
