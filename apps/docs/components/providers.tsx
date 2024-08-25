@@ -1,5 +1,5 @@
-import { HyperGateConfig } from "@repo/ui";
-import { XummConnector, createConfig } from "@repo/core";
+import { HyperGateConfig } from "@hypergate/react";
+import { XummConnector, createConfig } from "@hypergate/core";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const queryClient = new QueryClient();

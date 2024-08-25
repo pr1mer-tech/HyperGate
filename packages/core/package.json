@@ -1,5 +1,5 @@
 {
-  "name": "@repo/core",
+  "name": "@hypergate/core",
   "version": "0.0.0",
   "private": true,
   "exports": {
@@ -11,8 +11,8 @@
     "lint": "eslint . --max-warnings 0"
   },
   "devDependencies": {
-    "@repo/eslint-config": "*",
-    "@repo/typescript-config": "*",
+    "@hypergate/eslint-config": "*",
+    "@hypergate/typescript-config": "*",
     "@turbo/gen": "^1.12.4",
     "@types/bun": "^1.1.6",
     "@types/eslint": "^8.56.5",

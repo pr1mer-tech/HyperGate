@@ -1,6 +1,6 @@
 "use client";
 
-import { useAccount, useConnect, useConnectors } from "@repo/ui";
+import { useAccount, useConnect, useConnectors } from "@hypergate/react";
 import { Button } from "./ui/button";
 
 export function ConnectWallet() {

@@ -1,5 +1,5 @@
 {
-  "name": "@repo/ui",
+  "name": "@hypergate/react",
   "version": "0.0.0",
   "private": true,
   "exports": {
@@ -11,9 +11,9 @@
     "generate:component": "turbo gen react-component"
   },
   "devDependencies": {
-    "@repo/core": "*",
-    "@repo/eslint-config": "*",
-    "@repo/typescript-config": "*",
+    "@hypergate/core": "*",
+    "@hypergate/eslint-config": "*",
+    "@hypergate/typescript-config": "*",
     "@turbo/gen": "^1.12.4",
     "@types/node": "^20.11.24",
     "@types/eslint": "^8.56.5",

@@ -1,10 +1,10 @@
 "use client";
 
 import {
-	type GetConnectorsReturnType,
-	getConnectors,
-	watchConnectors,
-} from "@repo/core";
+  type GetConnectorsReturnType,
+  getConnectors,
+  watchConnectors,
+} from "@hypergate/core";
 import { useSyncExternalStore } from "react";
 
 import type { ConfigParameter } from "../types/properties.js";
@@ -16,13 +16,13 @@ export type UseConnectorsReturnType = GetConnectorsReturnType;
 
 /** https://wagmi.sh/react/api/hooks/useConnectors */
 export function useConnectors(
-	parameters: UseConnectorsParameters = {},
+  parameters: UseConnectorsParameters = {},
 ): UseConnectorsReturnType {
-	const config = useConfig(parameters);
+  const config = useConfig(parameters);
 
-	return useSyncExternalStore(
-		(onChange) => watchConnectors(config, { onChange }),
-		() => getConnectors(config),
-		() => getConnectors(config),
-	);
+  return useSyncExternalStore(
+    (onChange) => watchConnectors(config, { onChange }),
+    () => getConnectors(config),
+    () => getConnectors(config),
+  );
 }
