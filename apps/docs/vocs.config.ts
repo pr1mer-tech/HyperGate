@@ -11,6 +11,17 @@ const config = defineConfig({
   },
   topNav: [
     { text: "Guide & API", link: "/docs/getting-started", match: "/docs" },
+    { text: "Demo", link: "/docs/demo", match: "/docs/demo" },
+  ],
+  sidebar: [
+    {
+      text: "Getting Started",
+      link: "/docs/getting-started",
+    },
+    {
+      text: "Demo",
+      link: "/docs/demo",
+    },
   ],
 });
 

@@ -5,10 +5,56 @@ layout: docs
 import { ConnectWallet } from "../../components/connect-wallet";
 import { Providers } from "../../components/providers";
 
-# A docs page
+# Getting Started
 
-This is a docs page.
+## Overview
 
-<Providers>
-  <ConnectWallet />
-</Providers>
+HyperGate is a [wagmi](https://wagmi.sh)-like library to interact with [XRP Ledger](https://xrpl.org). It's mainly aimed to be used within React applications, but it can be used in any JavaScript environment.
+
+A significant amount of code is borrowed from [Wagmi](https://wagmi.sh) themselves, so a big shoutout to them for their work.
+
+## Installation
+
+:::code-group
+
+```bash [npm]
+npm i hypergate
+```
+
+```bash [pnpm]
+pnpm i hypergate
+```
+
+```bash [bun]
+bun i hypergate
+```
+
+:::
+
+## Usage
+
+To use HyperGate, you need to wrap your application with the `HyperGateConfig` and `QueryClientProvider` components. The `HyperGateConfig` component is used to configure the HyperGate library, and the `QueryClientProvider` component is used to provide the React Query client.
+
+```tsx twoslash
+// @allowUmdGlobalAccess
+// @module: esnext
+// @moduleResolution: bundler
+import { HyperGateConfig } from "@repo/ui";
+import { XummConnector, createConfig } from "@repo/core";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
+export function Providers({ children }: { children: React.ReactNode }) {
+  return (
+    <HyperGateConfig
+      config={createConfig({
+        connectors: [
+          new XummConnector(process.env.NEXT_PUBLIC_XUMM_API_KEY ?? ""),
+        ],
+      })}
+    >
+      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+    </HyperGateConfig>
+  );
+}
+```

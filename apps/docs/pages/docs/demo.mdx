@@ -1,7 +1,28 @@
+---
+layout: docs
+---
+
+import { ConnectWallet } from "../../components/connect-wallet";
+import { Providers } from "../../components/providers";
+
+<Providers>
+# Demo
+
+### Connect Wallet
+
+:::code-group
+
+<div data-title="Preview">
+  <ConnectWallet />
+</div>
+
+```tsx twoslash [example.tsx]
+// @allowUmdGlobalAccess
+// @module: esnext
+// @moduleResolution: bundler
 "use client";
 
 import { useAccount, useConnect, useConnectors } from "@repo/ui";
-import { Button } from "./ui/button";
 
 export function ConnectWallet() {
   const { address } = useAccount();
@@ -9,8 +30,8 @@ export function ConnectWallet() {
   const connectors = useConnectors();
   return (
     <>
-      <Button
-        className="dark:text-black"
+      <button
+        type="button"
         onClick={() =>
           connectors[0] &&
           connect({
@@ -19,8 +40,13 @@ export function ConnectWallet() {
         }
       >
         Connect Wallet
-      </Button>
+      </button>
       {address && <p>Connected: {address}</p>}
     </>
   );
 }
+```
+
+:::
+
+</Providers>
