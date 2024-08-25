@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "vocs dev --port 3001",
-    "build": "vocs build",
+    "build": "vocs build -o .next/dist",
     "preview": "vocs preview"
   },
   "dependencies": {
