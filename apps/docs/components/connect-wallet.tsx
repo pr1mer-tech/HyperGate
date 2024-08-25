@@ -1,13 +1,25 @@
 "use client";
 
-import { useAccount } from '@repo/ui';
+import { useAccount, useConnect, useConnectors } from "@repo/ui";
 
 export function ConnectWallet() {
-    const { account } = useAccount();
-	return <>
-		<button type="button" onClick={() => alert("connect wallet")}>
-			Connect Wallet
-		</button>
-        {account && <p>Connected: {account}</p>}
-	</>;
+  const { address } = useAccount();
+  const { connect } = useConnect();
+  const connectors = useConnectors();
+  return (
+    <>
+      <button
+        type="button"
+        onClick={() =>
+          connectors[0] &&
+          connect({
+            connector: connectors[0],
+          })
+        }
+      >
+        Connect Wallet
+      </button>
+      {address && <p>Connected: {address}</p>}
+    </>
+  );
 }

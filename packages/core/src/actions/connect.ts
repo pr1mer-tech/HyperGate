@@ -1,10 +1,3 @@
-import type {
-	Address,
-	ResourceUnavailableRpcErrorType,
-	UserRejectedRequestErrorType,
-} from "viem";
-
-import type { CreateConnectorFn } from "../connectors/createConnector.js";
 import type { Config } from "../createConfig.js";
 import type { BaseErrorType, ErrorType } from "../errors/base.js";
 import {
@@ -14,10 +7,11 @@ import {
 import type { ChainIdParameter } from "../types/properties.js";
 import type { Compute } from "../types/utils.js";
 import type { Connector } from "../connectors/connector.js";
+import type { Address } from "../internal.js";
 
 export type ConnectParameters<config extends Config = Config> = Compute<
 	ChainIdParameter<config> & {
-		connector: Connector | CreateConnectorFn;
+		connector: Connector;
 	}
 >;
 
@@ -28,9 +22,6 @@ export type ConnectReturnType<config extends Config = Config> = {
 
 export type ConnectErrorType =
 	| ConnectorAlreadyConnectedErrorType
-	// connector.connect()
-	| UserRejectedRequestErrorType
-	| ResourceUnavailableRpcErrorType
 	// base
 	| BaseErrorType
 	| ErrorType;

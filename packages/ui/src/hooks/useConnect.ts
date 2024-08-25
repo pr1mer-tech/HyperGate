@@ -83,10 +83,11 @@ export function useConnect<
 		);
 	}, [config, result.reset]);
 
+	//@ts-expect-error - undefined cannot be unknown?
 	return {
 		...result,
-		connect: mutate,
-		connectAsync: mutateAsync,
+		connect: mutate as unknown as ConnectMutate<config, context>,
+		connectAsync: mutateAsync as unknown as ConnectMutateAsync<config, context>,
 		connectors: useConnectors({ config }),
 	};
 }

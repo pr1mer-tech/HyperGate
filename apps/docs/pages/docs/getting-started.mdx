@@ -2,19 +2,13 @@
 layout: docs
 ---
 
-import { HyperGateConfig } from '@repo/ui';
-import { XummConnector, createConfig } from '@repo/core';
-import { ConnectWallet } from '../../components/connect-wallet';
- 
+import { ConnectWallet } from "../../components/connect-wallet";
+import { Providers } from "../../components/providers";
+
 # A docs page
- 
+
 This is a docs page.
 
-
-<HyperGateConfig config={createConfig({
-    connectors: [
-        new XummConnector('2e0e665d-a72f-4d17-a760-ce7bc57462d2')
-    ]
-})}>
+<Providers>
   <ConnectWallet />
-</HyperGateConfig>
+</Providers>

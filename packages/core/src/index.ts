@@ -5,3 +5,4 @@ export * from "./actions/watchAccount";
 export * from "./types/register";
 export * from "./actions/getConnectors";
 export * from "./actions/watchConnectors";
+export * from "./actions/connect";

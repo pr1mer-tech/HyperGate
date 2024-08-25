@@ -89,7 +89,6 @@ export class XummConnector implements Connector {
 	}
 
 	onAccountsChanged(accounts: readonly Address[]): void {
-		console.log("accountChanged", accounts);
 		if (!this.hasConnected) {
 			this.getChainId().then((chainId) => {
 				this.hasConnected = true;
