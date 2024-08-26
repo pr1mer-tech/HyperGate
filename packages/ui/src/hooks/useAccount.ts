@@ -16,7 +16,7 @@ export type UseAccountParameters<config extends Config = Config> =
   ConfigParameter<config>;
 
 export type UseAccountReturnType<config extends Config = Config> =
-  GetAccountReturnType<config>;
+  GetAccountReturnType;
 
 /** https://hypergate.pr1mer.tech/docs/react/useAccount */
 export function useAccount<config extends Config = ResolvedRegister["config"]>(
