@@ -6,3 +6,5 @@ export * from "./types/register";
 export * from "./actions/getConnectors";
 export * from "./actions/watchConnectors";
 export * from "./actions/connect";
+export * from "./actions/getChainId";
+export * from "./actions/watchChainId";
