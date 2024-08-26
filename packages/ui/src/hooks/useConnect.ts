@@ -59,7 +59,7 @@ export type UseConnectReturnType<
   }
 >;
 
-/** https://wagmi.sh/react/api/hooks/useConnect */
+/** https://hypergate.pr1mer.tech/docs/react/useConnect */
 export function useConnect<
   config extends Config = ResolvedRegister["config"],
   context = unknown,

@@ -20,31 +20,17 @@ import { Providers } from "../../components/providers";
 // @allowUmdGlobalAccess
 // @module: esnext
 // @moduleResolution: bundler
-"use client";
 
+const Button = React.forwardRef<HTMLButtonElement, any>(
+  ({ className, variant, size, asChild = false, ...props }, ref) => {
+    return <button ref={ref} className={className} {...props} />;
+  },
+);
+Button.displayName = "Button";
+// ---cut---
 import { useAccount, useConnect, useConnectors } from "@hypergate/react";
 
-export function ConnectWallet() {
-  const { address } = useAccount();
-  const { connect } = useConnect();
-  const connectors = useConnectors();
-  return (
-    <>
-      <button
-        type="button"
-        onClick={() =>
-          connectors[0] &&
-          connect({
-            connector: connectors[0],
-          })
-        }
-      >
-        Connect Wallet
-      </button>
-      {address && <p>Connected: {address}</p>}
-    </>
-  );
-}
+// [!include ~/components/connect-wallet.tsx:connect-wallet]
 ```
 
 :::

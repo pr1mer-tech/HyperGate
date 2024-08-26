@@ -18,7 +18,7 @@ export type UseAccountParameters<config extends Config = Config> =
 export type UseAccountReturnType<config extends Config = Config> =
   GetAccountReturnType<config>;
 
-/** https://wagmi.sh/react/api/hooks/useAccount */
+/** https://hypergate.pr1mer.tech/docs/react/useAccount */
 export function useAccount<config extends Config = ResolvedRegister["config"]>(
   parameters: UseAccountParameters<config> = {},
 ): UseAccountReturnType<config> {
