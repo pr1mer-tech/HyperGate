@@ -8,3 +8,4 @@ export * from "./actions/watchConnectors";
 export * from "./actions/connect";
 export * from "./actions/getChainId";
 export * from "./actions/watchChainId";
+export * from "./actions/getBalance";

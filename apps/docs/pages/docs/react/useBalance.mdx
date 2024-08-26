@@ -4,7 +4,7 @@ layout: docs
 
 # useAccount
 
-Hook to get the current account / address.
+Hook to get the current balance of the account. It supports XRP balance and token balances.
 
 ## Usage
 
@@ -12,10 +12,10 @@ Hook to get the current account / address.
 // @allowUmdGlobalAccess
 // @module: esnext
 // @moduleResolution: bundler
-import { useAccount } from "@hypergate/react";
+import { useBalance } from "@hypergate/react";
 
 export function App() {
-  const account = useAccount();
+  const balance = useBalance();
   //        ^?
   
   
@@ -23,12 +23,5 @@ export function App() {
   
   
   
-  
-  
-  
-  
-  
-  
-
 }
 ```
