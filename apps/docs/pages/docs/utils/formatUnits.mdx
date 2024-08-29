@@ -1,0 +1,83 @@
+---
+description: Divides a number by a given exponent of base 10, and formats it into a string representation of the number.
+---
+
+# formatUnits
+
+Divides a number by a given exponent of base 10 (10<sup>exponent</sup>), and formats it into a string representation of the number.
+
+## Import
+
+```ts
+import { formatUnits } from "@hypergate/core";
+```
+
+## Usage
+
+```ts
+import { formatUnits } from "@hypergate/core";
+
+formatUnits(420000000000n, 9); // [!code focus:2]
+// '420'
+```
+
+## Returns
+
+`string`
+
+## Parameters
+
+### value
+
+- **Type:** `bigint`
+
+The number to divide.
+
+### exponent
+
+- **Type:** `number`
+
+The exponent.
+
+# formatHumanUnits
+
+Formats a number into a human-readable string representation.
+
+## Import
+
+```ts
+import { formatHumanUnits } from "@hypergate/core";
+```
+
+## Usage
+
+```ts
+import { formatHumanUnits } from "@hypergate/core";
+
+formatHumanUnits(420100000000n, 9, 2); // [!code focus:2]
+// '420.1'
+```
+
+## Returns
+
+`string`
+
+## Parameters
+
+### n
+
+- **Type:** `bigint`
+
+The number to format.
+
+### baseDecimals
+
+- **Type:** `number` - optional
+
+The exponent
+
+### decimals
+
+- **Type:** `number` - optional
+
+The number of decimal places to round to.

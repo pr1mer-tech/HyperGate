@@ -14,6 +14,7 @@ import type { Compute, ExactPartial, RemoveUndefined } from "./types/utils";
 import type { Address } from "./utils/address";
 import { Client } from "xrpl";
 import { ChainNotConfiguredError } from "./errors/config";
+import { Chain, xrplMainnet } from "./chains";
 
 export type Config = {
   chains: Chain[];
@@ -65,21 +66,9 @@ export type Config = {
   };
 };
 
-export type Chain = {
-  id: number;
-  name?: string;
-  rpc: string;
-  explorer?: string;
-  nativeCurrency?: {
-    name: string;
-    symbol: string;
-    decimals: number;
-  };
-};
-
 export type ConfigOptions = {
   client?: Client;
-  chains: Chain[];
+  chains?: Chain[];
   connectors: Connector[];
   storage?: Storage;
   ssr?: boolean;
@@ -103,7 +92,7 @@ export type Connection = {
 };
 
 export function createConfig(options: ConfigOptions): Config {
-  const chains = createStore(() => options.chains);
+  const chains = createStore(() => options.chains ?? [xrplMainnet]);
   const connectors = createStore(() => options.connectors.map(setup));
   const {
     storage = createStorage({
@@ -136,7 +125,7 @@ export function createConfig(options: ConfigOptions): Config {
     const chain = chains.getState().find((x) => x.id === chainId);
 
     // chainId specified and not configured
-    if (config.chainId && !chain) throw new ChainNotConfiguredError();
+    if (config.chainId && !chain) throw new ChainNotConfiguredError(chainId);
 
     // If the target chain is not configured, use the client of the current chain.
     type Return = Client;
@@ -146,7 +135,7 @@ export function createConfig(options: ConfigOptions): Config {
         await client?.connect();
       }
       if (client && !chain) return client as Return;
-      if (!chain) throw new ChainNotConfiguredError();
+      if (!chain) throw new ChainNotConfiguredError(chainId);
     }
 
     // If a memoized client exists for a chain id, use that.
@@ -174,7 +163,7 @@ export function createConfig(options: ConfigOptions): Config {
 
   function getInitialState(): State {
     return {
-      chainId: 1,
+      chainId: 0,
       connections: new Map<string, Connection>(),
       current: null,
       status: "disconnected",

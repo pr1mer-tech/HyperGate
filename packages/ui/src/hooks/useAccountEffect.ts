@@ -37,8 +37,7 @@ export function useAccountEffect(parameters: UseAccountEffectParameters = {}) {
       onChange(data, prevData) {
         if (
           (prevData.status === "reconnecting" ||
-            (prevData.status === "connecting" &&
-              prevData.address === undefined)) &&
+            prevData.status === "connecting") &&
           data.status === "connected"
         ) {
           const { address, addresses, chainId, connector } = data as Extract<

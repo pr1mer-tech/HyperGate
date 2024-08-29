@@ -3,83 +3,83 @@ import { Address } from "../internal.js";
 import { BaseError } from "./base.js";
 
 export type ChainNotConfiguredErrorType = ChainNotConfiguredError & {
-	name: "ChainNotConfiguredError";
+  name: "ChainNotConfiguredError";
 };
 export class ChainNotConfiguredError extends BaseError {
-	override name = "ChainNotConfiguredError";
-	constructor() {
-		super("Chain not configured.");
-	}
+  override name = "ChainNotConfiguredError";
+  constructor(chainId?: number) {
+    super(`Chain ${chainId} not configured.`);
+  }
 }
 
 export type ConnectorAlreadyConnectedErrorType =
-	ConnectorAlreadyConnectedError & {
-		name: "ConnectorAlreadyConnectedError";
-	};
+  ConnectorAlreadyConnectedError & {
+    name: "ConnectorAlreadyConnectedError";
+  };
 export class ConnectorAlreadyConnectedError extends BaseError {
-	override name = "ConnectorAlreadyConnectedError";
-	constructor() {
-		super("Connector already connected.");
-	}
+  override name = "ConnectorAlreadyConnectedError";
+  constructor() {
+    super("Connector already connected.");
+  }
 }
 
 export type ConnectorNotConnectedErrorType = ConnectorNotConnectedError & {
-	name: "ConnectorNotConnectedError";
+  name: "ConnectorNotConnectedError";
 };
 export class ConnectorNotConnectedError extends BaseError {
-	override name = "ConnectorNotConnectedError";
-	constructor() {
-		super("Connector not connected.");
-	}
+  override name = "ConnectorNotConnectedError";
+  constructor() {
+    super("Connector not connected.");
+  }
 }
 
 export type ConnectorNotFoundErrorType = ConnectorNotFoundError & {
-	name: "ConnectorNotFoundError";
+  name: "ConnectorNotFoundError";
 };
 export class ConnectorNotFoundError extends BaseError {
-	override name = "ConnectorNotFoundError";
-	constructor() {
-		super("Connector not found.");
-	}
+  override name = "ConnectorNotFoundError";
+  constructor() {
+    super("Connector not found.");
+  }
 }
 
 export type ConnectorAccountNotFoundErrorType =
-	ConnectorAccountNotFoundError & {
-		name: "ConnectorAccountNotFoundError";
-	};
+  ConnectorAccountNotFoundError & {
+    name: "ConnectorAccountNotFoundError";
+  };
 export class ConnectorAccountNotFoundError extends BaseError {
-	override name = "ConnectorAccountNotFoundError";
-	constructor({
-		address,
-		connector,
-	}: {
-		address: Address;
-		connector: Connector;
-	}) {
-		super(`Account "${address}" not found for connector "${connector.name}".`);
-	}
+  override name = "ConnectorAccountNotFoundError";
+  constructor({
+    address,
+    connector,
+  }: {
+    address: Address;
+    connector: Connector;
+  }) {
+    super(`Account "${address}" not found for connector "${connector.name}".`);
+  }
 }
 
 export type ConnectorChainMismatchErrorType = ConnectorAccountNotFoundError & {
-	name: "ConnectorChainMismatchError";
+  name: "ConnectorChainMismatchError";
 };
 export class ConnectorChainMismatchError extends BaseError {
-	override name = "ConnectorChainMismatchError";
-	constructor({
-		connectionChainId,
-		connectorChainId,
-	}: {
-		connectionChainId: number;
-		connectorChainId: number;
-	}) {
-		super(
-			`The current chain of the connector (id: ${connectorChainId}) does not match the connection's chain (id: ${connectionChainId}).`,
-			{
-				metaMessages: [
-					`Current Chain ID:  ${connectorChainId}`,
-					`Expected Chain ID: ${connectionChainId}`,
-				],
-			},
-		);
-	}
+  override name = "ConnectorChainMismatchError";
+  constructor({
+    connectionChainId,
+    connectorChainId,
+  }: {
+    connectionChainId: number;
+    connectorChainId: number;
+  }) {
+    super(
+      `The current chain of the connector (id: ${connectorChainId}) does not match the connection's chain (id: ${connectionChainId}).`,
+      {
+        metaMessages: [
+          `Current Chain ID:  ${connectorChainId}`,
+          `Expected Chain ID: ${connectionChainId}`,
+        ],
+      },
+    );
+  }
 }

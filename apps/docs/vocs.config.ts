@@ -9,6 +9,14 @@ const reactSideBar = async () => {
   }));
 };
 
+const utilsSideBar = async () => {
+  const files = await fs.readdir("./pages/docs/utils");
+  return files.map((file) => ({
+    text: file.replace(".mdx", ""),
+    link: `/docs/utils/${file.replace(".mdx", "")}`,
+  }));
+};
+
 const config = defineConfig({
   rootDir: ".",
   title: "HyperGate",
@@ -35,6 +43,11 @@ const config = defineConfig({
       text: "React",
       collapsed: false,
       items: await reactSideBar(),
+    },
+    {
+      text: "Utilities",
+      collapsed: true,
+      items: await utilsSideBar(),
     },
   ],
 });

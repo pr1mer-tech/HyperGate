@@ -1,6 +1,11 @@
 "use client";
 
-import { useAccount, useConnect, useConnectors } from "@hypergate/react";
+import {
+  useAccount,
+  useAccountEffect,
+  useConnect,
+  useConnectors,
+} from "@hypergate/react";
 import { Button } from "./ui/button";
 
 // [!region connect-wallet]
@@ -13,6 +18,7 @@ export function ConnectWallet() {
       {connectors.map((c) => (
         <Button
           className="dark:text-black"
+          key={c.name}
           onClick={() =>
             connect({
               connector: c,

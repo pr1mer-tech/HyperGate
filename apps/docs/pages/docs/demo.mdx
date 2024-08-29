@@ -3,6 +3,7 @@ layout: docs
 ---
 
 import { ConnectWallet } from "../../components/connect-wallet";
+import { GetBalance } from "../../components/balance";
 import { Providers } from "../../components/providers";
 
 <Providers>
@@ -31,6 +32,35 @@ Button.displayName = "Button";
 import { useAccount, useConnect, useConnectors } from "@hypergate/react";
 
 // [!include ~/components/connect-wallet.tsx:connect-wallet]
+```
+
+:::
+
+### Balance
+
+:::code-group
+
+<div data-title="Preview">
+  <GetBalance />
+</div>
+
+```tsx twoslash [example.tsx]
+// @allowUmdGlobalAccess
+// @module: esnext
+// @moduleResolution: bundler
+
+const Input = React.forwardRef<HTMLInputElement, any>(
+  ({ className, variant, size, asChild = false, ...props }, ref) => {
+    return <input ref={ref} className={className} {...props} />;
+  },
+);
+Input.displayName = "Input";
+// ---cut---
+import { useAccount, useAccountEffect, useBalance } from "@hypergate/react";
+import { Address } from "@hypergate/core";
+import { useState } from "react";
+
+// [!include ~/components/balance.tsx:balance]
 ```
 
 :::
