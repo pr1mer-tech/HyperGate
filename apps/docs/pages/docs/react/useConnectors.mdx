@@ -1,0 +1,38 @@
+---
+layout: docs
+title: useConnectors
+description: Hook to get the available connectors.
+---
+
+import { ConnectWallet } from "../../../components/connect-wallet";
+
+# useConnectors
+
+Hook to get the available connectors.
+
+## Usage
+
+:::code-group
+
+<div data-title="Preview">
+  <ConnectWallet />
+</div>
+
+```tsx twoslash [example.tsx]
+// @allowUmdGlobalAccess
+// @module: esnext
+// @moduleResolution: bundler
+
+const Button = React.forwardRef<HTMLButtonElement, any>(
+  ({ className, variant, size, asChild = false, ...props }, ref) => {
+    return <button ref={ref} className={className} {...props} />;
+  },
+);
+Button.displayName = "Button";
+// ---cut---
+import { useAccount, useConnect, useConnectors } from "@hypergate/react";
+
+// [!include ~/components/connect-wallet.tsx:connect-wallet]
+```
+
+:::

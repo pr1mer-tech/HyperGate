@@ -1,6 +1,5 @@
-import type React from "react";
 import { createContext, useContext } from "react";
-import type { Config } from "@hypergate/core";
+import type { Config, ResolvedRegister } from "@hypergate/core";
 import type { ConfigParameter } from "../types/properties";
 
 // Create a context for the config

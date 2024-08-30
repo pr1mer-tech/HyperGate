@@ -1,7 +1,7 @@
 "use client";
 
 import { useAccount, useAccountEffect, useBalance } from "@hypergate/react";
-import { Address, formatHumanUnits, formatUnits } from "@hypergate/core";
+import { Address, formatHumanUnits } from "@hypergate/core";
 import { useState } from "react";
 import { Input } from "./ui/input";
 
@@ -29,7 +29,9 @@ export function GetBalance() {
         placeholder="Address"
         className="max-w-80"
         value={address}
-        onChange={(e) => setAddress(e.target.value as Address)}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          setAddress(e.target.value as Address)
+        }
       />
       <div className="min-w-24 w-auto">
         {formatHumanUnits(balance.data?.value ?? 0n, 18, 2)} XRP

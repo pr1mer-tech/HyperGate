@@ -1,0 +1,23 @@
+---
+layout: docs
+title: useConfig
+description: Hook to get the current configuration.
+---
+
+# useConfig
+
+Hook to get the current configuration, as defined in your provider.
+
+## Usage
+
+```tsx twoslash
+// @allowUmdGlobalAccess
+// @module: esnext
+// @moduleResolution: bundler
+import { useConfig } from "@hypergate/react";
+
+export function App() {
+  const config = useConfig();
+  //       ^?
+}
+```

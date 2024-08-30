@@ -1,0 +1,33 @@
+---
+layout: docs
+title: useChainId
+description: Hook to get the current chain ID.
+---
+
+import { WatchChain } from "../../../components/chainId";
+
+# useChainId
+
+Hook to get the current chain ID.
+
+## Usage
+
+:::code-group
+
+<div data-title="Preview">
+  <WatchChain />
+</div>
+
+```tsx twoslash [example.tsx]
+// @allowUmdGlobalAccess
+// @module: esnext
+// @moduleResolution: bundler
+import { useChainId } from "@hypergate/react";
+
+export function App() {
+  const chain = useChainId();
+  //        ^?
+}
+```
+
+:::

@@ -4,11 +4,12 @@ import { Address } from "../internal.js";
 import type { ChainIdParameter } from "../types/properties.js";
 import type { Compute } from "../types/utils.js";
 import { xrpToEth } from "../utils/numbers.js";
+import { BlockTag } from "./getBlock.js";
 
 export type GetBalanceParameters<config extends Config = Config> = Compute<
   ChainIdParameter<config> & {
     address: Address;
-    blockNumber?: number | "current" | "closed" | "validated";
+    blockNumber?: BlockTag;
   } & (
       | { token: Address; symbol: string }
       | { token?: undefined; symbol?: undefined }

@@ -1,0 +1,116 @@
+---
+layout: docs
+title: useBlock
+description: Hook for fetching information about a block at a block number, hash or tag.
+---
+
+<script setup>
+  const packageName = '@hypergate/core'; const actionName = 'getBlock'; const
+  typeName = 'GetBlock'; const TData = 'GetBlockData'; const TError =
+  'GetBlockErrorType';
+</script>
+
+import { WatchLedger } from "../../../components/block";
+
+# useBlock
+
+Hook for fetching information about a block at a block number, hash or tag.
+
+## Import
+
+```ts
+import { useBlock } from "@hypergate/react";
+```
+
+## Usage
+
+:::code-group
+
+<div data-title="Preview">
+  <WatchLedger />
+</div>
+
+```tsx twoslash [example.tsx]
+// @allowUmdGlobalAccess
+// @module: esnext
+// @moduleResolution: bundler
+// [!include ~/components/block.tsx]
+```
+
+:::
+
+## Parameters
+
+```ts twoslash
+// @allowUmdGlobalAccess
+// @module: esnext
+// @moduleResolution: bundler
+import { type UseBlockParameters } from "@hypergate/react";
+```
+
+### blockHash
+
+`` `string` ``
+
+Information at a given block hash.
+
+```tsx twoslash [index.tsx]
+// @allowUmdGlobalAccess
+// @module: esnext
+// @moduleResolution: bundler
+import { useBlock } from "@hypergate/react";
+
+function App() {
+  const result = useBlock({
+    blockHash:
+      "49453CB36AB0F993A3AD6C6A765E7D5F44B5017577850EB66EA644482D0AB8B6", // [!code focus]
+  });
+}
+```
+
+### blockNumber
+
+`number | "current" | "closed" | "validated"`
+
+Information at a given block number.
+
+```tsx twoslash [index.tsx]
+// @allowUmdGlobalAccess
+// @module: esnext
+// @moduleResolution: bundler
+import { useBlock } from "@hypergate/react";
+
+function App() {
+  const result = useBlock({
+    blockNumber: 42069, // [!code focus]
+  });
+}
+```
+
+### includeTransactions
+
+`boolean`
+
+Whether or not to include transactions as objects.
+
+```tsx twoslash [index.tsx]
+// @allowUmdGlobalAccess
+// @module: esnext
+// @moduleResolution: bundler
+import { useBlock } from "@hypergate/react";
+
+function App() {
+  const result = useBlock({
+    includeTransactions: true, // [!code focus]
+  });
+}
+```
+
+## Return Type
+
+```ts twoslash
+// @allowUmdGlobalAccess
+// @module: esnext
+// @moduleResolution: bundler
+import { type UseBlockReturnType } from "@hypergate/react";
+```

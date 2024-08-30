@@ -5,3 +5,5 @@ export * from "../hooks/useConnect";
 export * from "../hooks/useAccountEffect";
 export * from "../hooks/useChainId";
 export * from "../hooks/useBalance";
+export * from "../hooks/useBlock";
+export * from "../hooks/useWatchBlocks";

@@ -1,12 +1,13 @@
 ---
 layout: docs
+title: Demo
+description: A demo of the HyperGate React components.
 ---
 
 import { ConnectWallet } from "../../components/connect-wallet";
 import { GetBalance } from "../../components/balance";
-import { Providers } from "../../components/providers";
+import { WatchLedger } from "../../components/block";
 
-<Providers>
 # Demo
 
 ### Connect Wallet
@@ -57,7 +58,7 @@ const Input = React.forwardRef<HTMLInputElement, any>(
 Input.displayName = "Input";
 // ---cut---
 import { useAccount, useAccountEffect, useBalance } from "@hypergate/react";
-import { Address } from "@hypergate/core";
+import { Address, formatHumanUnits } from "@hypergate/core";
 import { useState } from "react";
 
 // [!include ~/components/balance.tsx:balance]
@@ -65,4 +66,19 @@ import { useState } from "react";
 
 :::
 
-</Providers>
+### Block
+
+:::code-group
+
+<div data-title="Preview">
+  <WatchLedger />
+</div>
+
+```tsx twoslash [example.tsx]
+// @allowUmdGlobalAccess
+// @module: esnext
+// @moduleResolution: bundler
+// [!include ~/components/block.tsx]
+```
+
+:::

@@ -12,3 +12,5 @@ export * from "./actions/getChainId";
 export * from "./actions/watchChainId";
 export * from "./actions/getBalance";
 export * from "./chains";
+export * from "./actions/getBlock";
+export * from "./actions/watchBlocks";
