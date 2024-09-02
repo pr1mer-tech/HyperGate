@@ -17,7 +17,7 @@ export function ConnectWallet() {
     <>
       {connectors.map((c) => (
         <Button
-          className="dark:text-black"
+          className="text-white dark:text-black"
           key={c.name}
           onClick={() =>
             connect({
