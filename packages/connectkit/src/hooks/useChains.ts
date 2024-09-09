@@ -1,8 +1,8 @@
-import { Chain } from 'viem';
-import { useConfig } from 'wagmi';
+import { Chain } from "@hypergate/core";
+import { useConfig } from "@hypergate/react";
 
 export function useChains() {
-  const wagmi = useConfig();
-  const chains = wagmi?.chains ?? [];
+  const config = useConfig();
+  const chains = config?.chains ?? [];
   return chains.map((c) => c) as Chain[];
 }

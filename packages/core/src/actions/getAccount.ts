@@ -6,7 +6,8 @@ export function getAccount(config: Config) {
     : null;
 
   const accounts = connection?.accounts;
-  const chain = connection?.chainId;
+  const chainId = connection?.chainId;
+  const chain = config.chains.find((chain) => chain.id === chainId);
   const connector = connection?.connector;
   const status = config.state.status;
 
@@ -18,7 +19,8 @@ export function getAccount(config: Config) {
   return {
     address: accounts?.[0],
     addresses: accounts,
-    chainId: chain,
+    chainId,
+    chain,
     connector,
     status,
     isConnected,

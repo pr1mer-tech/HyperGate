@@ -1,10 +1,10 @@
-import { useAccount } from 'wagmi';
-import { routes, useContext } from '../components/ConnectKit';
-import { useSIWE } from '../siwe';
+import { useAccount } from "@hypergate/react";
+import { routes, useContext } from "../components/ConnectKit";
+import { useSIWE } from "../siwe";
 import {
   useConnectCallback,
   useConnectCallbackProps,
-} from './useConnectCallback';
+} from "./useConnectCallback";
 
 type ModalRoutes = (typeof routes)[keyof typeof routes];
 
@@ -54,21 +54,21 @@ export const useModal = ({ onConnect, onDisconnect }: UseModalProps = {}) => {
     if (!allRoutes.includes(route)) {
       validRoute = isConnected ? routes.PROFILE : routes.CONNECTORS;
       context.log(
-        `Route ${route} is not a valid route, navigating to ${validRoute} instead.`
+        `Route ${route} is not a valid route, navigating to ${validRoute} instead.`,
       );
     } else {
       if (isConnected) {
         if (!safeRoutes.connected.includes(route)) {
           validRoute = routes.PROFILE;
           context.log(
-            `Route ${route} is not a valid route when connected, navigating to ${validRoute} instead.`
+            `Route ${route} is not a valid route when connected, navigating to ${validRoute} instead.`,
           );
         }
       } else {
         if (!safeRoutes.disconnected.includes(route)) {
           validRoute = routes.CONNECTORS;
           context.log(
-            `Route ${route} is not a valid route when disconnected, navigating to ${validRoute} instead.`
+            `Route ${route} is not a valid route when disconnected, navigating to ${validRoute} instead.`,
           );
         }
       }

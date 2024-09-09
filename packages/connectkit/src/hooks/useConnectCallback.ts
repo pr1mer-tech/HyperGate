@@ -1,4 +1,4 @@
-import { useAccountEffect } from 'wagmi';
+import { useAccountEffect } from "@hypergate/react";
 
 export type useConnectCallbackProps = {
   onConnect?: ({

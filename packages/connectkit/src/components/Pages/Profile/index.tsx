@@ -1,18 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import { useContext } from '../../ConnectKit';
+import React, { useEffect, useState } from "react";
+import { useContext } from "../../ConnectKit";
 import {
   isSafeConnector,
   nFormatter,
   truncateEthAddress,
-} from '../../../utils';
+} from "../../../utils";
 
 import {
   useConnect,
   useDisconnect,
   useAccount,
-  useEnsName,
   useBalance,
-} from 'wagmi';
+} from "@hypergate/react";
 
 import {
   AvatarContainer,
@@ -21,24 +20,25 @@ import {
   BalanceContainer,
   LoadingBalance,
   Balance,
-} from './styles';
+} from "./styles";
 
 import {
   PageContent,
   ModalBody,
   ModalContent,
   ModalH1,
-} from '../../Common/Modal/styles';
-import Button from '../../Common/Button';
-import Avatar from '../../Common/Avatar';
-import ChainSelector from '../../Common/ChainSelect';
+} from "../../Common/Modal/styles";
+import Button from "../../Common/Button";
+import Avatar from "../../Common/Avatar";
+import ChainSelector from "../../Common/ChainSelect";
 
-import { DisconnectIcon } from '../../../assets/icons';
-import CopyToClipboard from '../../Common/CopyToClipboard';
-import { AnimatePresence } from 'framer-motion';
-import { useThemeContext } from '../../ConnectKitThemeProvider/ConnectKitThemeProvider';
-import useLocales from '../../../hooks/useLocales';
-import { useEnsFallbackConfig } from '../../../hooks/useEnsFallbackConfig';
+import { DisconnectIcon } from "../../../assets/icons";
+import CopyToClipboard from "../../Common/CopyToClipboard";
+import { AnimatePresence } from "framer-motion";
+import { useThemeContext } from "../../ConnectKitThemeProvider/ConnectKitThemeProvider";
+import useLocales from "../../../hooks/useLocales";
+import { useEnsFallbackConfig } from "../../../hooks/useEnsFallbackConfig";
+import { formatUnits } from "@hypergate/core";
 
 const Profile: React.FC<{ closeModal?: () => void }> = ({ closeModal }) => {
   const context = useContext();
@@ -51,11 +51,11 @@ const Profile: React.FC<{ closeModal?: () => void }> = ({ closeModal }) => {
 
   const { address, isConnected, connector, chain } = useAccount();
   const ensFallbackConfig = useEnsFallbackConfig();
-  const { data: ensName } = useEnsName({
-    chainId: 1,
-    address: address,
-    config: ensFallbackConfig,
-  });
+  // const { data: ensName } = useEnsName({
+  //   chainId: 1,
+  //   address: address,
+  //   config: ensFallbackConfig,
+  // });
   const { data: balance } = useBalance({
     address,
     //watch: true,
@@ -82,10 +82,10 @@ const Profile: React.FC<{ closeModal?: () => void }> = ({ closeModal }) => {
     };
   }, [shouldDisconnect, disconnect, reset]);
 
-  const separator = ['web95', 'rounded', 'minimal'].includes(
-    themeContext.theme ?? context.theme ?? ''
+  const separator = ["web95", "rounded", "minimal"].includes(
+    themeContext.theme ?? context.theme ?? "",
   )
-    ? '....'
+    ? "...."
     : undefined;
   return (
     <PageContent>
@@ -115,7 +115,9 @@ const Profile: React.FC<{ closeModal?: () => void }> = ({ closeModal }) => {
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.2 }}
                   >
-                    {nFormatter(Number(balance?.formatted))}
+                    {nFormatter(
+                      Number(formatUnits(balance.value, balance.decimals)),
+                    )}
                     {` `}
                     {balance?.symbol}
                   </Balance>

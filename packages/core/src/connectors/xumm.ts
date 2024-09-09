@@ -112,10 +112,30 @@ export class XummConnector implements Connector {
 
   async signTransaction(transaction: BaseTransaction): Promise<object> {
     //@ts-expect-error - TransactionType in XRPL.js is not statically typed
-    const payload = await this.xumm.payload?.createAndSubscribe(transaction);
+    const payload = await this.xumm?.payload?.createAndSubscribe(transaction);
     if (!payload) {
       throw new Error("No payload returned");
     }
     return payload;
+  }
+
+  async switchChain(parameters: { chainId: number }): Promise<{ id: number }> {
+    const chainsId = {
+      0: "MAINNET",
+    };
+
+    const payload = await this.xumm?.payload?.createAndSubscribe({
+      TransactionType: "SignIn",
+      options: {
+        force_network: chainsId[parameters.chainId as keyof typeof chainsId],
+      },
+    });
+    if (!payload) {
+      throw new Error("No payload returned");
+    }
+    await payload.resolved;
+    return {
+      id: parameters.chainId,
+    };
   }
 }

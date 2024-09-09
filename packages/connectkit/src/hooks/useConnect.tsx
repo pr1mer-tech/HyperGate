@@ -5,23 +5,22 @@
 
 import {
   type UseConnectParameters,
-  useConnect as wagmiUseConnect,
-  CreateConnectorFn,
-  Connector,
-} from 'wagmi';
-import { useContext } from '../components/ConnectKit';
-import { useLastConnector } from './useLastConnector';
+  useConnect as hypergateUseConnect,
+} from "@hypergate/react";
+import { useContext } from "../components/ConnectKit";
+import { useLastConnector } from "./useLastConnector";
+import { Connector } from "@hypergate/core";
 
 export function useConnect({ ...props }: UseConnectParameters = {}) {
   const context = useContext();
 
-  const { connect, connectAsync, connectors, ...rest } = wagmiUseConnect({
+  const { connect, connectAsync, connectors, ...rest } = hypergateUseConnect({
     ...props,
     mutation: {
       ...props.mutation,
-      onError(err) {
+      onError(err: Error) {
         if (err.message) {
-          if (err.message !== 'User rejected request') {
+          if (err.message !== "User rejected request") {
             context.log(err.message, err);
           }
         } else {
@@ -37,16 +36,16 @@ export function useConnect({ ...props }: UseConnectParameters = {}) {
       chainId,
       mutation,
     }: {
-      connector: CreateConnectorFn | Connector;
+      connector: Connector;
       chainId?: number;
-      mutation?: UseConnectParameters['mutation'];
+      mutation?: UseConnectParameters["mutation"];
     }) => {
       return connect(
         {
           connector,
           chainId: chainId ?? context.options?.initialChainId,
         },
-        mutation
+        mutation,
       );
     },
     connectAsync: async ({
@@ -54,16 +53,16 @@ export function useConnect({ ...props }: UseConnectParameters = {}) {
       chainId,
       mutation,
     }: {
-      connector: CreateConnectorFn | Connector;
+      connector: Connector;
       chainId?: number;
-      mutation?: UseConnectParameters['mutation'];
+      mutation?: UseConnectParameters["mutation"];
     }) => {
       return connectAsync(
         {
           connector,
           chainId: chainId ?? context.options?.initialChainId,
         },
-        mutation
+        mutation,
       );
     },
     connectors,

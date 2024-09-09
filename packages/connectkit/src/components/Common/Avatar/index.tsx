@@ -1,15 +1,15 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from "react";
 
-import { EnsAvatar, ImageContainer } from './styles';
+import { EnsAvatar, ImageContainer } from "./styles";
 
-import { useEnsName, useEnsAvatar, useEnsAddress } from 'wagmi';
-import { normalize } from 'viem/ens';
-import { ResetContainer } from '../../../styles';
-import { useContext } from '../../ConnectKit';
-import useIsMounted from '../../../hooks/useIsMounted';
-import { useEnsFallbackConfig } from '../../../hooks/useEnsFallbackConfig';
+// import { useEnsName, useEnsAvatar, useEnsAddress } from 'wagmi';
+// import { normalize } from 'viem/ens';
+import { ResetContainer } from "../../../styles";
+import { useContext } from "../../ConnectKit";
+import useIsMounted from "../../../hooks/useIsMounted";
+import { useEnsFallbackConfig } from "../../../hooks/useEnsFallbackConfig";
 
-type Hash = `0x${string}`;
+type Hash = `r${string}`;
 
 export type CustomAvatarProps = {
   address?: Hash | undefined;
@@ -32,26 +32,26 @@ const Avatar: React.FC<{
   const [loaded, setLoaded] = useState(true);
 
   const ensFallbackConfig = useEnsFallbackConfig();
-  const { data: ensAddress } = useEnsAddress({
-    chainId: 1,
-    name: name,
-    config: ensFallbackConfig,
-  });
-  const { data: ensName } = useEnsName({
-    chainId: 1,
-    address: address ?? ensAddress ?? undefined,
-    config: ensFallbackConfig,
-  });
-  const { data: ensAvatar } = useEnsAvatar({
-    chainId: 1,
-    name: normalize(ensName ?? ''),
-    config: ensFallbackConfig,
-  });
+  // const { data: ensAddress } = useEnsAddress({
+  //   chainId: 1,
+  //   name: name,
+  //   config: ensFallbackConfig,
+  // });
+  // const { data: ensName } = useEnsName({
+  //   chainId: 1,
+  //   address: address ?? ensAddress ?? undefined,
+  //   config: ensFallbackConfig,
+  // });
+  // const { data: ensAvatar } = useEnsAvatar({
+  //   chainId: 1,
+  //   name: normalize(ensName ?? ''),
+  //   config: ensFallbackConfig,
+  // });
 
   const ens = {
-    address: ensAddress ?? address,
-    name: ensName ?? name,
-    avatar: ensAvatar ?? undefined,
+    address: address,
+    name: name,
+    avatar: undefined,
   };
 
   useEffect(() => {
@@ -64,7 +64,7 @@ const Avatar: React.FC<{
     ) {
       setLoaded(false);
     }
-  }, [ensAvatar]);
+  }, []);
 
   if (!isMounted)
     return <div style={{ width: size, height: size, borderRadius: radius }} />;
@@ -76,7 +76,7 @@ const Avatar: React.FC<{
           width: size,
           height: size,
           borderRadius: radius,
-          overflow: 'hidden',
+          overflow: "hidden",
         }}
       >
         {context.options?.customAvatar({
@@ -91,12 +91,12 @@ const Avatar: React.FC<{
 
   if (!ens.name || !ens.avatar)
     return (
-      <ResetContainer style={{ pointerEvents: 'none' }}>
+      <ResetContainer style={{ pointerEvents: "none" }}>
         <EnsAvatar $size={size} $seed={ens.address} $radius={radius} />
       </ResetContainer>
     );
   return (
-    <ResetContainer style={{ pointerEvents: 'none' }}>
+    <ResetContainer style={{ pointerEvents: "none" }}>
       <EnsAvatar $size={size} $seed={ens.address} $radius={radius}>
         <ImageContainer
           ref={imageRef}

@@ -1,20 +1,21 @@
-import React, { useEffect, useState } from 'react';
-import { All } from './../../types';
-import { useQueryClient } from '@tanstack/react-query';
+import React, { useEffect, useState } from "react";
+import { All } from "./../../types";
+import { useQueryClient } from "@tanstack/react-query";
 
-import styled from './../../styles/styled';
-import { keyframes } from 'styled-components';
-import { motion, AnimatePresence } from 'framer-motion';
+import styled from "./../../styles/styled";
+import { keyframes } from "styled-components";
+import { motion, AnimatePresence } from "framer-motion";
 
-import { useAccount, useBalance, useBlockNumber } from 'wagmi';
-import useIsMounted from '../../hooks/useIsMounted';
+import { useAccount, useBalance, useBlockNumber } from "@hypergate/react";
+import useIsMounted from "../../hooks/useIsMounted";
 
-import Chain from '../Common/Chain';
-import { chainConfigs } from '../../constants/chainConfigs';
-import ThemedButton from '../Common/ThemedButton';
-import { nFormatter } from '../../utils';
-import { useChains } from '../../hooks/useChains';
-import { useChainIsSupported } from '../../hooks/useChainIsSupported';
+import Chain from "../Common/Chain";
+import { chainConfigs } from "../../constants/chainConfigs";
+import ThemedButton from "../Common/ThemedButton";
+import { nFormatter } from "../../utils";
+import { useChains } from "../../hooks/useChains";
+import { useChainIsSupported } from "../../hooks/useChainIsSupported";
+import { formatUnits } from "@hypergate/core";
 
 const Container = styled(motion.div)`
   display: flex;
@@ -51,26 +52,26 @@ export const Balance: React.FC<BalanceProps> = ({ hideIcon, hideSymbol }) => {
   const isMounted = useIsMounted();
   const [isInitial, setIsInitial] = useState(true);
 
-  const { address, chain } = useAccount();
+  const { address, chainId } = useAccount();
   const chains = useChains();
-  const isChainSupported = useChainIsSupported(chain?.id);
+  const isChainSupported = useChainIsSupported(chainId);
 
   const queryClient = useQueryClient();
   const { data: blockNumber } = useBlockNumber({ watch: true });
   const { data: balance, queryKey } = useBalance({
     address,
-    chainId: chain?.id,
+    chainId,
   });
 
   useEffect(() => {
     if (blockNumber ?? 0 % 5 === 0) queryClient.invalidateQueries({ queryKey });
   }, [blockNumber, queryKey]);
 
-  const currentChain = chainConfigs.find((c) => c.id === chain?.id);
+  const currentChain = chainConfigs.find((c) => c.id === chainId);
   const state = `${
-    !isMounted || balance?.formatted === undefined
+    !isMounted || balance?.value === undefined
       ? `balance-loading`
-      : `balance-${currentChain?.id}-${balance?.formatted}`
+      : `balance-${currentChain?.id}-${balance?.value}`
   }`;
 
   useEffect(() => {
@@ -78,21 +79,21 @@ export const Balance: React.FC<BalanceProps> = ({ hideIcon, hideSymbol }) => {
   }, []);
 
   return (
-    <div style={{ position: 'relative' }}>
+    <div style={{ position: "relative" }}>
       <AnimatePresence initial={false}>
         <motion.div
           key={state}
           initial={
-            balance?.formatted !== undefined && isInitial
+            balance?.value !== undefined && isInitial
               ? {
                   opacity: 1,
                 }
-              : { opacity: 0, position: 'absolute', top: 0, left: 0, bottom: 0 }
+              : { opacity: 0, position: "absolute", top: 0, left: 0, bottom: 0 }
           }
-          animate={{ opacity: 1, position: 'relative' }}
+          animate={{ opacity: 1, position: "relative" }}
           exit={{
             opacity: 0,
-            position: 'absolute',
+            position: "absolute",
             top: 0,
             left: 0,
             bottom: 0,
@@ -103,27 +104,29 @@ export const Balance: React.FC<BalanceProps> = ({ hideIcon, hideSymbol }) => {
             delay: 0.4,
           }}
         >
-          {!address || !isMounted || balance?.formatted === undefined ? (
+          {!address || !isMounted || balance?.value === undefined ? (
             <Container>
-              {!hideIcon && <Chain id={chain?.id} />}
+              {!hideIcon && <Chain id={chainId} />}
               <span style={{ minWidth: 32 }}>
                 <PulseContainer>
-                  <span style={{ animationDelay: '0ms' }} />
-                  <span style={{ animationDelay: '50ms' }} />
-                  <span style={{ animationDelay: '100ms' }} />
+                  <span style={{ animationDelay: "0ms" }} />
+                  <span style={{ animationDelay: "50ms" }} />
+                  <span style={{ animationDelay: "100ms" }} />
                 </PulseContainer>
               </span>
             </Container>
           ) : !isChainSupported ? (
             <Container>
-              {!hideIcon && <Chain id={chain?.id} />}
+              {!hideIcon && <Chain id={chainId} />}
               <span style={{ minWidth: 32 }}>???</span>
             </Container>
           ) : (
             <Container>
-              {!hideIcon && <Chain id={chain?.id} />}
+              {!hideIcon && <Chain id={chainId} />}
               <span style={{ minWidth: 32 }}>
-                {nFormatter(Number(balance?.formatted))}
+                {nFormatter(
+                  Number(formatUnits(balance.value, balance.decimals)),
+                )}
               </span>
               {!hideSymbol && ` ${balance?.symbol}`}
             </Container>
@@ -167,7 +170,7 @@ const BalanceButton: React.FC<All & BalanceProps> = ({
   return (
     <ThemedButton
       duration={0.4}
-      variant={'secondary'}
+      variant={"secondary"}
       theme={theme}
       mode={mode}
       customTheme={customTheme}

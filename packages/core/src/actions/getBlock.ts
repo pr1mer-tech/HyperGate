@@ -1,9 +1,8 @@
 import { LedgerResponse } from "xrpl";
-import { Chain } from "../chains.js";
 import type { Config } from "../createConfig.js";
 import type { ChainIdParameter } from "../types/properties.js";
-import type { Compute, IsNarrowable } from "../types/utils.js";
-import { BaseError, ErrorType } from "../errors/base.js";
+import type { Compute } from "../types/utils.js";
+import { BaseError } from "../errors/base.js";
 
 export type BlockTag = number | "current" | "closed" | "validated";
 

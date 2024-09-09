@@ -1,13 +1,9 @@
-import type { Config } from '@wagmi/core';
-import { http, createConfig } from 'wagmi';
-import { mainnet } from 'wagmi/chains';
-import { useChainIsSupported } from '../hooks/useChainIsSupported';
+import { createConfig, xrplMainnet, type Config } from "@hypergate/core";
+import { useChainIsSupported } from "../hooks/useChainIsSupported";
 
 const ensFallbackConfig = createConfig({
-  chains: [mainnet],
-  transports: {
-    [mainnet.id]: http(),
-  },
+  chains: [xrplMainnet],
+  connectors: [],
 });
 
 export function useEnsFallbackConfig(): Config | undefined {

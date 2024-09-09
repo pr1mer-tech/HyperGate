@@ -1,27 +1,27 @@
-import { useEffect, useRef, useState } from 'react';
-import { useAccount } from 'wagmi';
-import { routes, useContext } from '../ConnectKit';
-import { CustomTheme, Languages, Theme, Mode } from '../../types';
-import Modal from '../Common/Modal';
+import { useEffect, useRef, useState } from "react";
+import { useAccount } from "@hypergate/react";
+import { routes, useContext } from "../ConnectKit";
+import { CustomTheme, Languages, Theme, Mode } from "../../types";
+import Modal from "../Common/Modal";
 
-import Onboarding from '../Pages/Onboarding';
-import About from '../Pages/About';
-import Connectors from '../Pages/Connectors';
-import ConnectUsing from './ConnectUsing';
-import DownloadApp from '../Pages/DownloadApp';
-import Profile from '../Pages/Profile';
-import SwitchNetworks from '../Pages/SwitchNetworks';
-import MobileConnectors from '../Pages/MobileConnectors';
-import SignInWithEthereum from '../Pages/SignInWithEthereum';
+import Onboarding from "../Pages/Onboarding";
+import About from "../Pages/About";
+import Connectors from "../Pages/Connectors";
+import ConnectUsing from "./ConnectUsing";
+import DownloadApp from "../Pages/DownloadApp";
+import Profile from "../Pages/Profile";
+import SwitchNetworks from "../Pages/SwitchNetworks";
+import MobileConnectors from "../Pages/MobileConnectors";
+import SignInWithEthereum from "../Pages/SignInWithEthereum";
 
-import { ConnectKitButton } from '../ConnectButton';
-import { getAppName } from '../../defaultConfig';
-import { ConnectKitThemeProvider } from '../ConnectKitThemeProvider/ConnectKitThemeProvider';
+import { ConnectKitButton } from "../ConnectButton";
+import { getAppName } from "../../defaultConfig";
+import { ConnectKitThemeProvider } from "../ConnectKitThemeProvider/ConnectKitThemeProvider";
 
-import styled from './../../styles/styled';
-import { keyframes } from 'styled-components';
-import { Web3ContextProvider } from '../contexts/web3';
-import { useChainIsSupported } from '../../hooks/useChainIsSupported';
+import styled from "./../../styles/styled";
+import { keyframes } from "styled-components";
+import { Web3ContextProvider } from "../contexts/web3";
+import { useChainIsSupported } from "../../hooks/useChainIsSupported";
 
 const dist = 8;
 const shake = keyframes`
@@ -49,7 +49,9 @@ const Cursor = styled.div`
   height: 32px;
   border-radius: 50%;
   background: rgba(0, 0, 0, 0.5);
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.4), 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow:
+    0 0 0 2px rgba(255, 255, 255, 0.4),
+    0 4px 6px rgba(0, 0, 0, 0.1);
   opacity: 0;
   &.play {
     animation: ${cursorIn} 1300ms 200ms cubic-bezier(0.16, 1, 0.6, 1) both;
@@ -73,7 +75,7 @@ const ButtonContainer = styled.div`
   justify-content: center;
   &:before {
     z-index: 9;
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
   }
@@ -90,10 +92,10 @@ const ConnectModal: React.FC<{
   open?: boolean;
   onClose?: () => void;
 }> = ({
-  theme = 'auto',
+  theme = "auto",
   customTheme = customThemeDefault,
-  lang = 'en-US',
-  mode = 'auto',
+  lang = "en-US",
+  mode = "auto",
   inline = false,
   open,
   onClose,
@@ -160,9 +162,9 @@ const ConnectModal: React.FC<{
     if (!isOpen && inline) {
       if (onClose) {
         if (cursorRef.current) {
-          cursorRef.current.classList.remove('play');
+          cursorRef.current.classList.remove("play");
           void cursorRef.current.offsetWidth;
-          cursorRef.current.classList.add('play');
+          cursorRef.current.classList.add("play");
         }
         setTimeout(() => {
           setIsOpen(true);
@@ -183,9 +185,9 @@ const ConnectModal: React.FC<{
     } else {
       if (ref.current) {
         // reset animation
-        ref.current.classList.remove('shake');
+        ref.current.classList.remove("shake");
         void ref.current.offsetWidth;
-        ref.current.classList.add('shake');
+        ref.current.classList.add("shake");
       }
     }
   };
@@ -215,9 +217,9 @@ const ConnectModal: React.FC<{
     const appName = getAppName();
     if (!appName || (!open && !inline)) return;
 
-    const title = document.createElement('meta');
-    title.setAttribute('property', 'og:title');
-    title.setAttribute('content', appName);
+    const title = document.createElement("meta");
+    title.setAttribute("property", "og:title");
+    title.setAttribute("content", appName);
     document.head.prepend(title);
 
     return () => {
