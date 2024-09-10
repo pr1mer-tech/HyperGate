@@ -1,6 +1,5 @@
 import { useAccount } from "@hypergate/react";
 import { routes, useContext } from "../components/ConnectKit";
-import { useSIWE } from "../siwe";
 import {
   useConnectCallback,
   useConnectCallbackProps,
@@ -39,7 +38,6 @@ export const useModal = ({ onConnect, onDisconnect }: UseModalProps = {}) => {
   });
 
   const { isConnected } = useAccount();
-  const { signIn } = useSIWE();
 
   const close = () => {
     context.setOpen(false);
@@ -95,7 +93,6 @@ export const useModal = ({ onConnect, onDisconnect }: UseModalProps = {}) => {
     openSwitchNetworks: () => gotoAndOpen(routes.SWITCHNETWORKS),
     openSIWE: (triggerSIWE?: boolean) => {
       gotoAndOpen(routes.SIGNINWITHETHEREUM);
-      if (triggerSIWE) signIn();
     },
   };
 };

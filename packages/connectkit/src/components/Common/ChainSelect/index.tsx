@@ -136,11 +136,11 @@ const ChevronDown = ({ ...props }) => (
 const ChainSelector: React.FC = () => {
   const context = useContext();
   const [isOpen, setIsOpen] = useState(false);
-  const { chain } = useAccount();
+  const { chain, chainId } = useAccount();
   const { chains } = useSwitchChain();
 
   const locales = useLocales({
-    CHAIN: chain?.name,
+    CHAIN: chain?.name ?? chainId,
   });
 
   const mobile = isMobile() || window?.innerWidth < defaultTheme.mobileWidth;

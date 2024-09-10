@@ -1,26 +1,24 @@
-import React from 'react';
-import { routes, useContext } from '../ConnectKit';
-
-import { useWalletConnectModal } from '../../hooks/useWalletConnectModal';
+import React from "react";
+import { routes, useContext } from "../ConnectKit";
 
 import {
   detectBrowser,
   isCoinbaseWalletConnector,
   isWalletConnectConnector,
-} from '../../utils';
+} from "../../utils";
 
-import { PageContent, ModalContent } from '../Common/Modal/styles';
-import { OrDivider } from '../Common/Modal';
+import { PageContent, ModalContent } from "../Common/Modal/styles";
+import { OrDivider } from "../Common/Modal";
 
-import CustomQRCode from '../Common/CustomQRCode';
-import Button from '../Common/Button';
-import ScanIconWithLogos from '../../assets/ScanIconWithLogos';
-import { ExternalLinkIcon } from '../../assets/icons';
-import CopyToClipboard from '../Common/CopyToClipboard';
-import useLocales from '../../hooks/useLocales';
+import CustomQRCode from "../Common/CustomQRCode";
+import Button from "../Common/Button";
+import ScanIconWithLogos from "../../assets/ScanIconWithLogos";
+import { ExternalLinkIcon } from "../../assets/icons";
+import CopyToClipboard from "../Common/CopyToClipboard";
+import useLocales from "../../hooks/useLocales";
 
-import { useWallet } from '../../wallets/useWallets';
-import { useWeb3 } from '../contexts/web3';
+import { useWallet } from "../../wallets/useWallets";
+import { useWeb3 } from "../contexts/web3";
 
 const ConnectWithQRCode: React.FC<{
   switchConnectMethod: (id?: string) => void;
@@ -31,14 +29,13 @@ const ConnectWithQRCode: React.FC<{
 
   const wallet = useWallet(context.connector.id);
 
-  const { open: openW3M, isOpen: isOpenW3M } = useWalletConnectModal();
   const {
     connect: { getUri },
   } = useWeb3();
 
   const wcUri = getUri(id);
   const uri = wcUri
-    ? wallet?.getWalletConnectDeeplink?.(wcUri) ?? wcUri
+    ? (wallet?.getWalletConnectDeeplink?.(wcUri) ?? wcUri)
     : undefined;
 
   const locales = useLocales({
@@ -64,9 +61,11 @@ const ConnectWithQRCode: React.FC<{
     ? {
         name: Object.keys(extensions)[0],
         label:
-          Object.keys(extensions)[0]?.charAt(0).toUpperCase() +
+          (Object.keys(extensions)[0]?.charAt(0).toUpperCase() ?? "") +
           Object.keys(extensions)[0]?.slice(1), // Capitalise first letter, but this might be better suited as a lookup table
-        url: extensions[Object.keys(extensions)[0]],
+        url: Object.keys(extensions)[0]
+          ? extensions[Object.keys(extensions)[0] as keyof typeof extensions]
+          : "",
       }
     : undefined;
 
@@ -102,30 +101,18 @@ const ConnectWithQRCode: React.FC<{
       {showAdditionalOptions && ( // for walletConnect
         <div
           style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
             gap: 14,
           }}
         >
-          {context.options?.walletConnectCTA !== 'modal' && (
+          {context.options?.walletConnectCTA !== "modal" && (
             <CopyToClipboard variant="button" string={uri}>
-              {context.options?.walletConnectCTA === 'link'
+              {context.options?.walletConnectCTA === "link"
                 ? locales.copyToClipboard
                 : locales.copyCode}
             </CopyToClipboard>
-          )}
-          {context.options?.walletConnectCTA !== 'link' && (
-            <Button
-              icon={<ExternalLinkIcon />}
-              onClick={openW3M}
-              disabled={isOpenW3M}
-              waiting={isOpenW3M}
-            >
-              {context.options?.walletConnectCTA === 'modal'
-                ? locales.useWalletConnectModal
-                : locales.useModal}
-            </Button>
           )}
         </div>
       )}

@@ -3,7 +3,7 @@ import { useContext } from "../../ConnectKit";
 import {
   isSafeConnector,
   nFormatter,
-  truncateEthAddress,
+  truncateXRPAddress,
 } from "../../../utils";
 
 import {
@@ -100,7 +100,7 @@ const Profile: React.FC<{ closeModal?: () => void }> = ({ closeModal }) => {
         </AvatarContainer>
         <ModalH1>
           <CopyToClipboard string={address}>
-            {ensName ?? truncateEthAddress(address, separator)}
+            {truncateXRPAddress(address, separator)}
           </CopyToClipboard>
         </ModalH1>
         {context?.options?.hideBalance ? null : (

@@ -14,12 +14,17 @@ export type ConnectorEventMap = {
   message: { type: string; data?: unknown | undefined };
 };
 
+export type ConnectorProvider =
+  | { type: "injected" }
+  | { type: "qrcode"; qrCode: string };
+
 export type Connector = {
   readonly icon?: string | undefined;
   readonly id: string;
   readonly name: string;
   readonly supportsSimulation?: boolean | undefined;
   readonly type: string;
+  readonly provider: ConnectorProvider;
 
   emitter?: Emitter<ConnectorEventMap>;
   uid?: string;
@@ -49,7 +54,7 @@ export type Connector = {
 
 export type ConnectorInit = {
   uid: string;
-  emitter: Emitter<ConnectorEventMap>;
+  emitter?: Emitter<ConnectorEventMap>;
 };
 export type CreateConnectorFn<arguments> = (
   init: ConnectorInit,

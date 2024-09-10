@@ -42,7 +42,6 @@ import { CustomTheme } from "../../../types";
 import { useThemeContext } from "../../ConnectKitThemeProvider/ConnectKitThemeProvider";
 import { useAccount, useSwitchChain } from "@hypergate/react";
 import { AuthIcon } from "../../../assets/icons";
-import { useSIWE } from "../../../siwe";
 import useLocales from "../../../hooks/useLocales";
 import FitText from "../FitText";
 import { useWallet } from "../../../wallets/useWallets";
@@ -205,7 +204,6 @@ const Modal: React.FC<ModalProps> = ({
   const context = useContext();
   const themeContext = useThemeContext();
   const mobile = isMobile();
-  const { isSignedIn, reset } = useSIWE();
 
   const wallet = useWallet(context.connector?.id);
 
@@ -292,14 +290,7 @@ const Modal: React.FC<ModalProps> = ({
   const ref = useRef<any>(null);
   useEffect(() => {
     if (ref.current) updateBounds(ref.current);
-  }, [
-    chainId,
-    switchChain,
-    mobile,
-    isSignedIn,
-    context.options,
-    context.resize,
-  ]);
+  }, [chainId, switchChain, mobile, context.options, context.resize]);
 
   useEffect(() => {
     if (!mounted) {
@@ -355,10 +346,6 @@ const Modal: React.FC<ModalProps> = ({
         return locales.profileScreen_heading;
       case routes.SWITCHNETWORKS:
         return locales.switchNetworkScreen_heading;
-      case routes.SIGNINWITHETHEREUM:
-        return isSignedIn
-          ? locales.signInWithEthereumScreen_signedIn_heading
-          : locales.signInWithEthereumScreen_signedOut_heading;
       default:
         return "";
     }
@@ -490,7 +477,7 @@ const Modal: React.FC<ModalProps> = ({
                   ) : context.route === routes.PROFILE &&
                     context.signInWithEthereum ? (
                     <>
-                      {!isSignedIn && !context.options?.hideTooltips && (
+                      {!context.options?.hideTooltips && (
                         <motion.div
                           style={{
                             position: "absolute",
@@ -524,7 +511,6 @@ const Modal: React.FC<ModalProps> = ({
                         }
                         key="siweButton"
                         onClick={() => {
-                          reset();
                           context.setRoute(routes.SIGNINWITHETHEREUM);
                         }}
                         initial={{ opacity: 0 }}
@@ -535,7 +521,7 @@ const Modal: React.FC<ModalProps> = ({
                           delay: mobile ? 0.01 : 0,
                         }}
                       >
-                        <ProfileIcon isSignedIn={isSignedIn} />
+                        <ProfileIcon isSignedIn={false} />
                       </SiweButton>
                     </>
                   ) : (
@@ -577,7 +563,7 @@ const Modal: React.FC<ModalProps> = ({
                     //alignItems: 'center',
                     justifyContent: "center",
                   }}
-                  key={`${context.route}-${isSignedIn ? "signedIn" : ""}`}
+                  key={`${context.route}-${""}`}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}

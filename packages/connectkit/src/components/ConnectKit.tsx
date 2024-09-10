@@ -19,7 +19,6 @@ import defaultTheme from "../styles/defaultTheme";
 import ConnectKitModal from "../components/ConnectModal";
 import { ThemeProvider } from "styled-components";
 import { useThemeFont } from "../hooks/useGoogleFont";
-import { SIWEContext } from "./../siwe";
 import { useChains } from "../hooks/useChains";
 import {
   useConnectCallback,
@@ -27,11 +26,7 @@ import {
 } from "../hooks/useConnectCallback";
 import { isFamily } from "../utils/wallets";
 import { useConnector } from "../hooks/useConnectors";
-import {
-  HyperGateConfig,
-  HypergateConfigContext,
-  useAccount,
-} from "@hypergate/react";
+import { HyperGateContext, useAccount } from "@hypergate/react";
 import { Web3ContextProvider } from "./contexts/web3";
 import { useChainIsSupported } from "../hooks/useChainIsSupported";
 
@@ -123,7 +118,7 @@ export const ConnectKitProvider = ({
   debugMode = false,
 }: ConnectKitProviderProps) => {
   // ConnectKitProvider must be within a WagmiProvider
-  if (!React.useContext(HypergateConfigContext)) {
+  if (!React.useContext(HyperGateContext)) {
     throw Error("ConnectKitProvider must be within a HypergateProvider");
   }
 
@@ -240,7 +235,7 @@ export const ConnectKitProvider = ({
     setRoute,
     connector,
     setConnector,
-    signInWithEthereum: React.useContext(SIWEContext)?.enabled ?? false,
+    signInWithEthereum: false,
     onConnect,
     // Other configuration
     options: opts,

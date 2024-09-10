@@ -29,8 +29,16 @@ const Button = React.forwardRef<HTMLButtonElement, any>(
   },
 );
 Button.displayName = "Button";
+const Separator = React.forwardRef<HTMLDivElement, any>(
+  ({ className, variant, size, asChild = false, ...props }, ref) => {
+    return <div ref={ref} className={className} {...props} />;
+  },
+);
+Separator.displayName = "Separator";
+
 // ---cut---
 import { useAccount, useConnect, useConnectors } from "@hypergate/react";
+import { ConnectKitButton } from "@hypergate/connectkit";
 
 // [!include ~/components/connect-wallet.tsx:connect-wallet]
 ```

@@ -9,8 +9,9 @@
     "preview": "vocs preview"
   },
   "dependencies": {
+    "@hypergate/connectkit": "*",
+    "@radix-ui/react-separator": "^1.1.0",
     "@radix-ui/react-slot": "^1.1.0",
-    "@hypergate/react": "*",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "lucide-react": "^0.436.0",
@@ -18,7 +19,7 @@
     "react-dom": "^18.3.1",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",
-    "vocs": "^1.0.0-alpha.55"
+    "vocs": "^1.0.0-alpha.58"
   },
   "devDependencies": {
     "@hypergate/eslint-config": "*",

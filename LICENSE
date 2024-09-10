@@ -22,6 +22,10 @@ SOFTWARE.
 
 ## Third-Party Licenses
 
-This software includes code from Wagmi, which is licensed under the MIT License.
+This software includes code from Wagmi and ConnectKit, which are respectively
+licensed under the MIT License and SD 2-Clause License.
+
 The full text of the Wagmi license can be found at:
 https://github.com/wagmi-dev/wagmi/blob/main/LICENSE
+The full text of the ConnectKit license can be found at:
+https://github.com/family/connectkit/blob/main/LICENSE

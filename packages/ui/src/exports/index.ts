@@ -13,3 +13,4 @@ export * from "../hooks/useWatchBlocks";
 export * from "../hooks/useSwitchChain";
 export * from "../hooks/useDisconnect";
 export * from "../hooks/useConnections";
+export * from "../context";

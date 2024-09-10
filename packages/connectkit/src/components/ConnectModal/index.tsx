@@ -12,7 +12,6 @@ import ConnectUsing from "./ConnectUsing";
 import DownloadApp from "../Pages/DownloadApp";
 import Profile from "../Pages/Profile";
 import SwitchNetworks from "../Pages/SwitchNetworks";
-import SignInWithEthereum from "../Pages/SignInWithEthereum";
 
 import { getAppIcon, getAppName } from "../../defaultConfig";
 import { ConnectKitThemeProvider } from "../ConnectKitThemeProvider/ConnectKitThemeProvider";
@@ -70,7 +69,7 @@ const ConnectModal: React.FC<{
     connect: <ConnectUsing />,
     profile: <Profile />,
     switchNetworks: <SwitchNetworks />,
-    signInWithEthereum: <SignInWithEthereum />,
+    signInWithEthereum: null,
   };
 
   function hide() {

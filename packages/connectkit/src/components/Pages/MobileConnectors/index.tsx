@@ -1,26 +1,25 @@
-import React from 'react';
+import React from "react";
 import {
   Container,
   WalletList,
   WalletItem,
   WalletIcon,
   WalletLabel,
-} from './styles';
+} from "./styles";
 
-import { PageContent, ModalContent } from '../../Common/Modal/styles';
+import { PageContent, ModalContent } from "../../Common/Modal/styles";
 
-import { useContext } from '../../ConnectKit';
-import { useWalletConnectModal } from '../../../hooks/useWalletConnectModal';
-import CopyToClipboard from '../../Common/CopyToClipboard';
-import useLocales from '../../../hooks/useLocales';
-import { Spinner } from '../../Common/Spinner';
-import { ScrollArea } from '../../Common/ScrollArea';
-import { useWeb3 } from '../../contexts/web3';
-import { useWallets } from '../../../wallets/useWallets';
+import { useContext } from "../../ConnectKit";
+import CopyToClipboard from "../../Common/CopyToClipboard";
+import useLocales from "../../../hooks/useLocales";
+import { Spinner } from "../../Common/Spinner";
+import { ScrollArea } from "../../Common/ScrollArea";
+import { useWeb3 } from "../../contexts/web3";
+import { useWallets } from "../../../wallets/useWallets";
 import {
   WalletConfigProps,
   walletConfigs,
-} from '../../../wallets/walletConfigs';
+} from "../../../wallets/walletConfigs";
 
 const MoreIcon = (
   <svg
@@ -48,7 +47,6 @@ const MobileConnectors: React.FC = () => {
   } = useWeb3();
   const wcUri = getUri();
 
-  const { open: openW3M, isOpen: isOpenW3M } = useWalletConnectModal();
   const wallets = useWallets();
 
   // filter out installed wallets
@@ -56,7 +54,7 @@ const MobileConnectors: React.FC = () => {
     Object.keys(walletConfigs).filter((walletId) => {
       const wallet = walletConfigs[walletId];
       if (wallets.find((w) => w.connector.id === walletId)) return false;
-      if (!wallet.getWalletConnectDeeplink) return false;
+      if (!wallet?.getWalletConnectDeeplink) return false;
       return true;
     }) ?? [];
 
@@ -78,25 +76,25 @@ const MobileConnectors: React.FC = () => {
                   (a, b) => {
                     const walletA = walletConfigs[a];
                     const walletB = walletConfigs[b];
-                    const nameA = walletA.name ?? walletA.shortName ?? a;
-                    const nameB = walletB.name ?? walletB.shortName ?? b;
+                    const nameA = walletA?.name ?? walletA.shortName ?? a;
+                    const nameB = walletB?.name ?? walletB.shortName ?? b;
                     return nameA.localeCompare(nameB);
-                  }
+                  },
                 )
                 .filter(
                   (walletId) =>
                     !(
-                      walletId === 'coinbaseWallet' ||
-                      walletId === 'com.coinbase.wallet'
-                    )
+                      walletId === "coinbaseWallet" ||
+                      walletId === "com.coinbase.wallet"
+                    ),
                 )
                 .map((walletId, i) => {
                   const wallet = walletConfigs[walletId];
-                  const { name, shortName, iconConnector, icon } = wallet;
+                  const { name, shortName, iconConnector, icon } = wallet ?? {};
                   return (
                     <WalletItem
                       key={i}
-                      onClick={() => connectWallet(wallet)}
+                      onClick={() => wallet && connectWallet(wallet)}
                       style={{
                         animationDelay: `${i * 50}ms`,
                       }}
@@ -108,43 +106,15 @@ const MobileConnectors: React.FC = () => {
                     </WalletItem>
                   );
                 })}
-              <WalletItem onClick={openW3M} $waiting={isOpenW3M}>
-                <WalletIcon
-                  style={{ background: 'var(--ck-body-background-secondary)' }}
-                >
-                  {isOpenW3M ? (
-                    <div
-                      style={{
-                        position: 'absolute',
-                        inset: 0,
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                      }}
-                    >
-                      <div
-                        style={{
-                          width: '50%',
-                        }}
-                      >
-                        <Spinner />
-                      </div>
-                    </div>
-                  ) : (
-                    MoreIcon
-                  )}
-                </WalletIcon>
-                <WalletLabel>{locales.more}</WalletLabel>
-              </WalletItem>
             </WalletList>
           </ScrollArea>
         </ModalContent>
-        {context.options?.walletConnectCTA !== 'modal' && (
+        {context.options?.walletConnectCTA !== "modal" && (
           <div
             style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
               gap: 14,
               paddingTop: 8,
             }}

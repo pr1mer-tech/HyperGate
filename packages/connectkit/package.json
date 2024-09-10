@@ -1,19 +1,21 @@
 {
-  "name": "connectkit",
+  "name": "@hypergate/connectkit",
   "version": "0.0.0",
   "private": true,
-  "scripts": {
-    "dev": "echo 'Add dev script here'",
-    "build": "echo 'Add build script here'",
-    "test": "echo 'Add test script here'",
-    "lint": "echo 'Add lint script here'"
+  "exports": {
+    ".": "./src/index.ts"
   },
   "dependencies": {
     "@hypergate/core": "*",
     "@hypergate/eslint-config": "*",
     "@hypergate/react": "*",
     "@hypergate/typescript-config": "*",
-    "framer-motion": "^11.5.4",
-    "styled-components": "^6.1.13"
+    "detect-browser": "^5.3.0",
+    "framer-motion": "^6.3.11",
+    "qrcode": "^1.5.4",
+    "react-transition-state": "^1.1.4",
+    "react-use-measure": "^2.1.1",
+    "resize-observer-polyfill": "^1.5.1",
+    "styled-components": "^5.3.5"
   }
 }

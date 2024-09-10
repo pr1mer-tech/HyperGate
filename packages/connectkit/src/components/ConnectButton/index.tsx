@@ -1,6 +1,6 @@
 import React from "react";
 import { useAccount, useChains } from "@hypergate/react";
-import { truncateENSAddress, truncateEthAddress } from "./../../utils";
+import { truncateENSAddress, truncateXRPAddress } from "./../../utils";
 import useIsMounted from "../../hooks/useIsMounted";
 
 import {
@@ -18,7 +18,6 @@ import { Balance } from "../BalanceButton";
 import ThemedButton, { ThemeContainer } from "../Common/ThemedButton";
 import { ResetContainer } from "../../styles";
 import { AuthIcon } from "../../assets/icons";
-import { useSIWE } from "../../siwe";
 import useLocales from "../../hooks/useLocales";
 import { useChainIsSupported } from "../../hooks/useChainIsSupported";
 import { useEnsFallbackConfig } from "../../hooks/useEnsFallbackConfig";
@@ -156,7 +155,7 @@ const ConnectButtonRenderer: React.FC<ConnectButtonRendererProps> = ({
         isConnected: !!address,
         isConnecting: open, // Using `open` to determine if connecting as wagmi isConnecting only is set to true when an active connector is awaiting connection
         address: address,
-        truncatedAddress: address ? truncateEthAddress(address) : undefined,
+        truncatedAddress: address ? truncateXRPAddress(address) : undefined,
       })}
     </>
   );
@@ -175,7 +174,6 @@ function ConnectKitButtonInner({
 }) {
   const locales = useLocales({});
   const context = useContext();
-  const { isSignedIn } = useSIWE();
 
   const { address, chainId } = useAccount();
   const chains = useChains();
@@ -207,21 +205,6 @@ function ConnectKitButtonInner({
           {showAvatar && (
             <IconContainer>
               <AnimatePresence initial={false}>
-                {isSignedIn && (
-                  <motion.div
-                    style={{
-                      zIndex: 2,
-                      position: "absolute",
-                      bottom: 0,
-                      right: 0,
-                    }}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                  >
-                    <AuthIcon />
-                  </motion.div>
-                )}
                 {!isChainSupported && (
                   <UnsupportedNetworkContainer
                     initial={{ opacity: 0 }}
@@ -254,35 +237,18 @@ function ConnectKitButtonInner({
             }}
           >
             <AnimatePresence initial={false}>
-              // {ensName ? (
-              //   <TextContainer
-              //     key="ckEnsName"
-              //     initial={"initial"}
-              //     animate={"animate"}
-              //     exit={"exit"}
-              //     variants={textVariants}
-              //     style={{
-              //       position: ensName ? "relative" : "absolute",
-              //     }}
-              //   >
-              //     {context.options?.truncateLongENSAddress
-              //       ? truncateENSAddress(ensName, 20)
-              //       : ensName}
-              //   </TextContainer>
-              // ) : (
-                <TextContainer
-                  key="ckTruncatedAddress"
-                  initial={"initial"}
-                  animate={"animate"}
-                  exit={"exit"}
-                  variants={textVariants}
-                  style={{
-                    position: "relative",
-                  }}
-                >
-                  {truncateEthAddress(address, separator)}{" "}
-                </TextContainer>
-              {/* )} */}
+              <TextContainer
+                key="ckTruncatedAddress"
+                initial={"initial"}
+                animate={"animate"}
+                exit={"exit"}
+                variants={textVariants}
+                style={{
+                  position: "relative",
+                }}
+              >
+                {truncateXRPAddress(address, separator)}{" "}
+              </TextContainer>
             </AnimatePresence>
           </div>
         </TextContainer>

@@ -12,7 +12,6 @@ import DownloadApp from "../Pages/DownloadApp";
 import Profile from "../Pages/Profile";
 import SwitchNetworks from "../Pages/SwitchNetworks";
 import MobileConnectors from "../Pages/MobileConnectors";
-import SignInWithEthereum from "../Pages/SignInWithEthereum";
 
 import { ConnectKitButton } from "../ConnectButton";
 import { getAppName } from "../../defaultConfig";
@@ -140,7 +139,7 @@ const ConnectModal: React.FC<{
     connect: <ConnectUsing />,
     profile: <Profile closeModal={() => setIsOpen(false)} />,
     switchNetworks: <SwitchNetworks />,
-    signInWithEthereum: <SignInWithEthereum />,
+    signInWithEthereum: null,
   };
 
   const ref = useRef<HTMLDivElement | null>(null);

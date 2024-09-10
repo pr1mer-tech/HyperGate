@@ -22,3 +22,5 @@ export * from "./actions/switchChain";
 export * from "./actions/getConnections";
 export * from "./actions/watchConnections";
 export * from "./actions/disconnect";
+export * from "./actions/reconnect";
+export * from "./hydrate";

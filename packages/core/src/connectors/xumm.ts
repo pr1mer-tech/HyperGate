@@ -1,6 +1,10 @@
 import type { BaseTransaction } from "xrpl";
 import type { Address } from "../utils/address";
-import type { Connector, ConnectorEventMap } from "./connector";
+import type {
+  Connector,
+  ConnectorEventMap,
+  ConnectorProvider,
+} from "./connector";
 import { Xumm } from "xumm";
 import type { Emitter } from "../createEmitter";
 
@@ -10,7 +14,8 @@ export class XummConnector implements Connector {
   id = "xumm";
   name = "Xaman";
   supportsSimulation = false;
-  type = "xumm";
+  type = "injected";
+  provider = { type: "injected" } as ConnectorProvider;
 
   hasConnected = false;
 

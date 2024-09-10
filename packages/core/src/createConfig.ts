@@ -292,12 +292,12 @@ export function createConfig(options: ConfigOptions): Config {
       const connector = connectors.getState().find((x) => x.uid === data.uid);
       if (!connector) return x;
 
-      if (connector.emitter.listenerCount("connect"))
-        connector.emitter.off("connect", change);
-      if (!connector.emitter.listenerCount("change"))
-        connector.emitter.on("change", change);
-      if (!connector.emitter.listenerCount("disconnect"))
-        connector.emitter.on("disconnect", disconnect);
+      if (connector.emitter?.listenerCount("connect"))
+        connector.emitter?.off("connect", change);
+      if (!connector.emitter?.listenerCount("change"))
+        connector.emitter?.on("change", change);
+      if (!connector.emitter?.listenerCount("disconnect"))
+        connector.emitter?.on("disconnect", disconnect);
 
       return {
         ...x,
@@ -316,12 +316,12 @@ export function createConfig(options: ConfigOptions): Config {
       const connection = x.connections.get(data.uid);
       if (connection) {
         const connector = connection.connector;
-        if (connector.emitter.listenerCount("change"))
-          connection.connector.emitter.off("change", change);
-        if (connector.emitter.listenerCount("disconnect"))
-          connection.connector.emitter.off("disconnect", disconnect);
-        if (!connector.emitter.listenerCount("connect"))
-          connection.connector.emitter.on("connect", connect);
+        if (connector.emitter?.listenerCount("change"))
+          connection.connector.emitter?.off("change", change);
+        if (connector.emitter?.listenerCount("disconnect"))
+          connection.connector.emitter?.off("disconnect", disconnect);
+        if (!connector.emitter?.listenerCount("connect"))
+          connection.connector.emitter?.on("connect", connect);
       }
 
       x.connections.delete(data.uid);
