@@ -41,22 +41,27 @@ To use HyperGate, you need to wrap your application with the `HyperGateConfig` a
 // @allowUmdGlobalAccess
 // @module: esnext
 // @moduleResolution: bundler
-import { HyperGateConfig } from "@hypergate/react";
+"use client";
+
 import { XummConnector, createConfig } from "@hypergate/core";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ConnectKitProvider, getDefaultConfig } from "@hypergate/connectkit";
+import { HyperGateProvider } from "@hypergate/react";
 
 const queryClient = new QueryClient();
+const config = createConfig(
+  getDefaultConfig({
+    appName: "HyperGate Demo",
+    connectors: [new XummConnector(process.env.NEXT_PUBLIC_XUMM_API_KEY ?? "")],
+  }),
+);
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
-    <HyperGateConfig
-      config={createConfig({
-        connectors: [
-          new XummConnector(process.env.NEXT_PUBLIC_XUMM_API_KEY ?? ""),
-        ],
-      })}
-    >
-      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
-    </HyperGateConfig>
+    <HyperGateProvider config={config}>
+      <QueryClientProvider client={queryClient}>
+        <ConnectKitProvider>{children}</ConnectKitProvider>
+      </QueryClientProvider>
+    </HyperGateProvider>
   );
 }
 ```

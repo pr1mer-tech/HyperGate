@@ -21,6 +21,7 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
+    "@gemwallet/api": "^3.7.0",
     "xrpl": "^4.0.0",
     "xumm": "^1.7.7",
     "zustand": "^4.5.5"

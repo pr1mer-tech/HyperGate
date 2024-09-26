@@ -17,19 +17,21 @@ export function ConnectWallet() {
   const connectors = useConnectors();
   return (
     <>
-      {connectors.map((c) => (
-        <Button
-          className="text-white dark:text-black"
-          key={c.name}
-          onClick={() =>
-            connect({
-              connector: c,
-            })
-          }
-        >
-          Connect {c.name}
-        </Button>
-      ))}
+      <div className="flex items-center gap-2 w-full my-2">
+        {connectors.map((c) => (
+          <Button
+            className="text-white dark:text-black"
+            key={c.name}
+            onClick={() =>
+              connect({
+                connector: c,
+              })
+            }
+          >
+            Connect {c.name}
+          </Button>
+        ))}
+      </div>
       {address && <p>Connected: {address}</p>}
       <div className="flex items-center gap-2 w-full my-2">
         <Separator className="w-[35%]" />
