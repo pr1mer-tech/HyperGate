@@ -20,9 +20,7 @@
     "dist"
   ],
   "scripts": {
-    "generate:component": "turbo gen react-component",
-    "build": "bunup src/exports/index.ts src/utils/query.ts --format cjs,esm --target=browser",
-    "dev": "bunup src/exports/index.ts src/utils/query.ts --format cjs,esm --dts --watch"
+    "generate:component": "turbo gen react-component"
   },
   "devDependencies": {
     "@hyper-gate/core": "*",

@@ -6,14 +6,14 @@ import type {
   ConnectErrorType,
   ResolvedRegister,
 } from "@hyper-gate/core";
-import type { Compute } from "@hyper-gate/core/internal";
+import type { Compute } from "@hyper-gate/core";
 import {
   type ConnectData,
   type ConnectMutate,
   type ConnectMutateAsync,
   type ConnectVariables,
   connectMutationOptions,
-} from "@hyper-gate/core/query";
+} from "@hyper-gate/core";
 import { useEffect } from "react";
 
 import type { ConfigParameter } from "../types/properties.js";

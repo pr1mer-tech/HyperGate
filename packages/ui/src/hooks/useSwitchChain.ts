@@ -6,14 +6,14 @@ import type {
   ResolvedRegister,
   SwitchChainErrorType,
 } from "@hyper-gate/core";
-import type { Compute } from "@hyper-gate/core/internal";
+import type { Compute } from "@hyper-gate/core";
 import {
   type SwitchChainData,
   type SwitchChainMutate,
   type SwitchChainMutateAsync,
   type SwitchChainVariables,
   switchChainMutationOptions,
-} from "@hyper-gate/core/query";
+} from "@hyper-gate/core";
 
 import type { ConfigParameter } from "../types/properties.js";
 import type {

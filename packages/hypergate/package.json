@@ -16,10 +16,6 @@
   "files": [
     "dist"
   ],
-  "scripts": {
-    "build": "bunup src/index.ts --format cjs,esm",
-    "dev": "tsup src/index.ts --format cjs,esm --dts --watch"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Pyratz/HyperGate.git"

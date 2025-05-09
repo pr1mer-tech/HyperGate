@@ -5,14 +5,14 @@ import type {
   GetBalanceErrorType,
   ResolvedRegister,
 } from "@hyper-gate/core";
-import type { Compute } from "@hyper-gate/core/internal";
+import type { Compute } from "@hyper-gate/core";
 import {
   type GetBalanceData,
   type GetBalanceOptions,
   type GetBalanceQueryKey,
   getBalanceQueryOptions,
-} from "@hyper-gate/core/query";
-import type { GetBalanceQueryFnData } from "@hyper-gate/core/query";
+} from "@hyper-gate/core";
+import type { GetBalanceQueryFnData } from "@hyper-gate/core";
 
 import type { ConfigParameter, QueryParameter } from "../types/properties.js";
 import { type UseQueryReturnType, useQuery } from "../utils/query.js";

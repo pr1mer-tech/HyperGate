@@ -26,9 +26,7 @@
     "dist"
   ],
   "scripts": {
-    "lint": "eslint . --max-warnings 0",
-    "build": "bunup src/index.ts src/internal.ts src/query.ts --format cjs,esm --target=browser",
-    "dev": "bunup src/index.ts src/internal.ts src/query.ts --format cjs,esm --dts --watch"
+    "lint": "eslint . --max-warnings 0"
   },
   "devDependencies": {
     "@hyper-gate/eslint-config": "*",

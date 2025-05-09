@@ -7,18 +7,14 @@ import type {
   GetBlockErrorType,
   ResolvedRegister,
 } from "@hyper-gate/core";
-import type {
-  Compute,
-  UnionCompute,
-  UnionStrictOmit,
-} from "@hyper-gate/core/internal";
+import type { Compute, UnionCompute, UnionStrictOmit } from "@hyper-gate/core";
 import {
   type GetBlockData,
   type GetBlockOptions,
   type GetBlockQueryFnData,
   type GetBlockQueryKey,
   getBlockQueryOptions,
-} from "@hyper-gate/core/query";
+} from "@hyper-gate/core";
 import type { LedgerStream } from "xrpl";
 import type { ConfigParameter, QueryParameter } from "../types/properties.js";
 import { type UseQueryReturnType, useQuery } from "../utils/query.js";

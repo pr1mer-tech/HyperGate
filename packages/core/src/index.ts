@@ -24,3 +24,5 @@ export * from "./actions/watchConnections";
 export * from "./actions/disconnect";
 export * from "./actions/reconnect";
 export * from "./hydrate";
+export * from "./internal";
+export * from "./query";

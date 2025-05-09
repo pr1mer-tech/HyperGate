@@ -1,5 +1,5 @@
 import { defineConfig } from "vocs";
-import fs from "fs/promises";
+import fs from "node:fs/promises";
 
 const reactSideBar = async () => {
   const files = await fs.readdir("./pages/docs/react");

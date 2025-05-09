@@ -6,10 +6,7 @@ import {
   type WatchBlocksParameters,
   watchBlocks,
 } from "@hyper-gate/core";
-import type {
-  UnionCompute,
-  UnionExactPartial,
-} from "@hyper-gate/core/internal";
+import type { UnionCompute, UnionExactPartial } from "@hyper-gate/core";
 import { useEffect } from "react";
 import type { BlockTag } from "@hyper-gate/core";
 

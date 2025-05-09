@@ -11,12 +11,8 @@ import {
   useQuery as tanstack_useQuery,
   useMutation,
 } from "@tanstack/react-query";
-import type {
-  Compute,
-  ExactPartial,
-  UnionStrictOmit,
-} from "@hyper-gate/core/internal";
-import { hashFn } from "@hyper-gate/core/query";
+import type { Compute, ExactPartial, UnionStrictOmit } from "@hyper-gate/core";
+import { hashFn } from "@hyper-gate/core";
 
 export type UseMutationParameters<
   data = unknown,
@@ -83,7 +79,6 @@ export function useQuery<queryFnData, error, data, queryKey extends QueryKey>(
   result.queryKey = parameters.queryKey;
   return result;
 }
-
 ////////////////////////////////////////////////////////////////////////////////
 
 export type UseInfiniteQueryParameters<

@@ -5,7 +5,7 @@ import {
   type GetAccountReturnType,
   watchAccount,
 } from "@hyper-gate/core";
-import type { Compute } from "@hyper-gate/core/internal";
+import type { Compute } from "@hyper-gate/core";
 import { useEffect } from "react";
 
 import type { ConfigParameter } from "../types/properties.js";

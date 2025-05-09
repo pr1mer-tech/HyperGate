@@ -6,18 +6,14 @@ import type {
   GetBlockNumberErrorType,
   ResolvedRegister,
 } from "@hyper-gate/core";
-import type {
-  Compute,
-  UnionCompute,
-  UnionStrictOmit,
-} from "@hyper-gate/core/internal";
+import type { Compute, UnionCompute, UnionStrictOmit } from "@hyper-gate/core";
 import {
   type GetBlockNumberData,
   type GetBlockNumberOptions,
   type GetBlockNumberQueryFnData,
   type GetBlockNumberQueryKey,
   getBlockNumberQueryOptions,
-} from "@hyper-gate/core/query";
+} from "@hyper-gate/core";
 
 import type { ConfigParameter, QueryParameter } from "../types/properties.js";
 import { type UseQueryReturnType, useQuery } from "../utils/query.js";
