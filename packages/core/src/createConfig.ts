@@ -1,5 +1,10 @@
 import { persist, subscribeWithSelector } from "zustand/middleware";
-import { type Mutate, type StoreApi, createStore } from "zustand/vanilla";
+import {
+  type Mutate,
+  type StoreApi,
+  createStore,
+  type PartialState,
+} from "zustand/vanilla";
 import type {
   Connector,
   ConnectorEventMap,
@@ -14,7 +19,8 @@ import type { Compute, ExactPartial, RemoveUndefined } from "./types/utils";
 import type { Address } from "./utils/address";
 import { Client } from "xrpl";
 import { ChainNotConfiguredError } from "./errors/config";
-import { Chain, xrplMainnet } from "./chains";
+import { type Chain, xrplMainnet } from "./chains";
+import type { StorePersist } from "./types/persist";
 
 export type Config = {
   chains: Chain[];
@@ -32,7 +38,7 @@ export type Config = {
     },
   ): () => void;
   _internal: {
-    store: StoreApi<State>;
+    store: StoreApi<State> & StorePersist<State, PartialState<State>>;
     ssr: boolean;
     connectors: {
       setup(connectorFn: Connector): Compute<Connector & ConnectorInit>;
@@ -386,7 +392,8 @@ export function createConfig(options: ConfigOptions): Config {
     },
 
     _internal: {
-      store,
+      store: store as StoreApi<State> &
+        StorePersist<State, PartialState<State>>,
       ssr: Boolean(ssr),
       connectors: {
         setup,

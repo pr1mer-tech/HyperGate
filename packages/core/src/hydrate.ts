@@ -9,7 +9,7 @@ type HydrateParameters = {
 export function hydrate(config: Config, parameters: HydrateParameters) {
   const { initialState, reconnectOnMount } = parameters;
 
-  if (initialState && !config._internal.store.persist.hasHydrated())
+  if (initialState && !config._internal.store.persist?.hasHydrated())
     config.setState({
       ...initialState,
       chainId: config.chains.some((x) => x.id === initialState.chainId)
@@ -22,15 +22,12 @@ export function hydrate(config: Config, parameters: HydrateParameters) {
   return {
     async onMount() {
       if (config._internal.ssr) {
-        await config._internal.store.persist.rehydrate();
-        const mipdConnectors = config._internal.mipd
-          ?.getProviders()
-          .map(config._internal.connectors.providerDetailToConnector)
-          .map(config._internal.connectors.setup);
-        config._internal.connectors.setState((connectors) => [
-          ...connectors,
-          ...(mipdConnectors ?? []),
-        ]);
+        await config._internal.store.persist?.rehydrate();
+        // const mipdConnectors = config._internal.mipd
+        //   ?.getProviders()
+        //   .map(config._internal.connectors.providerDetailToConnector)
+        //   .map(config._internal.connectors.setup);
+        config._internal.connectors.setState((connectors) => [...connectors]);
       }
 
       if (reconnectOnMount) reconnect(config);

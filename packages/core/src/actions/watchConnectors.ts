@@ -16,6 +16,10 @@ export function watchConnectors(
 ): WatchConnectorsReturnType {
   const { onChange } = parameters;
   return config._internal.connectors.subscribe((connectors, prevConnectors) => {
-    onChange(Object.values(connectors), prevConnectors);
+    const connectorsArray = Object.values(
+      connectors as Record<string, unknown>,
+    ) as GetConnectorsReturnType;
+    const prevConnectorsArray = prevConnectors as GetConnectorsReturnType;
+    onChange(connectorsArray, prevConnectorsArray);
   });
 }

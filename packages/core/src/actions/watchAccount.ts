@@ -4,8 +4,8 @@ import { type GetAccountReturnType, getAccount } from "./getAccount.js";
 
 export type WatchAccountParameters<config extends Config = Config> = {
   onChange(
-    account: GetAccountReturnType<config>,
-    prevAccount: GetAccountReturnType<config>,
+    account: GetAccountReturnType,
+    prevAccount: GetAccountReturnType,
   ): void;
 };
 

@@ -49,7 +49,7 @@ export class GemConnector implements Connector {
       | undefined,
   ): Promise<{ accounts: readonly Address[]; chainId: number }> {
     const accounts = await this.getAccounts();
-    const chainId = await this.getChainId();
+    const chainId = Number(await this.getChainId());
     return {
       accounts,
       chainId,

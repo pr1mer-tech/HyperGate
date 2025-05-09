@@ -1,4 +1,4 @@
-import React from "react";
+import type React from "react";
 import { useAccount, useChains } from "@hypergate/react";
 import { truncateENSAddress, truncateXRPAddress } from "./../../utils";
 import useIsMounted from "../../hooks/useIsMounted";
@@ -12,8 +12,8 @@ import { routes, useContext } from "../ConnectKit";
 import { useModal } from "../../hooks/useModal";
 
 import Avatar from "../Common/Avatar";
-import { AnimatePresence, Variants, motion } from "framer-motion";
-import { CustomTheme, Mode, Theme } from "../../types";
+import { AnimatePresence, type Variants, motion } from "framer-motion";
+import type { CustomTheme, Mode, Theme } from "../../types";
 import { Balance } from "../BalanceButton";
 import ThemedButton, { ThemeContainer } from "../Common/ThemedButton";
 import { ResetContainer } from "../../styles";
@@ -21,7 +21,7 @@ import { AuthIcon } from "../../assets/icons";
 import useLocales from "../../hooks/useLocales";
 import { useChainIsSupported } from "../../hooks/useChainIsSupported";
 import { useEnsFallbackConfig } from "../../hooks/useEnsFallbackConfig";
-import { Address, Chain } from "@hypergate/core";
+import type { Address, Chain } from "@hypergate/core";
 
 const contentVariants: Variants = {
   initial: {

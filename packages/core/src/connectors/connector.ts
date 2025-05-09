@@ -40,7 +40,7 @@ export type Connector = {
   }>;
   disconnect(): Promise<void>;
   getAccounts(): Promise<readonly Address[]>;
-  getChainId(): Promise<number>;
+  getChainId(): Promise<number | string>;
   isAuthorized(): Promise<boolean>;
 
   onAccountsChanged(accounts: readonly Address[]): void;
