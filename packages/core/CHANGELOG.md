@@ -1,5 +1,11 @@
 # @hyper-gate/core
 
+## 0.0.5
+
+### Patch Changes
+
+- 887368f: fixed install issues
+
 ## 0.0.4
 
 ### Patch Changes

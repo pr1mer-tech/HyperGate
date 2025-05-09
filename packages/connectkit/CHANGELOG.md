@@ -1,5 +1,14 @@
 # @hyper-gate/connectkit
 
+## 0.0.5
+
+### Patch Changes
+
+- 887368f: fixed install issues
+- Updated dependencies [887368f]
+  - @hyper-gate/core@0.0.5
+  - @hyper-gate/react@0.0.1
+
 ## 0.0.4
 
 ### Patch Changes
