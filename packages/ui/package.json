@@ -1,6 +1,6 @@
 {
   "name": "@hyper-gate/react",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -21,8 +21,8 @@
   ],
   "scripts": {
     "generate:component": "turbo gen react-component",
-    "build": "tsup src/exports/index.ts src/utils/query.ts --format cjs,esm --dts",
-    "dev": "tsup src/exports/index.ts src/utils/query.ts --format cjs,esm --dts --watch"
+    "build": "bunup src/exports/index.ts src/utils/query.ts --format cjs,esm --target=browser",
+    "dev": "bunup src/exports/index.ts src/utils/query.ts --format cjs,esm --dts --watch"
   },
   "devDependencies": {
     "@hyper-gate/core": "*",

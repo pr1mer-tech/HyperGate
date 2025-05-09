@@ -1,5 +1,14 @@
 # @hyper-gate/connectkit
 
+## 0.0.7
+
+### Patch Changes
+
+- 5a0bb95: using bunup now
+- Updated dependencies [5a0bb95]
+  - @hyper-gate/core@0.0.7
+  - @hyper-gate/react@0.0.5
+
 ## 0.0.6
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @hyper-gate/core
 
+## 0.0.7
+
+### Patch Changes
+
+- 5a0bb95: using bunup now
+
 ## 0.0.6
 
 ### Patch Changes

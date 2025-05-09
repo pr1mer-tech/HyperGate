@@ -1,6 +1,6 @@
 {
   "name": "@hyper-gate/core",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "private": false,
   "exports": {
     ".": {
@@ -27,8 +27,8 @@
   ],
   "scripts": {
     "lint": "eslint . --max-warnings 0",
-    "build": "tsup src/index.ts src/internal.ts src/query.ts --format cjs,esm --dts",
-    "dev": "tsup src/index.ts src/internal.ts src/query.ts --format cjs,esm --dts --watch"
+    "build": "bunup src/index.ts src/internal.ts src/query.ts --format cjs,esm --target=browser",
+    "dev": "bunup src/index.ts src/internal.ts src/query.ts --format cjs,esm --dts --watch"
   },
   "devDependencies": {
     "@hyper-gate/eslint-config": "*",

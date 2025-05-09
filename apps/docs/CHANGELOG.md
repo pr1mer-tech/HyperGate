@@ -1,5 +1,13 @@
 # docs
 
+## 0.1.2
+
+### Patch Changes
+
+- 5a0bb95: using bunup now
+- Updated dependencies [5a0bb95]
+  - @hyper-gate/connectkit@0.0.7
+
 ## 0.1.1
 
 ### Patch Changes
