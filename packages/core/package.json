@@ -1,6 +1,6 @@
 {
   "name": "@hyper-gate/core",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "private": false,
   "exports": {
     ".": {
@@ -43,6 +43,7 @@
     "@gemwallet/api": "^3.8.0",
     "xrpl": "^4.2.5",
     "xumm": "^1.8.0",
-    "zustand": "^4.5.5"
+    "zustand": "^4.5.5",
+    "eventemitter3": "^5.0.1"
   }
 }

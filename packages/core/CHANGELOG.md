@@ -1,5 +1,11 @@
 # @hyper-gate/core
 
+## 0.0.12
+
+### Patch Changes
+
+- 3e889e0: include eventemitter3
+
 ## 0.0.11
 
 ### Patch Changes

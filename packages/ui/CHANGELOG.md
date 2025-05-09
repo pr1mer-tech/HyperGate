@@ -1,5 +1,11 @@
 # @hyper-gate/react
 
+## 0.0.10
+
+### Patch Changes
+
+- 3e889e0: include eventemitter3
+
 ## 0.0.9
 
 ### Patch Changes

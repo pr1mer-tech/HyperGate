@@ -1,6 +1,6 @@
 {
   "name": "@hyper-gate/react",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "exports": {
