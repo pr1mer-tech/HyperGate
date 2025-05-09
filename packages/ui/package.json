@@ -1,19 +1,16 @@
 {
   "name": "@hyper-gate/react",
-  "version": "0.0.7",
-  "main": "./dist/index.js",
+  "version": "0.0.8",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
+      "import": "./dist/index.mjs"
     },
     "./query": {
       "types": "./dist/query.d.ts",
-      "import": "./dist/query.mjs",
-      "require": "./dist/query.js"
+      "import": "./dist/query.mjs"
     }
   },
   "files": [
@@ -37,7 +34,7 @@
   "dependencies": {
     "@tanstack/react-query": "^5.52.1",
     "@types/use-sync-external-store": "^0.0.6",
-    "react": "^18.2.0",
+    "react": "^19.1.0",
     "use-sync-external-store": "^1.2.2"
   }
 }

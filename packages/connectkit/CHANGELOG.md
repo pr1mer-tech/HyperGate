@@ -1,5 +1,14 @@
 # @hyper-gate/connectkit
 
+## 0.0.10
+
+### Patch Changes
+
+- 28869d1: improved build
+- Updated dependencies [28869d1]
+  - @hyper-gate/react@0.0.8
+  - @hyper-gate/core@0.0.10
+
 ## 0.0.9
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @hyper-gate/core
 
+## 0.0.10
+
+### Patch Changes
+
+- 28869d1: improved build
+
 ## 0.0.9
 
 ### Patch Changes

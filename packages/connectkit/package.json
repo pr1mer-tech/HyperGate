@@ -1,14 +1,12 @@
 {
   "name": "@hyper-gate/connectkit",
-  "version": "0.0.9",
-  "main": "./dist/index.js",
+  "version": "0.0.10",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
+      "import": "./dist/index.mjs"
     }
   },
   "files": [

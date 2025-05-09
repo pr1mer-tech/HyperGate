@@ -1,5 +1,11 @@
 # @hyper-gate/react
 
+## 0.0.8
+
+### Patch Changes
+
+- 28869d1: improved build
+
 ## 0.0.7
 
 ### Patch Changes
