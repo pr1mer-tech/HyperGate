@@ -1,6 +1,6 @@
 {
   "name": "@hyper-gate/react",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "exports": {
@@ -17,7 +17,8 @@
     "dist"
   ],
   "scripts": {
-    "generate:component": "turbo gen react-component"
+    "generate:component": "turbo gen react-component",
+    "build": "bunchee"
   },
   "devDependencies": {
     "@hyper-gate/core": "*",
@@ -32,9 +33,13 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
+    "@gemwallet/api": "^3.8.0",
     "@tanstack/react-query": "^5.52.1",
     "@types/use-sync-external-store": "^0.0.6",
     "react": "^19.1.0",
-    "use-sync-external-store": "^1.2.2"
+    "use-sync-external-store": "^1.2.2",
+    "xrpl": "^4.2.5",
+    "xumm": "^1.8.0",
+    "zustand": "^5.0.4"
   }
 }

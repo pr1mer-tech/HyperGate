@@ -1,5 +1,11 @@
 # @hyper-gate/core
 
+## 0.0.11
+
+### Patch Changes
+
+- 944cf09: bunup > bunchee
+
 ## 0.0.10
 
 ### Patch Changes

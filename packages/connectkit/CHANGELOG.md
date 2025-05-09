@@ -1,5 +1,14 @@
 # @hyper-gate/connectkit
 
+## 0.0.11
+
+### Patch Changes
+
+- 944cf09: bunup > bunchee
+- Updated dependencies [944cf09]
+  - @hyper-gate/core@0.0.11
+  - @hyper-gate/react@0.0.9
+
 ## 0.0.10
 
 ### Patch Changes
