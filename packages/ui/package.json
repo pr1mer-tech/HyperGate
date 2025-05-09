@@ -1,7 +1,6 @@
 {
   "name": "@hyper-gate/react",
-  "version": "0.0.1",
-  "private": true,
+  "version": "0.0.2",
   "exports": {
     ".": "./src/exports/index.ts",
     "./config": "./src/config.tsx",
