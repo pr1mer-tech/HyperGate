@@ -1,5 +1,11 @@
 # @hyper-gate/react
 
+## 0.0.11
+
+### Patch Changes
+
+- 6b9d983: improved peer deps system
+
 ## 0.0.10
 
 ### Patch Changes
