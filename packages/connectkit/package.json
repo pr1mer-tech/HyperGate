@@ -1,7 +1,6 @@
 {
-  "name": "@hypergate/connectkit",
+  "name": "@hyper-gate/connectkit",
   "version": "0.0.3",
-  "private": false,
   "exports": {
     ".": "./src/index.ts"
   },
