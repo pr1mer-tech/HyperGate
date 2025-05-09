@@ -1,5 +1,14 @@
 # @hyper-gate/connectkit
 
+## 0.0.9
+
+### Patch Changes
+
+- 0334706: react & react dom as external
+- Updated dependencies [0334706]
+  - @hyper-gate/core@0.0.9
+  - @hyper-gate/react@0.0.7
+
 ## 0.0.8
 
 ### Patch Changes

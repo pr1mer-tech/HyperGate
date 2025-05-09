@@ -1,5 +1,11 @@
 # @hyper-gate/react
 
+## 0.0.7
+
+### Patch Changes
+
+- 0334706: react & react dom as external
+
 ## 0.0.6
 
 ### Patch Changes
