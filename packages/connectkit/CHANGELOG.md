@@ -1,5 +1,11 @@
 # @hypergate/connectkit
 
+## 0.0.4
+
+### Patch Changes
+
+- 25879f7: include required files
+
 ## 0.0.3
 
 ### Patch Changes
