@@ -1,18 +1,28 @@
 {
   "name": "@hyper-gate/react",
-  "version": "0.0.3",
-  "exports": {
-    ".": "./src/exports/index.ts",
-    "./config": "./src/config.tsx",
-    "./account": "./src/account.ts"
-  },
+  "version": "0.0.4",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./query": {
+      "types": "./dist/query.d.ts",
+      "import": "./dist/query.mjs",
+      "require": "./dist/query.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "generate:component": "turbo gen react-component",
-    "build": "tsup src/exports/index.ts --format cjs,esm --dts",
-    "dev": "tsup src/exports/index.ts --format cjs,esm --dts --watch"
+    "build": "tsup src/exports/index.ts src/utils/query.ts --format cjs,esm --dts",
+    "dev": "tsup src/exports/index.ts src/utils/query.ts --format cjs,esm --dts --watch"
   },
   "devDependencies": {
     "@hyper-gate/core": "*",

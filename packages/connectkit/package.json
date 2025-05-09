@@ -1,12 +1,19 @@
 {
   "name": "@hyper-gate/connectkit",
-  "version": "0.0.5",
-  "exports": {
-    ".": "./src/index.ts"
-  },
+  "version": "0.0.6",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "lint": "eslint . --max-warnings 0",
     "build": "tsup src/index.ts --format cjs,esm --dts",

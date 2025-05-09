@@ -1,5 +1,11 @@
 # @hyper-gate/core
 
+## 0.0.6
+
+### Patch Changes
+
+- c5bfec8: attempt: fix next build
+
 ## 0.0.5
 
 ### Patch Changes

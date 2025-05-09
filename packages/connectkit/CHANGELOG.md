@@ -1,5 +1,14 @@
 # @hyper-gate/connectkit
 
+## 0.0.6
+
+### Patch Changes
+
+- c5bfec8: attempt: fix next build
+- Updated dependencies [c5bfec8]
+  - @hyper-gate/core@0.0.6
+  - @hyper-gate/react@0.0.4
+
 ## 0.0.5
 
 ### Patch Changes
