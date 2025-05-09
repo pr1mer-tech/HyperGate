@@ -1,47 +1,47 @@
 {
-    "name": "hypergate",
-    "version": "0.0.2",
-    "description": "Umbrella package for HyperGate XRP Ledger SDK",
-    "private": false,
-    "main": "./dist/index.js",
-    "module": "./dist/index.mjs",
-    "types": "./dist/index.d.ts",
-    "exports": {
-        ".": {
-            "import": "./dist/index.mjs",
-            "require": "./dist/index.js",
-            "types": "./dist/index.d.ts"
-        }
-    },
-    "files": [
-        "dist"
-    ],
-    "scripts": {
-        "build": "tsup src/index.ts --format cjs,esm --dts",
-        "dev": "tsup src/index.ts --format cjs,esm --dts --watch"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/Pyratz/HyperGate.git"
-    },
-    "keywords": [
-        "xrp",
-        "xrpl",
-        "blockchain",
-        "wallet",
-        "sdk"
-    ],
-    "author": "Pyratz",
-    "license": "MIT",
-    "dependencies": {
-        "@hyper-gate/connectkit": "*",
-        "@hyper-gate/core": "*",
-        "@hyper-gate/react": "*"
-    },
-    "devDependencies": {
-        "@hyper-gate/eslint-config": "*",
-        "@hyper-gate/typescript-config": "*",
-        "tsup": "^8.4.0",
-        "typescript": "^5.4.5"
+  "name": "hypergate",
+  "version": "0.0.2",
+  "description": "Umbrella package for HyperGate XRP Ledger SDK",
+  "private": false,
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
     }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "dev": "tsup src/index.ts --format cjs,esm --dts --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pyratz/HyperGate.git"
+  },
+  "keywords": [
+    "xrp",
+    "xrpl",
+    "blockchain",
+    "wallet",
+    "sdk"
+  ],
+  "author": "Pr1mer Tech",
+  "license": "MIT",
+  "dependencies": {
+    "@hyper-gate/connectkit": "*",
+    "@hyper-gate/core": "*",
+    "@hyper-gate/react": "*"
+  },
+  "devDependencies": {
+    "@hyper-gate/eslint-config": "*",
+    "@hyper-gate/typescript-config": "*",
+    "tsup": "^8.4.0",
+    "typescript": "^5.4.5"
+  }
 }
