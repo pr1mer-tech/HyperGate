@@ -1,5 +1,13 @@
 # docs
 
+## 0.1.3
+
+### Patch Changes
+
+- 3c8909e: fix: build using bunup
+- Updated dependencies [3c8909e]
+  - @hyper-gate/connectkit@0.0.8
+
 ## 0.1.2
 
 ### Patch Changes

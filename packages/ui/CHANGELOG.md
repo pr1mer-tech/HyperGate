@@ -1,5 +1,11 @@
 # @hyper-gate/react
 
+## 0.0.6
+
+### Patch Changes
+
+- 3c8909e: fix: build using bunup
+
 ## 0.0.5
 
 ### Patch Changes

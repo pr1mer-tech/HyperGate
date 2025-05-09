@@ -1,5 +1,11 @@
 # @hyper-gate/core
 
+## 0.0.8
+
+### Patch Changes
+
+- 3c8909e: fix: build using bunup
+
 ## 0.0.7
 
 ### Patch Changes

@@ -1,5 +1,15 @@
 # hypergate
 
+## 0.0.5
+
+### Patch Changes
+
+- 3c8909e: fix: build using bunup
+- Updated dependencies [3c8909e]
+  - @hyper-gate/connectkit@0.0.8
+  - @hyper-gate/core@0.0.8
+  - @hyper-gate/react@0.0.6
+
 ## 0.0.4
 
 ### Patch Changes
