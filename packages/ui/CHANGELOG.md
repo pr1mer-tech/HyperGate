@@ -1,5 +1,11 @@
 # @hyper-gate/react
 
+## 0.0.3
+
+### Patch Changes
+
+- d6baf4d: weird index bug
+
 ## 0.0.2
 
 ### Patch Changes
