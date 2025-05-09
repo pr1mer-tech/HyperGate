@@ -1,5 +1,11 @@
 # @hypergate/core
 
+## 0.0.3
+
+### Patch Changes
+
+- 07e6319: public packages
+
 ## 0.0.2
 
 ### Patch Changes
