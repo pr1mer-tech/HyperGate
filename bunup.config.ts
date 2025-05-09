@@ -9,6 +9,7 @@ export default defineWorkspace([
       format: ["esm", "cjs"],
       dts: false,
       target: "browser",
+      external: ["zustand", "xrpl", "xumm", "@gemwallet/api"],
     },
   },
   {
@@ -16,9 +17,9 @@ export default defineWorkspace([
     root: "packages/ui",
     config: {
       entry: ["src/exports/index.ts"],
-      format: ["esm", "cjs"],
+      format: ["esm"],
       dts: false,
-      external: ["react"],
+      external: ["react", "react-dom"],
       target: "browser",
     },
   },
@@ -27,9 +28,15 @@ export default defineWorkspace([
     root: "packages/connectkit",
     config: {
       entry: ["src/index.ts"],
-      format: ["esm", "cjs"],
+      format: ["esm"],
       dts: false,
-      external: ["react"],
+      external: [
+        "react",
+        "react-dom",
+        "framer-motion",
+        "@hyper-gate/core",
+        "@hyper-gate/react",
+      ],
       target: "browser",
     },
   },
