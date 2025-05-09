@@ -2,11 +2,11 @@
   "name": "hypergate",
   "private": true,
   "scripts": {
-    "build": "bun bunup && turbo build",
+    "build": "turbo build",
     "dev": "turbo dev",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "publish-packages": "bun bunup && changeset version && changeset publish"
+    "publish-packages": "bun run build && changeset version && changeset publish"
   },
   "devDependencies": {
     "@changesets/cli": "^2.29.3",
@@ -27,5 +27,8 @@
   "workspaces": [
     "apps/*",
     "packages/*"
-  ]
+  ],
+  "dependencies": {
+    "bunchee": "^6.5.1"
+  }
 }

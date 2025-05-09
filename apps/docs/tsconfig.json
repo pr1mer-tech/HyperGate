@@ -5,7 +5,8 @@
       {
         "name": "next"
       }
-    ]
+    ],
+    "moduleResolution": "Bundler"
   },
   "include": [
     "next-env.d.ts",

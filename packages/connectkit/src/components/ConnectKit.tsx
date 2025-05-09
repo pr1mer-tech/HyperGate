@@ -3,10 +3,10 @@ import React, {
   createElement,
   useEffect,
   useState,
-  ReactNode,
+  type ReactNode,
 } from "react";
 import { Buffer } from "buffer";
-import {
+import type {
   CustomTheme,
   Languages,
   Mode,
@@ -22,13 +22,14 @@ import { useThemeFont } from "../hooks/useGoogleFont";
 import { useChains } from "../hooks/useChains";
 import {
   useConnectCallback,
-  useConnectCallbackProps,
+  type useConnectCallbackProps,
 } from "../hooks/useConnectCallback";
 import { isFamily } from "../utils/wallets";
 import { useConnector } from "../hooks/useConnectors";
 import { HyperGateContext, useAccount } from "@hyper-gate/react";
 import { Web3ContextProvider } from "./contexts/web3";
 import { useChainIsSupported } from "../hooks/useChainIsSupported";
+import type { Config } from "@hyper-gate/core";
 
 export const routes = {
   ONBOARDING: "onboarding",
@@ -105,6 +106,7 @@ type ConnectKitProviderProps = {
   customTheme?: CustomTheme;
   options?: ConnectKitOptions;
   debugMode?: boolean;
+  context?: React.Context<Config | undefined>;
 } & useConnectCallbackProps;
 
 export const ConnectKitProvider = ({
@@ -116,9 +118,10 @@ export const ConnectKitProvider = ({
   onConnect,
   onDisconnect,
   debugMode = false,
+  context,
 }: ConnectKitProviderProps) => {
   // ConnectKitProvider must be within a WagmiProvider
-  if (!React.useContext(HyperGateContext)) {
+  if (!React.useContext(context ?? HyperGateContext)) {
     throw Error("ConnectKitProvider must be within a HypergateProvider");
   }
 
@@ -256,19 +259,17 @@ export const ConnectKitProvider = ({
   return createElement(
     Context.Provider,
     { value },
-    <>
-      <Web3ContextProvider enabled={open}>
-        <ThemeProvider theme={defaultTheme}>
-          {children}
-          <ConnectKitModal
-            lang={ckLang}
-            theme={ckTheme}
-            mode={mode}
-            customTheme={ckCustomTheme}
-          />
-        </ThemeProvider>
-      </Web3ContextProvider>
-    </>,
+    <Web3ContextProvider enabled={open}>
+      <ThemeProvider theme={defaultTheme}>
+        {children}
+        <ConnectKitModal
+          lang={ckLang}
+          theme={ckTheme}
+          mode={mode}
+          customTheme={ckCustomTheme}
+        />
+      </ThemeProvider>
+    </Web3ContextProvider>,
   );
 };
 
