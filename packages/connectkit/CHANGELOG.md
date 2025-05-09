@@ -1,5 +1,13 @@
 # @hypergate/connectkit
 
+## 0.0.2
+
+### Patch Changes
+
+- 27aa9c3: initial release
+- Updated dependencies [27aa9c3]
+  - @hypergate/core@0.0.2
+
 ## 0.0.1
 
 ### Patch Changes
