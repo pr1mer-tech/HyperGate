@@ -1,6 +1,6 @@
 "use client";
 
-import { type ResolvedRegister, type State, hydrate } from "@hypergate/core";
+import { type ResolvedRegister, type State, hydrate } from "@hyper-gate/core";
 import { type ReactElement, useEffect, useRef } from "react";
 
 export type HydrateProps = {

@@ -5,7 +5,7 @@ description: Hook for fetching information about a block at a block number, hash
 ---
 
 <script setup>
-  const packageName = '@hypergate/core'; const actionName = 'getBlock'; const
+  const packageName = '@hyper-gate/core'; const actionName = 'getBlock'; const
   typeName = 'GetBlock'; const TData = 'GetBlockData'; const TError =
   'GetBlockErrorType';
 </script>
@@ -19,7 +19,7 @@ Hook for fetching information about a block at a block number, hash or tag.
 ## Import
 
 ```ts
-import { useBlock } from "@hypergate/react";
+import { useBlock } from "@hyper-gate/react";
 ```
 
 ## Usage
@@ -45,7 +45,7 @@ import { useBlock } from "@hypergate/react";
 // @allowUmdGlobalAccess
 // @module: esnext
 // @moduleResolution: bundler
-import { type UseBlockParameters } from "@hypergate/react";
+import { type UseBlockParameters } from "@hyper-gate/react";
 ```
 
 ### blockHash
@@ -58,7 +58,7 @@ Information at a given block hash.
 // @allowUmdGlobalAccess
 // @module: esnext
 // @moduleResolution: bundler
-import { useBlock } from "@hypergate/react";
+import { useBlock } from "@hyper-gate/react";
 
 function App() {
   const result = useBlock({
@@ -78,7 +78,7 @@ Information at a given block number.
 // @allowUmdGlobalAccess
 // @module: esnext
 // @moduleResolution: bundler
-import { useBlock } from "@hypergate/react";
+import { useBlock } from "@hyper-gate/react";
 
 function App() {
   const result = useBlock({
@@ -97,7 +97,7 @@ Whether or not to include transactions as objects.
 // @allowUmdGlobalAccess
 // @module: esnext
 // @moduleResolution: bundler
-import { useBlock } from "@hypergate/react";
+import { useBlock } from "@hyper-gate/react";
 
 function App() {
   const result = useBlock({
@@ -112,5 +112,5 @@ function App() {
 // @allowUmdGlobalAccess
 // @module: esnext
 // @moduleResolution: bundler
-import { type UseBlockReturnType } from "@hypergate/react";
+import { type UseBlockReturnType } from "@hyper-gate/react";
 ```

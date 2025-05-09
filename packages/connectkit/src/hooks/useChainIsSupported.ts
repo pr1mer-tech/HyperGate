@@ -1,4 +1,4 @@
-import { useConfig } from "@hypergate/react";
+import { useConfig } from "@hyper-gate/react";
 
 export function useChainIsSupported(chainId?: number): boolean | null {
   const { chains } = useConfig();

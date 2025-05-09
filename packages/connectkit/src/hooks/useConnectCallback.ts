@@ -1,4 +1,4 @@
-import { useAccountEffect } from "@hypergate/react";
+import { useAccountEffect } from "@hyper-gate/react";
 
 export type useConnectCallbackProps = {
   onConnect?: ({

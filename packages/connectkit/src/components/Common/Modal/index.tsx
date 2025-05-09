@@ -40,7 +40,7 @@ import FocusTrap from "../../../hooks/useFocusTrap";
 import usePrevious from "../../../hooks/usePrevious";
 import { CustomTheme } from "../../../types";
 import { useThemeContext } from "../../ConnectKitThemeProvider/ConnectKitThemeProvider";
-import { useAccount, useSwitchChain } from "@hypergate/react";
+import { useAccount, useSwitchChain } from "@hyper-gate/react";
 import { AuthIcon } from "../../../assets/icons";
 import useLocales from "../../../hooks/useLocales";
 import FitText from "../FitText";

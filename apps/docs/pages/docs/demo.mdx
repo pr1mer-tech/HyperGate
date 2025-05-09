@@ -37,8 +37,8 @@ const Separator = React.forwardRef<HTMLDivElement, any>(
 Separator.displayName = "Separator";
 
 // ---cut---
-import { useAccount, useConnect, useConnectors } from "@hypergate/react";
-import { ConnectKitButton } from "@hypergate/connectkit";
+import { useAccount, useConnect, useConnectors } from "@hyper-gate/react";
+import { ConnectKitButton } from "@hyper-gate/connectkit";
 
 // [!include ~/components/connect-wallet.tsx:connect-wallet]
 ```
@@ -65,8 +65,8 @@ const Input = React.forwardRef<HTMLInputElement, any>(
 );
 Input.displayName = "Input";
 // ---cut---
-import { useAccount, useAccountEffect, useBalance } from "@hypergate/react";
-import { Address, formatHumanUnits } from "@hypergate/core";
+import { useAccount, useAccountEffect, useBalance } from "@hyper-gate/react";
+import { Address, formatHumanUnits } from "@hyper-gate/core";
 import { useState } from "react";
 
 // [!include ~/components/balance.tsx:balance]

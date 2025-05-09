@@ -1,4 +1,4 @@
-# @hypergate/connectkit
+# @hyper-gate/connectkit
 
 ## 0.0.4
 
@@ -12,7 +12,7 @@
 
 - 07e6319: public packages
 - Updated dependencies [07e6319]
-  - @hypergate/core@0.0.3
+  - @hyper-gate/core@0.0.3
 
 ## 0.0.2
 
@@ -20,7 +20,7 @@
 
 - 27aa9c3: initial release
 - Updated dependencies [27aa9c3]
-  - @hypergate/core@0.0.2
+  - @hyper-gate/core@0.0.2
 
 ## 0.0.1
 
@@ -30,4 +30,4 @@
 - bf693f6: initial release
 - Updated dependencies
 - Updated dependencies [bf693f6]
-  - @hypergate/core@0.0.1
+  - @hyper-gate/core@0.0.1

@@ -8,7 +8,7 @@ export type FormatUnitsErrorType = ErrorType;
  * - Docs: https://hypergate.pr1mer.tech/docs/utils/formatUnits
  *
  * @example
- * import { formatUnits } from '@hypergate/core'
+ * import { formatUnits } from '@hyper-gate/core'
  *
  * formatUnits(420000000000n, 9)
  * // '420'
@@ -59,7 +59,7 @@ function toSuperscript(str: string) {
  * - Docs: https://hypergate.pr1mer.tech/docs/utils/formatUnits
  *
  * @example
- * import { formatHumanUnits } from '@hypergate/core'
+ * import { formatHumanUnits } from '@hyper-gate/core'
  *
  * formatHumanUnits(420100000000n, 9, 2)
  * // '420.1'

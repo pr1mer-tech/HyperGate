@@ -1,7 +1,7 @@
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
   root: true,
-  extends: ["@hypergate/eslint-config/react-internal.js"],
+  extends: ["@hyper-gate/eslint-config/react-internal.js"],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     project: "./tsconfig.lint.json",

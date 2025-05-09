@@ -1,4 +1,4 @@
-import { Connector, CreateConnectorFn } from "@hypergate/core";
+import { Connector, CreateConnectorFn } from "@hyper-gate/core";
 // import { injected } from "@wagmi/connectors";
 
 import { walletConfigs } from "./walletConfigs";

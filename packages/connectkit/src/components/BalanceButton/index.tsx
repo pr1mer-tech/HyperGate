@@ -6,7 +6,7 @@ import styled from "./../../styles/styled";
 import { keyframes } from "styled-components";
 import { motion, AnimatePresence } from "framer-motion";
 
-import { useAccount, useBalance, useBlockNumber } from "@hypergate/react";
+import { useAccount, useBalance, useBlockNumber } from "@hyper-gate/react";
 import useIsMounted from "../../hooks/useIsMounted";
 
 import Chain from "../Common/Chain";
@@ -15,7 +15,7 @@ import ThemedButton from "../Common/ThemedButton";
 import { nFormatter } from "../../utils";
 import { useChains } from "../../hooks/useChains";
 import { useChainIsSupported } from "../../hooks/useChainIsSupported";
-import { formatUnits } from "@hypergate/core";
+import { formatUnits } from "@hyper-gate/core";
 
 const Container = styled(motion.div)`
   display: flex;

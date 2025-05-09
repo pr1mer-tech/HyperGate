@@ -5,10 +5,13 @@ import {
   type ResolvedRegister,
   type WatchBlocksParameters,
   watchBlocks,
-} from "@hypergate/core";
-import type { UnionCompute, UnionExactPartial } from "@hypergate/core/internal";
+} from "@hyper-gate/core";
+import type {
+  UnionCompute,
+  UnionExactPartial,
+} from "@hyper-gate/core/internal";
 import { useEffect } from "react";
-import type { BlockTag } from "viem";
+import type { BlockTag } from "@hyper-gate/core";
 
 import type { ConfigParameter, EnabledParameter } from "../types/properties.js";
 import { useChainId } from "./useChainId.js";
@@ -16,7 +19,7 @@ import { useConfig } from "./useConfig.js";
 
 export type UseWatchBlocksParameters<
   includeTransactions extends boolean = false,
-  blockTag extends BlockTag = "latest",
+  blockTag extends BlockTag = "current",
   config extends Config = Config,
   chainId extends
     config["chains"][number]["id"] = config["chains"][number]["id"],
@@ -36,7 +39,7 @@ export function useWatchBlocks<
   chainId extends
     config["chains"][number]["id"] = config["chains"][number]["id"],
   includeTransactions extends boolean = false,
-  blockTag extends BlockTag = "latest",
+  blockTag extends BlockTag = "current",
 >(
   parameters: UseWatchBlocksParameters<
     includeTransactions,

@@ -1,4 +1,4 @@
-import { Connector } from "@hypergate/core";
+import { Connector } from "@hyper-gate/core";
 
 import { useConnectors } from "../hooks/useConnectors";
 import { walletConfigs, WalletConfigProps } from "./walletConfigs";

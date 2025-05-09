@@ -4,7 +4,7 @@ import {
   type GetConnectorsReturnType,
   getConnectors,
   watchConnectors,
-} from "@hypergate/core";
+} from "@hyper-gate/core";
 import { useSyncExternalStore } from "react";
 
 import type { ConfigParameter } from "../types/properties.js";

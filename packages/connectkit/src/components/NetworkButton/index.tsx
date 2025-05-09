@@ -3,7 +3,7 @@ import { All } from "./../../types";
 
 import { AnimatePresence } from "framer-motion";
 
-import { useAccount } from "@hypergate/react";
+import { useAccount } from "@hyper-gate/react";
 import useIsMounted from "../../hooks/useIsMounted";
 
 import Chain from "../Common/Chain";

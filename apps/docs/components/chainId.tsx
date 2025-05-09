@@ -1,6 +1,6 @@
 "use client";
 
-import { useChainId } from "@hypergate/react";
+import { useChainId } from "@hyper-gate/react";
 
 export function WatchChain() {
   const chainId = useChainId();

@@ -9,7 +9,7 @@
     "preview": "vocs preview"
   },
   "dependencies": {
-    "@hypergate/connectkit": "*",
+    "@hyper-gate/connectkit": "*",
     "@radix-ui/react-separator": "^1.1.0",
     "@radix-ui/react-slot": "^1.1.0",
     "class-variance-authority": "^0.7.0",
@@ -22,8 +22,8 @@
     "vocs": "^1.0.0-alpha.58"
   },
   "devDependencies": {
-    "@hypergate/eslint-config": "*",
-    "@hypergate/typescript-config": "*",
+    "@hyper-gate/eslint-config": "*",
+    "@hyper-gate/typescript-config": "*",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

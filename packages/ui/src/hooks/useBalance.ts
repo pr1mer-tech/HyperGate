@@ -4,15 +4,15 @@ import type {
   Config,
   GetBalanceErrorType,
   ResolvedRegister,
-} from "@hypergate/core";
-import type { Compute } from "@hypergate/core/internal";
+} from "@hyper-gate/core";
+import type { Compute } from "@hyper-gate/core/internal";
 import {
   type GetBalanceData,
   type GetBalanceOptions,
   type GetBalanceQueryKey,
   getBalanceQueryOptions,
-} from "@hypergate/core/query";
-import type { GetBalanceQueryFnData } from "@hypergate/core/query";
+} from "@hyper-gate/core/query";
+import type { GetBalanceQueryFnData } from "@hyper-gate/core/query";
 
 import type { ConfigParameter, QueryParameter } from "../types/properties.js";
 import { type UseQueryReturnType, useQuery } from "../utils/query.js";
@@ -40,9 +40,7 @@ export type UseBalanceReturnType<selectData = GetBalanceData> =
 export function useBalance<
   config extends Config = ResolvedRegister["config"],
   selectData = GetBalanceData,
->(
-  parameters: UseBalanceParameters<config, selectData> = {},
-): UseBalanceReturnType<selectData> {
+>(parameters: UseBalanceParameters<config, selectData> = {}) {
   const { address, query = {} } = parameters;
 
   const config = useConfig(parameters);

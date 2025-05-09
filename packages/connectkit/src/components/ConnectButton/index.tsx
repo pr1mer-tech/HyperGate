@@ -1,5 +1,5 @@
 import type React from "react";
-import { useAccount, useChains } from "@hypergate/react";
+import { useAccount, useChains } from "@hyper-gate/react";
 import { truncateENSAddress, truncateXRPAddress } from "./../../utils";
 import useIsMounted from "../../hooks/useIsMounted";
 
@@ -21,7 +21,7 @@ import { AuthIcon } from "../../assets/icons";
 import useLocales from "../../hooks/useLocales";
 import { useChainIsSupported } from "../../hooks/useChainIsSupported";
 import { useEnsFallbackConfig } from "../../hooks/useEnsFallbackConfig";
-import type { Address, Chain } from "@hypergate/core";
+import type { Address, Chain } from "@hyper-gate/core";
 
 const contentVariants: Variants = {
   initial: {

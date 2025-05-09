@@ -1,4 +1,4 @@
-# @hypergate/core
+# @hyper-gate/core
 
 ## 0.0.4
 

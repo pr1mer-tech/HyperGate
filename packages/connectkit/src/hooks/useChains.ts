@@ -1,5 +1,5 @@
-import { Chain } from "@hypergate/core";
-import { useConfig } from "@hypergate/react";
+import { Chain } from "@hyper-gate/core";
+import { useConfig } from "@hyper-gate/react";
 
 export function useChains() {
   const config = useConfig();

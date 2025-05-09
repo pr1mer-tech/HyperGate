@@ -1,4 +1,4 @@
-import { createConfig, xrplMainnet, type Config } from "@hypergate/core";
+import { createConfig, xrplMainnet, type Config } from "@hyper-gate/core";
 import { useChainIsSupported } from "../hooks/useChainIsSupported";
 
 const ensFallbackConfig = createConfig({

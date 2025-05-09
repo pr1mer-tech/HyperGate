@@ -1,7 +1,7 @@
 "use client";
 
-import { useAccount, useAccountEffect, useBalance } from "@hypergate/react";
-import { Address, formatHumanUnits } from "@hypergate/core";
+import { useAccount, useAccountEffect, useBalance } from "@hyper-gate/react";
+import { Address, formatHumanUnits } from "@hyper-gate/core";
 import { useState } from "react";
 import { Input } from "./ui/input";
 

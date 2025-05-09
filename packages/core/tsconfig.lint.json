@@ -1,5 +1,5 @@
 {
-  "extends": "@hypergate/typescript-config/base.json",
+  "extends": "@hyper-gate/typescript-config/base.json",
   "compilerOptions": {
     "outDir": "dist"
   },

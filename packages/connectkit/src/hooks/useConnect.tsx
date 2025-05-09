@@ -6,10 +6,10 @@
 import {
   type UseConnectParameters,
   useConnect as hypergateUseConnect,
-} from "@hypergate/react";
+} from "@hyper-gate/react";
 import { useContext } from "../components/ConnectKit";
 import { useLastConnector } from "./useLastConnector";
-import { Connector } from "@hypergate/core";
+import { Connector } from "@hyper-gate/core";
 
 export function useConnect({ ...props }: UseConnectParameters = {}) {
   const context = useContext();

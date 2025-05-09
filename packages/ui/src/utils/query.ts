@@ -14,10 +14,9 @@ import {
 import type {
   Compute,
   ExactPartial,
-  Omit,
   UnionStrictOmit,
-} from "@hypergate/core/internal";
-import { hashFn } from "@hypergate/core/query";
+} from "@hyper-gate/core/internal";
+import { hashFn } from "@hyper-gate/core/query";
 
 export type UseMutationParameters<
   data = unknown,

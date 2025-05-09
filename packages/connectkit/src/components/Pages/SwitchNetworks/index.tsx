@@ -6,7 +6,7 @@ import {
   ModalBody,
 } from "../../Common/Modal/styles";
 import ChainSelectList from "../../Common/ChainSelectList";
-import { useAccount, useConnect, useDisconnect } from "@hypergate/react";
+import { useAccount, useConnect, useDisconnect } from "@hyper-gate/react";
 
 import useLocales from "../../../hooks/useLocales";
 

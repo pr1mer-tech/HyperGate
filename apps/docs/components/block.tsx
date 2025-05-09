@@ -1,6 +1,6 @@
 "use client";
 
-import { useBlock } from "@hypergate/react";
+import { useBlock } from "@hyper-gate/react";
 
 export function WatchLedger() {
   const { data: block } = useBlock();

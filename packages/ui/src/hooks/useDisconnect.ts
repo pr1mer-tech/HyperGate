@@ -1,15 +1,15 @@
 "use client";
 
 import { useMutation } from "@tanstack/react-query";
-import type { Connector, DisconnectErrorType } from "@hypergate/core";
-import type { Compute } from "@hypergate/core/internal";
+import type { Connector, DisconnectErrorType } from "@hyper-gate/core";
+import type { Compute } from "@hyper-gate/core/internal";
 import {
   type DisconnectData,
   type DisconnectMutate,
   type DisconnectMutateAsync,
   type DisconnectVariables,
   disconnectMutationOptions,
-} from "@hypergate/core/query";
+} from "@hyper-gate/core/query";
 
 import type { ConfigParameter } from "../types/properties.js";
 import type {

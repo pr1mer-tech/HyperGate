@@ -26,7 +26,7 @@ import {
 } from "../hooks/useConnectCallback";
 import { isFamily } from "../utils/wallets";
 import { useConnector } from "../hooks/useConnectors";
-import { HyperGateContext, useAccount } from "@hypergate/react";
+import { HyperGateContext, useAccount } from "@hyper-gate/react";
 import { Web3ContextProvider } from "./contexts/web3";
 import { useChainIsSupported } from "../hooks/useChainIsSupported";
 

@@ -5,15 +5,15 @@ import type {
   Config,
   ResolvedRegister,
   SwitchChainErrorType,
-} from "@hypergate/core";
-import type { Compute } from "@hypergate/core/internal";
+} from "@hyper-gate/core";
+import type { Compute } from "@hyper-gate/core/internal";
 import {
   type SwitchChainData,
   type SwitchChainMutate,
   type SwitchChainMutateAsync,
   type SwitchChainVariables,
   switchChainMutationOptions,
-} from "@hypergate/core/query";
+} from "@hyper-gate/core/query";
 
 import type { ConfigParameter } from "../types/properties.js";
 import type {
@@ -67,17 +67,18 @@ export function useSwitchChain<
   const config = useConfig(parameters);
 
   const mutationOptions = switchChainMutationOptions(config);
+  //@ts-expect-error - tsup sees a problem
   const { mutate, mutateAsync, ...result } = useMutation({
     ...mutation,
     ...mutationOptions,
   });
 
   type Return = UseSwitchChainReturnType<config, context>;
-  // @ts-expect-error - context is not used in the return type
+
   return {
     ...result,
     chains: useChains({ config }) as unknown as config["chains"],
-    switchChain: mutate as Return["switchChain"],
-    switchChainAsync: mutateAsync as Return["switchChainAsync"],
-  };
+    switchChain: mutate as unknown as Return["switchChain"],
+    switchChainAsync: mutateAsync as unknown as Return["switchChainAsync"],
+  } as Return;
 }

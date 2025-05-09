@@ -6,7 +6,7 @@ import {
   type ResolvedRegister,
   getAccount,
   watchAccount,
-} from "@hypergate/core";
+} from "@hyper-gate/core";
 
 import type { ConfigParameter } from "../types/properties.js";
 import { useConfig } from "./useConfig.jsx";

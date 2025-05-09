@@ -4,12 +4,12 @@
 
 import React from "react";
 
-import { useAccount } from "@hypergate/react";
+import { useAccount } from "@hyper-gate/react";
 
 import { useChains } from "../../../hooks/useChains";
 import { useWalletConnectUri } from "../../../hooks/connectors/useWalletConnectUri";
 import { useChainIsSupported } from "../../../hooks/useChainIsSupported";
-import { Address, Chain } from "@hypergate/core";
+import { Address, Chain } from "@hyper-gate/core";
 
 type Web3Context = {
   connect: {

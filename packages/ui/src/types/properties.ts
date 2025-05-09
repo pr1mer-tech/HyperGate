@@ -1,6 +1,5 @@
 import type { DefaultError, QueryKey } from "@tanstack/react-query";
-import type { Config } from "@hypergate/core";
-import type { Omit } from "@hypergate/core/internal";
+import type { Config } from "@hyper-gate/core";
 
 import type {
   UseInfiniteQueryParameters,

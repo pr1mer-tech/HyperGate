@@ -1,5 +1,5 @@
-import { Connector } from "@hypergate/core";
-import { useConnectors as useHyperGateConnectors } from "@hypergate/react";
+import { Connector } from "@hyper-gate/core";
+import { useConnectors as useHyperGateConnectors } from "@hyper-gate/react";
 
 export function useConnectors() {
   const connectors = useHyperGateConnectors();

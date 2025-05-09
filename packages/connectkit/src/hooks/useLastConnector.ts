@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useConfig } from "@hypergate/react";
+import { useConfig } from "@hyper-gate/react";
 
 export const useLastConnector = () => {
   const { storage } = useConfig();

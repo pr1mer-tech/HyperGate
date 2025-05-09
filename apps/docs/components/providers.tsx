@@ -1,9 +1,9 @@
 "use client";
 
-import { XummConnector, GemConnector, createConfig } from "@hypergate/core";
+import { XummConnector, GemConnector, createConfig } from "@hyper-gate/core";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ConnectKitProvider, getDefaultConfig } from "@hypergate/connectkit";
-import { HyperGateProvider } from "@hypergate/react";
+import { ConnectKitProvider, getDefaultConfig } from "@hyper-gate/connectkit";
+import { HyperGateProvider } from "@hyper-gate/react";
 
 const queryClient = new QueryClient();
 const config = createConfig(

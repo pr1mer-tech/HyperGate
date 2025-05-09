@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import type { Config, ResolvedRegister } from "@hypergate/core";
+import type { Config, ResolvedRegister } from "@hyper-gate/core";
 import type { ConfigParameter } from "../types/properties";
 import { HyperGateContext } from "../context";
 

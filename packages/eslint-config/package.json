@@ -1,5 +1,5 @@
 {
-  "name": "@hypergate/eslint-config",
+  "name": "@hyper-gate/eslint-config",
   "version": "0.0.0",
   "private": true,
   "files": [

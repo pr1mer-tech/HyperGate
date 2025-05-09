@@ -5,8 +5,11 @@ import {
   type ResolvedRegister,
   type WatchBlockNumberParameters,
   watchBlockNumber,
-} from "@hypergate/core";
-import type { UnionCompute, UnionExactPartial } from "@hypergate/core/internal";
+} from "@hyper-gate/core";
+import type {
+  UnionCompute,
+  UnionExactPartial,
+} from "@hyper-gate/core/internal";
 import { useEffect } from "react";
 
 import type { ConfigParameter, EnabledParameter } from "../types/properties.js";

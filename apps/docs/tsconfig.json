@@ -1,5 +1,5 @@
 {
-  "extends": "@hypergate/typescript-config/nextjs.json",
+  "extends": "@hyper-gate/typescript-config/nextjs.json",
   "compilerOptions": {
     "plugins": [
       {

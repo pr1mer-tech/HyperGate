@@ -14,7 +14,7 @@ import ChainSelectDropdown from "../ChainSelectDropdown";
 import Chain from "../Chain";
 import useLocales from "../../../hooks/useLocales";
 
-import { useAccount, useSwitchChain } from "@hypergate/react";
+import { useAccount, useSwitchChain } from "@hyper-gate/react";
 
 const Container = styled(motion.div)``;
 

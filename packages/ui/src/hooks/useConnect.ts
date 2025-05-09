@@ -5,15 +5,15 @@ import type {
   Config,
   ConnectErrorType,
   ResolvedRegister,
-} from "@hypergate/core";
-import type { Compute } from "@hypergate/core/internal";
+} from "@hyper-gate/core";
+import type { Compute } from "@hyper-gate/core/internal";
 import {
   type ConnectData,
   type ConnectMutate,
   type ConnectMutateAsync,
   type ConnectVariables,
   connectMutationOptions,
-} from "@hypergate/core/query";
+} from "@hyper-gate/core/query";
 import { useEffect } from "react";
 
 import type { ConfigParameter } from "../types/properties.js";
@@ -87,7 +87,6 @@ export function useConnect<
     );
   }, [config, result.reset]);
 
-  //@ts-expect-error - undefined cannot be unknown?
   return {
     ...result,
     connect: mutate as unknown as ConnectMutate<config, context>,

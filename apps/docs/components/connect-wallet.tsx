@@ -5,9 +5,9 @@ import {
   useAccountEffect,
   useConnect,
   useConnectors,
-} from "@hypergate/react";
+} from "@hyper-gate/react";
 import { Button } from "./ui/button";
-import { ConnectKitButton } from "@hypergate/connectkit";
+import { ConnectKitButton } from "@hyper-gate/connectkit";
 import { Separator } from "./ui/separator";
 
 // [!region connect-wallet]

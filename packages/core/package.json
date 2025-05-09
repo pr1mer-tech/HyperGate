@@ -16,8 +16,8 @@
     "dev": "tsup src/index.ts --format cjs,esm --dts --watch"
   },
   "devDependencies": {
-    "@hypergate/eslint-config": "*",
-    "@hypergate/typescript-config": "*",
+    "@hyper-gate/eslint-config": "*",
+    "@hyper-gate/typescript-config": "*",
     "@turbo/gen": "^1.12.4",
     "@types/bun": "^1.1.6",
     "@types/eslint": "^8.56.5",

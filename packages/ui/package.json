@@ -1,5 +1,5 @@
 {
-  "name": "@hypergate/react",
+  "name": "@hyper-gate/react",
   "version": "0.0.0",
   "private": true,
   "exports": {
@@ -7,13 +7,18 @@
     "./config": "./src/config.tsx",
     "./account": "./src/account.ts"
   },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "scripts": {
-    "generate:component": "turbo gen react-component"
+    "generate:component": "turbo gen react-component",
+    "build": "tsup src/exports/index.ts --format cjs,esm --dts",
+    "dev": "tsup src/exports/index.ts --format cjs,esm --dts --watch"
   },
   "devDependencies": {
-    "@hypergate/core": "*",
-    "@hypergate/eslint-config": "*",
-    "@hypergate/typescript-config": "*",
+    "@hyper-gate/core": "*",
+    "@hyper-gate/eslint-config": "*",
+    "@hyper-gate/typescript-config": "*",
     "@turbo/gen": "^1.12.4",
     "@types/node": "^20.11.24",
     "@types/eslint": "^8.56.5",

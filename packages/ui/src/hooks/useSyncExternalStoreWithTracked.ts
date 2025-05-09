@@ -1,6 +1,6 @@
 "use client";
 
-import { deepEqual } from "@hypergate/core/internal";
+import { deepEqual } from "@hyper-gate/core/internal";
 import { useRef } from "react";
 import { useSyncExternalStoreWithSelector } from "use-sync-external-store/shim/with-selector.js";
 

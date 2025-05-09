@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { useAccount } from "@hypergate/react";
+import { useAccount } from "@hyper-gate/react";
 import { routes, useContext } from "../ConnectKit";
 import { CustomTheme, Languages, Theme, Mode } from "../../types";
 import Modal from "../Common/Modal";

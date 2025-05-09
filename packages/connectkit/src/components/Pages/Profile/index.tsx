@@ -11,7 +11,7 @@ import {
   useDisconnect,
   useAccount,
   useBalance,
-} from "@hypergate/react";
+} from "@hyper-gate/react";
 
 import {
   AvatarContainer,
@@ -38,7 +38,7 @@ import { AnimatePresence } from "framer-motion";
 import { useThemeContext } from "../../ConnectKitThemeProvider/ConnectKitThemeProvider";
 import useLocales from "../../../hooks/useLocales";
 import { useEnsFallbackConfig } from "../../../hooks/useEnsFallbackConfig";
-import { formatUnits } from "@hypergate/core";
+import { formatUnits } from "@hyper-gate/core";
 
 const Profile: React.FC<{ closeModal?: () => void }> = ({ closeModal }) => {
   const context = useContext();

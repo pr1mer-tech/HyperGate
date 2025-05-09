@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useAccount, useSwitchChain } from "@hypergate/react";
+import { useAccount, useSwitchChain } from "@hyper-gate/react";
 import { chainConfigs } from "../../../constants/chainConfigs";
 
 import {

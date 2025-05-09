@@ -1,6 +1,6 @@
 "use client";
 
-import type { ResolvedRegister, State } from "@hypergate/core";
+import type { ResolvedRegister, State } from "@hyper-gate/core";
 import { createContext, createElement } from "react";
 import { Hydrate } from "./hydrate.js";
 

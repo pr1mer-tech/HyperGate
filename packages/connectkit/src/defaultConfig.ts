@@ -1,4 +1,4 @@
-import { ConfigOptions, xrplMainnet } from "@hypergate/core";
+import { ConfigOptions, xrplMainnet } from "@hyper-gate/core";
 
 // TODO: Move these to a provider rather than global variable
 let globalAppName: string;
