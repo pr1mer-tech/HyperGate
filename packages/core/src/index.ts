@@ -23,6 +23,8 @@ export * from "./actions/getConnections";
 export * from "./actions/watchConnections";
 export * from "./actions/disconnect";
 export * from "./actions/reconnect";
+export * from "./actions/getConnectorClient";
+export * from "./actions/estimateGas";
 export * from "./hydrate";
 export * from "./internal";
 export * from "./query";

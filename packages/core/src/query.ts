@@ -6,3 +6,5 @@ export * from "./query/getBlock";
 export * from "./query/getBlockNumber";
 export * from "./query/switchChain";
 export * from "./query/disconnect";
+export * from "./query/estimateGas";
+export * from "./query/getConnectorClient";
