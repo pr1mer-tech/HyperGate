@@ -1,0 +1,23 @@
+---
+layout: docs
+title: useSwitchChain
+description: Hook to switch the current blockchain network.
+---
+
+# useSwitchChain
+
+Hook to switch the current blockchain network.
+
+## Usage
+
+```tsx twoslash
+// @allowUmdGlobalAccess
+// @module: esnext
+// @moduleResolution: bundler
+import { useSwitchChain } from "@hyper-gate/react";
+
+export function App() {
+  const { switchChain } = useSwitchChain();
+  //        ^?
+}
+``` 

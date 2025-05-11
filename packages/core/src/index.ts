@@ -24,6 +24,7 @@ export * from "./actions/watchConnections";
 export * from "./actions/disconnect";
 export * from "./actions/reconnect";
 export * from "./actions/getConnectorClient";
+export * from "./actions/getTransaction";
 export * from "./actions/estimateGas";
 export * from "./hydrate";
 export * from "./internal";

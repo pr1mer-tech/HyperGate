@@ -1,0 +1,23 @@
+---
+layout: docs
+title: useConnectorClient
+description: Hook to get the current connector client.
+---
+
+# useConnectorClient
+
+Hook to get the current connector client.
+
+## Usage
+
+```tsx twoslash
+// @allowUmdGlobalAccess
+// @module: esnext
+// @moduleResolution: bundler
+import { useConnectorClient } from "@hyper-gate/react";
+
+export function App() {
+  const connectorClient = useConnectorClient();
+  //        ^?
+}
+``` 

@@ -1,0 +1,23 @@
+---
+layout: docs
+title: useBlockNumber
+description: Hook to get the current block number.
+---
+
+# useBlockNumber
+
+Hook to get the current block number.
+
+## Usage
+
+```tsx twoslash
+// @allowUmdGlobalAccess
+// @module: esnext
+// @moduleResolution: bundler
+import { useBlockNumber } from "@hyper-gate/react";
+
+export function App() {
+  const blockNumber = useBlockNumber();
+  //        ^?
+}
+``` 

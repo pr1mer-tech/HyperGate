@@ -1,0 +1,23 @@
+---
+layout: docs
+title: useEstimateGas
+description: Hook to estimate gas for a transaction.
+---
+
+# useEstimateGas
+
+Hook to estimate gas for a transaction.
+
+## Usage
+
+```tsx twoslash
+// @allowUmdGlobalAccess
+// @module: esnext
+// @moduleResolution: bundler
+import { useEstimateGas } from "@hyper-gate/react";
+
+export function App() {
+  const estimateGas = useEstimateGas();
+  //        ^?
+}
+```

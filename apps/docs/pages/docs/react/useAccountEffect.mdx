@@ -1,0 +1,29 @@
+---
+layout: docs
+title: useAccountEffect
+description: Hook to perform side effects when the account changes.
+---
+
+# useAccountEffect
+
+Hook to perform side effects when the account changes.
+
+## Usage
+
+```tsx twoslash
+// @allowUmdGlobalAccess
+// @module: esnext
+// @moduleResolution: bundler
+import { useAccountEffect } from "@hyper-gate/react";
+
+export function App() {
+  useAccountEffect({
+    onConnect: (data) => {
+      console.log("connected", data);
+    },
+    onDisconnect: () => {
+      console.log("disconnected");
+    },
+  });
+}
+``` 

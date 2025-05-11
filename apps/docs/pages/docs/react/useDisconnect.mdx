@@ -1,0 +1,23 @@
+---
+layout: docs
+title: useDisconnect
+description: Hook to disconnect the current user.
+---
+
+# useDisconnect
+
+Hook to disconnect the current user.
+
+## Usage
+
+```tsx twoslash
+// @allowUmdGlobalAccess
+// @module: esnext
+// @moduleResolution: bundler
+import { useDisconnect } from "@hyper-gate/react";
+
+export function App() {
+  const { disconnect } = useDisconnect();
+  //        ^?
+}
+``` 

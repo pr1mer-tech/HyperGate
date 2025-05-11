@@ -1,0 +1,26 @@
+---
+layout: docs
+title: useWatchBlockNumber
+description: Hook to watch for changes in the block number.
+---
+
+# useWatchBlockNumber
+
+Hook to watch for changes in the block number.
+
+## Usage
+
+```tsx twoslash
+// @allowUmdGlobalAccess
+// @module: esnext
+// @moduleResolution: bundler
+import { useWatchBlockNumber } from "@hyper-gate/react";
+
+export function App() {
+  useWatchBlockNumber({
+    onBlockNumber: (blockNumber) => {
+      console.log("new block number", blockNumber);
+    },
+  });
+}
+``` 

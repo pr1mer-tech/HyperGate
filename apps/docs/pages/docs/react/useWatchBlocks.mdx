@@ -1,0 +1,26 @@
+---
+layout: docs
+title: useWatchBlocks
+description: Hook to watch for new blocks.
+---
+
+# useWatchBlocks
+
+Hook to watch for new blocks.
+
+## Usage
+
+```tsx twoslash
+// @allowUmdGlobalAccess
+// @module: esnext
+// @moduleResolution: bundler
+import { useWatchBlocks } from "@hyper-gate/react";
+
+export function App() {
+  useWatchBlocks({
+    onBlock: (block) => {
+      console.log("new block", block);
+    },
+  });
+}
+``` 

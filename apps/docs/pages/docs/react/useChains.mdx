@@ -1,0 +1,23 @@
+---
+layout: docs
+title: useChains
+description: Hook to get the list of available chains.
+---
+
+# useChains
+
+Hook to get the list of available chains.
+
+## Usage
+
+```tsx twoslash
+// @allowUmdGlobalAccess
+// @module: esnext
+// @moduleResolution: bundler
+import { useChains } from "@hyper-gate/react";
+
+export function App() {
+  const chains = useChains();
+  //        ^?
+}
+``` 

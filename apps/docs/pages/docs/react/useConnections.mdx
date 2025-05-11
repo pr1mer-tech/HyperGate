@@ -1,0 +1,23 @@
+---
+layout: docs
+title: useConnections
+description: Hook to get the list of active connections.
+---
+
+# useConnections
+
+Hook to get the list of active connections.
+
+## Usage
+
+```tsx twoslash
+// @allowUmdGlobalAccess
+// @module: esnext
+// @moduleResolution: bundler
+import { useConnections } from "@hyper-gate/react";
+
+export function App() {
+  const connections = useConnections();
+  //        ^?
+}
+``` 
