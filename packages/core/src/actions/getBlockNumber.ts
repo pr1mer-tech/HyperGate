@@ -26,7 +26,7 @@ export async function getBlockNumber<config extends Config>(
   parameters: GetBlockNumberParameters<config> = {},
 ): Promise<GetBlockNumberReturnType> {
   const block = await getBlock(config, parameters);
-  console.log({ block });
+
   if (!block || !block.ledger_index) return -1n;
   if (typeof block.ledger_index === "bigint") {
     return block.ledger_index;

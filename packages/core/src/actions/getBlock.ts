@@ -56,12 +56,21 @@ export async function getBlock<
 ): Promise<GetBlockReturnType> {
   const { chainId, ...rest } = parameters;
   const client = await config.getClient({ chainId });
-  const block = await client.request({
+  const block = (await client.request({
     command: "ledger",
     ledger_index: rest.blockNumber,
     ledger_hash: rest.blockHash,
     transactions: parameters.includeTransactions,
-  });
+  })) as any;
+
+  // Sometimes, the block is in "block.result.closed" instead of "block.result", so we check for both
+  if (block?.result?.closed?.ledger) {
+    return {
+      ...(block.result.closed.ledger as GetBlockReturnType),
+      chainId,
+    };
+  }
+
   return {
     ...(block.result as GetBlockReturnType),
     chainId,

@@ -23,7 +23,6 @@ export function getBlockNumberQueryOptions<config extends Config>(
     async queryFn({ queryKey }) {
       const parameters = queryKey[1];
       const blockNumber = await getBlockNumber(config, parameters);
-      console.log({ blockNumber });
       return blockNumber;
     },
     queryKey: getBlockNumberQueryKey(options),
