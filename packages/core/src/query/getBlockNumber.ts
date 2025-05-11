@@ -20,11 +20,11 @@ export function getBlockNumberQueryOptions<config extends Config>(
   options: GetBlockNumberOptions<config> = {},
 ) {
   return {
-    gcTime: 0,
     async queryFn({ queryKey }) {
-      const { scopeKey: _, ...parameters } = queryKey[1];
+      const parameters = queryKey[1];
       const blockNumber = await getBlockNumber(config, parameters);
-      return blockNumber ?? null;
+      console.log({ blockNumber });
+      return blockNumber;
     },
     queryKey: getBlockNumberQueryKey(options),
   } as const satisfies QueryOptions<

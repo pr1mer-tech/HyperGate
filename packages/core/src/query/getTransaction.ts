@@ -21,14 +21,10 @@ export function getTransactionQueryOptions<
 >(config: config, options: GetTransactionOptions<config> = {}) {
   return {
     async queryFn({ queryKey }) {
-      const { blockHash, blockNumber, blockTag, hash, index } = queryKey[1];
-      if (!blockHash && !blockNumber && !blockTag && !hash)
+      const { transaction, ctid } = queryKey[1];
+      if (!transaction && !ctid)
         throw new Error(
-          "blockHash, blockNumber, blockTag, or hash is required",
-        );
-      if (!hash && !index)
-        throw new Error(
-          "index is required for blockHash, blockNumber, or blockTag",
+          "transaction, or ctid, is required for transaction queries",
         );
       const { scopeKey: _, ...rest } = queryKey[1];
       return getTransaction(config, rest as GetTransactionParameters);

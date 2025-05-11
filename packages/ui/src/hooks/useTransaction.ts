@@ -50,7 +50,7 @@ export function useTransaction<
 >(
   parameters: UseTransactionParameters<config, chainId, selectData> = {},
 ): UseTransactionReturnType<config, chainId, selectData> {
-  const { blockHash, blockNumber, blockTag, hash, query = {} } = parameters;
+  const { transaction, ctid, query = {} } = parameters;
 
   const config = useConfig(parameters);
   const chainId = useChainId({ config });
@@ -59,9 +59,7 @@ export function useTransaction<
     ...parameters,
     chainId: parameters.chainId ?? chainId,
   });
-  const enabled = Boolean(
-    !(blockHash && blockNumber && blockTag && hash) && (query.enabled ?? true),
-  );
+  const enabled = Boolean((transaction || ctid) && (query.enabled ?? true));
 
   return useQuery({
     ...(query as any),

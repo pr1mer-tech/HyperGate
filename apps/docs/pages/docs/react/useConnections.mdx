@@ -4,6 +4,8 @@ title: useConnections
 description: Hook to get the list of active connections.
 ---
 
+import { AccountConnections } from "../../../components/connections";
+
 # useConnections
 
 Hook to get the list of active connections.
@@ -20,4 +22,32 @@ export function App() {
   const connections = useConnections();
   //        ^?
 }
-``` 
+```
+
+## Example
+
+:::code-group
+
+<div data-title="Preview">
+  <AccountConnections />
+</div>
+
+```tsx twoslash [example.tsx]
+// @allowUmdGlobalAccess
+// @module: esnext
+// @moduleResolution: bundler
+
+const Button = React.forwardRef<HTMLButtonElement, any>(
+  ({ className, variant, size, asChild = false, ...props }, ref) => {
+    return <button ref={ref} className={className} {...props} />;
+  },
+);
+
+// ---cut---
+import { useConnections, useConnect, useDisconnect } from "@hyper-gate/react";
+import { ConnectKitButton } from "@hyper-gate/connectkit";
+
+// [!include ~/components/connections.tsx:account-connection]
+```
+
+:::

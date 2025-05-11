@@ -25,7 +25,15 @@ export async function getBlockNumber<config extends Config>(
   config: config,
   parameters: GetBlockNumberParameters<config> = {},
 ): Promise<GetBlockNumberReturnType> {
-  const block = getBlock(config, parameters);
-  const block_1 = await block;
-  return BigInt(block_1.ledger_index);
+  const block = await getBlock(config, parameters);
+  console.log({ block });
+  if (!block || !block.ledger_index) return -1n;
+  if (typeof block.ledger_index === "bigint") {
+    return block.ledger_index;
+  }
+  // Check if ledger_index can be converted to bigint, - if it's a valid "number", that is not a float
+  if (typeof block.ledger_index !== "number" || block.ledger_index % 1 !== 0) {
+    return -1n;
+  }
+  return BigInt(block.ledger_index);
 }

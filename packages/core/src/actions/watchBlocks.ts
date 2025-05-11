@@ -5,7 +5,7 @@ import type {
   SyncConnectedChainParameter,
 } from "../types/properties.js";
 import type { Compute } from "../types/utils.js";
-import { BlockTag, GetBlockParameters } from "./getBlock.js";
+import type { BlockTag, GetBlockParameters } from "./getBlock.js";
 
 export type WatchBlocksParameters<
   includeTransactions extends boolean = false,

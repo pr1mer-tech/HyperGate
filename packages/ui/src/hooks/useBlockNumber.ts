@@ -85,6 +85,7 @@ export function useBlockNumber<
         (typeof watch === "object" ? watch.enabled : watch),
     ),
     onBlockNumber(blockNumber) {
+      console.log("onBlockNumber", blockNumber);
       queryClient.setQueryData(options.queryKey, blockNumber);
     },
   });

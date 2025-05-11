@@ -4,6 +4,8 @@ title: useBlockNumber
 description: Hook to get the current block number.
 ---
 
+import { WatchBlockNumber } from "../../../components/block-number";
+
 # useBlockNumber
 
 Hook to get the current block number.
@@ -20,4 +22,21 @@ export function App() {
   const blockNumber = useBlockNumber();
   //        ^?
 }
-``` 
+```
+
+## Example
+
+:::code-group
+
+<div data-title="Preview">
+  <WatchBlockNumber />
+</div>
+
+```tsx twoslash [example.tsx]
+// @allowUmdGlobalAccess
+// @module: esnext
+// @moduleResolution: bundler
+// [!include ~/components/block-number.tsx]
+```
+
+::: 

@@ -4,7 +4,7 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "vocs dev --port 3001",
+    "dev": "bun --bun vocs dev --port 3001",
     "build": "vocs build -o .next/dist",
     "preview": "vocs preview"
   },
@@ -33,6 +33,7 @@
     "eslint": "^8",
     "eslint-config-next": "15.0.0-rc.0",
     "postcss": "^8.5.3",
+    "react-router-dom": "^7.6.0",
     "tailwindcss": "^4.1.6",
     "typescript": "^5"
   }

@@ -4,6 +4,8 @@ title: useChains
 description: Hook to get the list of available chains.
 ---
 
+import { AvailableChains } from "../../../components/chains";
+
 # useChains
 
 Hook to get the list of available chains.
@@ -20,4 +22,21 @@ export function App() {
   const chains = useChains();
   //        ^?
 }
-``` 
+```
+
+## Example
+
+:::code-group
+
+<div data-title="Preview">
+  <AvailableChains />
+</div>
+
+```tsx twoslash [example.tsx]
+// @allowUmdGlobalAccess
+// @module: esnext
+// @moduleResolution: bundler
+// [!include ~/components/chains.tsx]
+```
+
+::: 
