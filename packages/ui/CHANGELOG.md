@@ -1,5 +1,11 @@
 # @hyper-gate/react
 
+## 0.0.12
+
+### Patch Changes
+
+- ce2e05d: fixed useAccountEffect not properly passing events
+
 ## 0.0.11
 
 ### Patch Changes
