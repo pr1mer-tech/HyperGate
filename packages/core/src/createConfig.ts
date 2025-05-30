@@ -286,7 +286,6 @@ export function createConfig(options: ConfigOptions): Config {
     });
   }
   function connect(data: EventData<ConnectorEventMap, "connect">) {
-    console.log("connect", data);
     // Disable handling if reconnecting/connecting
     if (
       store.getState().status === "connecting" ||

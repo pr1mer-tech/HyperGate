@@ -4,6 +4,8 @@ title: useAccountEffect
 description: Hook to perform side effects when the account changes.
 ---
 
+import { AccountEffectDemo } from "../../../components/account-effect";
+
 # useAccountEffect
 
 Hook to perform side effects when the account changes.
@@ -27,3 +29,26 @@ export function App() {
   });
 }
 ``` 
+
+## Example
+
+:::code-group
+
+<div data-title="Preview">
+  <AccountEffectDemo />
+</div>
+
+```tsx twoslash [example.tsx]
+// @allowUmdGlobalAccess
+// @module: esnext
+// @moduleResolution: bundler
+
+// ---cut---
+import { useAccountEffect } from "@hyper-gate/react";
+import { ConnectKitButton } from "@hyper-gate/connectkit";
+import { useState } from "react";
+
+// [!include ~/components/account-effect.tsx:account-effect]
+```
+
+::: 

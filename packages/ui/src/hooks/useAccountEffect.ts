@@ -37,7 +37,8 @@ export function useAccountEffect(parameters: UseAccountEffectParameters = {}) {
       onChange(data, prevData) {
         if (
           (prevData.status === "reconnecting" ||
-            prevData.status === "connecting") &&
+            prevData.status === "connecting" ||
+            prevData.status === "disconnected") &&
           data.status === "connected"
         ) {
           const { address, addresses, chainId, connector } =
@@ -46,7 +47,8 @@ export function useAccountEffect(parameters: UseAccountEffectParameters = {}) {
           const isReconnected =
             prevData.status === "reconnecting" ||
             // if `previousAccount.status` is `undefined`, the connector connected immediately.
-            prevData.status === undefined;
+            prevData.status === undefined ||
+            prevData.status === "disconnected";
           onConnect?.({
             address,
             addresses,
