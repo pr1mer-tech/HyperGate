@@ -1,28 +1,24 @@
 "use client";
 
-import {
-  Config,
-  type GetAccountReturnType,
-  watchAccount,
-} from "@hyper-gate/core";
+import { type GetAccountReturnType, watchAccount } from "@hyper-gate/core";
 import type { Compute } from "@hyper-gate/core";
 import { useEffect } from "react";
 
 import type { ConfigParameter } from "../types/properties.js";
 import { useConfig } from "./useConfig.js";
 
+type OnConnectData = Compute<
+  Pick<
+    GetAccountReturnType,
+    "address" | "addresses" | "chainId" | "connector"
+  > & {
+    isReconnected: boolean;
+  }
+>;
 export type UseAccountEffectParameters = Compute<
   {
-    onConnect?(
-      data: Compute<
-        Pick<
-          GetAccountReturnType,
-          "address" | "addresses" | "chainId" | "connector"
-        > & {
-          isReconnected: boolean;
-        }
-      >,
-    ): void;
+    // eslint-disable-next-line no-unused-vars
+    onConnect?(data: OnConnectData): void;
     onDisconnect?(): void;
   } & ConfigParameter
 >;
@@ -55,7 +51,7 @@ export function useAccountEffect(parameters: UseAccountEffectParameters = {}) {
             chainId,
             connector,
             isReconnected,
-          });
+          } as OnConnectData);
         } else if (
           prevData.status === "connected" &&
           data.status === "disconnected"
