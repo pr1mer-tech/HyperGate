@@ -1,5 +1,11 @@
 # @hyper-gate/core
 
+## 0.0.14
+
+### Patch Changes
+
+- 3cdef80: fix: build
+
 ## 0.0.13
 
 ### Patch Changes

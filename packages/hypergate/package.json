@@ -1,6 +1,6 @@
 {
   "name": "hypergate",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Umbrella package for HyperGate XRP Ledger SDK",
   "private": false,
   "main": "./dist/index.js",

@@ -1,5 +1,15 @@
 # hypergate
 
+## 0.0.7
+
+### Patch Changes
+
+- 3cdef80: fix: build
+- Updated dependencies [3cdef80]
+  - @hyper-gate/react@0.0.13
+  - @hyper-gate/connectkit@0.0.13
+  - @hyper-gate/core@0.0.14
+
 ## 0.0.6
 
 ### Patch Changes
