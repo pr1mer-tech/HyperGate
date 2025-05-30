@@ -1,5 +1,11 @@
 # @hyper-gate/core
 
+## 0.0.15
+
+### Patch Changes
+
+- cdda3c0: use client in connectkit
+
 ## 0.0.14
 
 ### Patch Changes

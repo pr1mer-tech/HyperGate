@@ -1,5 +1,15 @@
 # hypergate
 
+## 0.0.8
+
+### Patch Changes
+
+- cdda3c0: use client in connectkit
+- Updated dependencies [cdda3c0]
+  - @hyper-gate/connectkit@0.0.14
+  - @hyper-gate/react@0.0.14
+  - @hyper-gate/core@0.0.15
+
 ## 0.0.7
 
 ### Patch Changes
