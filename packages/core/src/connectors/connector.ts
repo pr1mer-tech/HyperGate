@@ -1,4 +1,4 @@
-import type { BaseTransaction } from "xrpl";
+import type { Transaction } from "xrpl";
 import type { Address } from "../utils/address";
 import type { Emitter } from "../createEmitter";
 import type { Compute } from "../types/utils";
@@ -48,9 +48,11 @@ export type Connector = {
   onError(error: Error): void;
 
   // Actions such as signing transactions, sending messages, etc.
-  signTransaction(transaction: BaseTransaction): Promise<object>;
+  signAndSubmitTransaction(transaction: Transaction): Promise<TxHash>;
   switchChain(parameters: { chainId: number }): Promise<{ id: number }>;
 };
+
+type TxHash = string;
 
 export type ConnectorInit = {
   uid: string;

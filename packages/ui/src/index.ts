@@ -16,4 +16,6 @@ export * from "./hooks/useDisconnect";
 export * from "./hooks/useConnections";
 export * from "./hooks/useTransaction";
 export * from "./hooks/useEstimateGas";
+export * from "./hooks/useSendTransaction";
+export * from "./hooks/useClient";
 export * from "./context";

@@ -7,6 +7,8 @@ import type {
 } from "./connector";
 import { Xumm } from "xumm";
 import type { Emitter } from "../createEmitter";
+import { TxResponse } from "../actions/getTransaction";
+import { BaseError } from "../errors/base";
 
 export class XummConnector implements Connector {
   icon =
@@ -115,13 +117,32 @@ export class XummConnector implements Connector {
     this.emitter?.emit("message", { type: "error", data: error });
   }
 
-  async signTransaction(transaction: BaseTransaction): Promise<object> {
+  async signAndSubmitTransaction(
+    transaction: BaseTransaction,
+  ): Promise<string> {
     //@ts-expect-error - TransactionType in XRPL.js is not statically typed
     const payload = await this.xumm?.payload?.createAndSubscribe(transaction);
     if (!payload) {
       throw new Error("No payload returned");
     }
-    return payload;
+
+    return await new Promise((resolve, reject) => {
+      payload.websocket.onmessage = (message: {
+        data: string | Buffer | ArrayBuffer;
+      }) => {
+        // Check if message is a string
+        if (typeof message.data === "string") {
+          // Parse the message as JSON
+          const parsedMessage = JSON.parse(message.data);
+          // Check if the parsed message has a type property
+          if (typeof parsedMessage.txid === "string") {
+            resolve(parsedMessage.txid);
+          } else if (typeof parsedMessage.error === "string") {
+            reject(new Error(parsedMessage.error));
+          }
+        }
+      };
+    });
   }
 
   async switchChain(parameters: { chainId: number }): Promise<{ id: number }> {

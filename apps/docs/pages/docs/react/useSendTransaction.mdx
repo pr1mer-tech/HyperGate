@@ -1,0 +1,62 @@
+---
+layout: docs
+title: useSendTransaction
+description: Hook to sign transaction messages.
+---
+
+import { SignMessageDemo } from "../../../components/sign-message";
+
+# useSendTransaction
+
+Hook to sign transaction messages. This hook provides a way to sign XRP Ledger transactions using connected wallets.
+
+## Usage
+
+```tsx twoslash
+// @allowUmdGlobalAccess
+// @module: esnext
+// @moduleResolution: bundler
+import { useSendTransaction } from "@hyper-gate/react";
+
+export function App() {
+  const { signMessage, signMessageAsync, isPending } = useSendTransaction();
+
+  const handleSign = () => {
+    signMessage({
+      TransactionType: "Payment",
+      Destination: "rfHn6cB5mmqZ6fdemCDSxqLTijgMwo",
+      Amount: String(1000000), // 1 XRP in drops
+      Account: "rYourAccountAddress...",
+    });
+  };
+}
+```
+
+## Example
+
+:::code-group
+
+<div data-title="Preview">
+  <SignMessageDemo />
+</div>
+
+```tsx twoslash [example.tsx]
+// @allowUmdGlobalAccess
+// @module: esnext
+// @moduleResolution: bundler
+
+const Button = React.forwardRef<HTMLButtonElement, any>(
+  ({ className, variant, size, asChild = false, ...props }, ref) => {
+    return <button ref={ref} className={className} {...props} />;
+  },
+);
+
+// ---cut---
+import { useSendTransaction, useAccount } from "@hyper-gate/react";
+import { ConnectKitButton } from "@hyper-gate/connectkit";
+import { useState } from "react";
+
+// [!include ~/components/sign-message.tsx:sign-message]
+```
+
+:::

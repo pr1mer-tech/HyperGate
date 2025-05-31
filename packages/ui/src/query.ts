@@ -1,1 +1,1 @@
-export * from './utils/query'; 
+export * from "./utils/query";

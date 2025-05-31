@@ -9,3 +9,4 @@ export * from "./query/disconnect";
 export * from "./query/estimateGas";
 export * from "./query/getConnectorClient";
 export * from "./query/getTransaction";
+export * from "./query/sendTransaction";

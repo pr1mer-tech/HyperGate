@@ -127,13 +127,15 @@ export class GemConnector implements Connector {
     this.emitter?.emit("message", { type: "error", data: error });
   }
 
-  async signTransaction(transaction: BaseTransaction): Promise<object> {
+  async signAndSubmitTransaction(
+    transaction: BaseTransaction,
+  ): Promise<string> {
     //@ts-expect-error - TransactionType in XRPL.js is not statically typed
-    const payload = await this.Gem?.signTransaction(transaction);
-    if (!payload?.result?.signature) {
+    const payload = await this.Gem?.submitTransaction(transaction);
+    if (!payload?.result?.hash) {
       throw new Error("No payload returned");
     }
-    return payload.result;
+    return payload?.result?.hash;
   }
 
   async switchChain(parameters: { chainId: number }): Promise<{ id: number }> {

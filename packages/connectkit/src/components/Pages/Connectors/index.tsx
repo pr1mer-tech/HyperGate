@@ -1,25 +1,25 @@
-import React from 'react';
-import { useContext, routes } from '../../ConnectKit';
+import React from "react";
+import { useContext, routes } from "../../ConnectKit";
 
 import {
   LearnMoreContainer,
   LearnMoreButton,
   InfoBox,
   InfoBoxButtons,
-} from './styles';
+} from "./styles";
 import {
   PageContent,
   Disclaimer,
   ModalContent,
   ModalH1,
   ModalBody,
-} from '../../Common/Modal/styles';
-import WalletIcon from '../../../assets/wallet';
+} from "../../Common/Modal/styles";
+import WalletIcon from "../../../assets/wallet";
 
-import useLocales from '../../../hooks/useLocales';
-import ConnectorList from '../../Common/ConnectorList';
-import useIsMobile from '../../../hooks/useIsMobile';
-import Button from '../../Common/Button';
+import useLocales from "../../../hooks/useLocales";
+import ConnectorList from "../../Common/ConnectorList";
+import useIsMobile from "../../../hooks/useIsMobile";
+import Button from "../../Common/Button";
 
 const Wallets: React.FC = () => {
   const context = useContext();
@@ -34,14 +34,14 @@ const Wallets: React.FC = () => {
       {isMobile ? (
         <>
           <InfoBox>
-            <ModalContent style={{ padding: 0, textAlign: 'left' }}>
+            <ModalContent style={{ padding: 0, textAlign: "left" }}>
               <ModalH1 $small>{locales.connectorsScreen_h1}</ModalH1>
               <ModalBody>{locales.connectorsScreen_p}</ModalBody>
             </ModalContent>
             <InfoBoxButtons>
               {!context.options?.hideQuestionMarkCTA && (
                 <Button
-                  variant={'tertiary'}
+                  variant={"tertiary"}
                   onClick={() => context.setRoute(routes.ABOUT)}
                 >
                   {locales.learnMore}
@@ -49,7 +49,7 @@ const Wallets: React.FC = () => {
               )}
               {!context.options?.hideNoWalletCTA && (
                 <Button
-                  variant={'tertiary'}
+                  variant={"tertiary"}
                   onClick={() => context.setRoute(routes.ONBOARDING)}
                 >
                   {locales.getWallet}
@@ -72,7 +72,7 @@ const Wallets: React.FC = () => {
         </>
       )}
       {context.options?.disclaimer && (
-        <Disclaimer style={{ visibility: 'hidden', pointerEvents: 'none' }}>
+        <Disclaimer style={{ visibility: "hidden", pointerEvents: "none" }}>
           <div>{context.options?.disclaimer}</div>
         </Disclaimer>
       )}

@@ -20,13 +20,13 @@ HyperGate provides access to all functionality from its subpackages in one conve
 
 ```typescript
 // Import everything
-import * as HyperGate from 'hypergate';
+import * as HyperGate from "hypergate";
 
 // Or import specific namespaces
-import { Core, React, ConnectKit } from 'hypergate';
+import { Core, React, ConnectKit } from "hypergate";
 
 // Or import directly from the root
-import { useAccount, connectWallet } from 'hypergate';
+import { useAccount, connectWallet } from "hypergate";
 ```
 
 ## Packages
@@ -39,4 +39,4 @@ HyperGate combines these packages:
 
 ## License
 
-MIT 
+MIT

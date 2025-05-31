@@ -1,5 +1,5 @@
-import styled from './../../../../styles/styled';
-import { motion } from 'framer-motion';
+import styled from "./../../../../styles/styled";
+import { motion } from "framer-motion";
 
 export const LogoContainer = styled(motion.div)`
   z-index: 4;
@@ -39,7 +39,7 @@ export const Spinner = styled(motion.div)`
   position: absolute;
   inset: -25%;
   &:before {
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
     background: conic-gradient(

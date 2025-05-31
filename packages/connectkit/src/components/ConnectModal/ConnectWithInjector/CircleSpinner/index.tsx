@@ -4,10 +4,10 @@ import {
   Spinner,
   SpinnerContainer,
   ExpiringSpinner,
-} from './styles';
+} from "./styles";
 
-import { AnimatePresence } from 'framer-motion';
-import React from 'react';
+import { AnimatePresence } from "framer-motion";
+import React from "react";
 
 const CircleSpinner = ({
   logo,

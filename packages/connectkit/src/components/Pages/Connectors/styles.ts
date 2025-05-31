@@ -1,8 +1,8 @@
-import styled from './../../../styles/styled';
-import { keyframes } from 'styled-components';
+import styled from "./../../../styles/styled";
+import { keyframes } from "styled-components";
 
-import { motion } from 'framer-motion';
-import { ModalBody } from '../../Common/Modal/styles';
+import { motion } from "framer-motion";
+import { ModalBody } from "../../Common/Modal/styles";
 
 const Shimmer = keyframes`
   0%{ transform: translate(-100%) rotate(-45deg); }
@@ -48,7 +48,9 @@ export const LearnMoreButton = styled(motion.button)`
   line-height: 18px;
   font-weight: 500;
   /* will-change: transform; */
-  transition: color 200ms ease, transform 100ms ease;
+  transition:
+    color 200ms ease,
+    transform 100ms ease;
   svg {
     transition: all 100ms ease-out;
     display: block;
@@ -212,7 +214,7 @@ export const ConnectorRecentlyUsed = styled(motion.span)`
   }
   &:before {
     z-index: 1;
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
     opacity: 0.4;
@@ -221,7 +223,7 @@ export const ConnectorRecentlyUsed = styled(motion.span)`
   }
   &:after {
     z-index: 2;
-    content: '';
+    content: "";
     position: absolute;
     inset: -10%;
     top: -110%;

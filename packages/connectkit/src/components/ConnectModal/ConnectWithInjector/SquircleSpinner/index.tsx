@@ -1,5 +1,5 @@
-import { LogoContainer, Logo, Spinner, SpinnerContainer } from './styles';
-import { AnimatePresence } from 'framer-motion';
+import { LogoContainer, Logo, Spinner, SpinnerContainer } from "./styles";
+import { AnimatePresence } from "framer-motion";
 
 const SquircleSpinner = ({
   logo,
