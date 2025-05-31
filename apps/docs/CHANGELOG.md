@@ -1,5 +1,13 @@
 # docs
 
+## 0.2.1
+
+### Patch Changes
+
+- c297914: fix: gem wallet
+- Updated dependencies [c297914]
+  - @hyper-gate/connectkit@0.1.1
+
 ## 0.2.0
 
 ### Minor Changes
