@@ -66,6 +66,7 @@ export async function connect<config extends Config>(
 
     return { accounts, chainId: data.chainId };
   } catch (error) {
+    console.error(error);
     config.setState((x) => ({
       ...x,
       // Keep existing connector connected in case of error

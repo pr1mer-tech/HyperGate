@@ -6,6 +6,8 @@ import type {
   ConnectorProvider,
 } from "./connector";
 import type { Emitter } from "../createEmitter";
+import * as GlobalGem from "@gemwallet/api";
+import { BaseError } from "../errors/base";
 
 export class GemConnector implements Connector {
   icon =
@@ -18,7 +20,7 @@ export class GemConnector implements Connector {
 
   hasConnected = false;
   emitter?: Emitter<ConnectorEventMap>;
-  private Gem?: typeof import("@gemwallet/api");
+  private Gem?: typeof GlobalGem;
 
   constructor() {
     if (typeof window === "undefined") {
@@ -29,7 +31,7 @@ export class GemConnector implements Connector {
 
   private async initializeGem(): Promise<void> {
     if (typeof window !== "undefined") {
-      this.Gem = await import("@gemwallet/api");
+      this.Gem = GlobalGem;
     }
   }
 
@@ -48,8 +50,10 @@ export class GemConnector implements Connector {
       | { chainId?: number | undefined; isReconnecting?: boolean | undefined }
       | undefined,
   ): Promise<{ accounts: readonly Address[]; chainId: number }> {
+    await this.setup?.();
     const accounts = await this.getAccounts();
     const chainId = Number(await this.getChainId());
+    console.log({ accounts, chainId });
     return {
       accounts,
       chainId,
@@ -131,7 +135,7 @@ export class GemConnector implements Connector {
     transaction: BaseTransaction,
   ): Promise<string> {
     //@ts-expect-error - TransactionType in XRPL.js is not statically typed
-    const payload = await this.Gem?.submitTransaction(transaction);
+    const payload = await this.Gem?.submitTransaction({ transaction });
     if (!payload?.result?.hash) {
       throw new Error("No payload returned");
     }

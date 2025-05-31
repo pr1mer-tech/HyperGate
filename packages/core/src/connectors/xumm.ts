@@ -7,8 +7,6 @@ import type {
 } from "./connector";
 import { Xumm } from "xumm";
 import type { Emitter } from "../createEmitter";
-import { TxResponse } from "../actions/getTransaction";
-import { BaseError } from "../errors/base";
 
 export class XummConnector implements Connector {
   icon =
