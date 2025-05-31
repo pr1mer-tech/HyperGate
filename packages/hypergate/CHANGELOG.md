@@ -1,5 +1,18 @@
 # hypergate
 
+## 0.1.0
+
+### Minor Changes
+
+- ce06b88: transactions can now be signed and submitted
+
+### Patch Changes
+
+- Updated dependencies [ce06b88]
+  - @hyper-gate/connectkit@0.1.0
+  - @hyper-gate/core@0.1.0
+  - @hyper-gate/react@0.1.0
+
 ## 0.0.8
 
 ### Patch Changes

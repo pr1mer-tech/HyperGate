@@ -1,5 +1,11 @@
 # @hyper-gate/core
 
+## 0.1.0
+
+### Minor Changes
+
+- ce06b88: transactions can now be signed and submitted
+
 ## 0.0.15
 
 ### Patch Changes

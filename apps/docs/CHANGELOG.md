@@ -1,5 +1,16 @@
 # docs
 
+## 0.2.0
+
+### Minor Changes
+
+- ce06b88: transactions can now be signed and submitted
+
+### Patch Changes
+
+- Updated dependencies [ce06b88]
+  - @hyper-gate/connectkit@0.1.0
+
 ## 0.1.3
 
 ### Patch Changes
