@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { routes, useContext } from "./../../ConnectKit";
+import { useContext } from "../../../contexts/ConnectKitContext";
+import { routes } from "../../../constants/routes";
 
 import { flattenChildren, isMobile } from "./../../../utils";
 
