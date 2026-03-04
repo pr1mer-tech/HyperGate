@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
-import { useContext } from "../ConnectKit";
+import { useContext } from "../../contexts/ConnectKitContext";
 import { useWallet } from "../../wallets/useWallets";
 
 import ConnectWithInjector from "./ConnectWithInjector";

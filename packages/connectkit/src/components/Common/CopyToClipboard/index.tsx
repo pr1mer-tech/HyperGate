@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from "react";
 import styled from "./../../../styles/styled";
 import { css } from "styled-components";

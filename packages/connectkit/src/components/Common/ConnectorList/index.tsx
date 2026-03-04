@@ -1,5 +1,5 @@
-import { useContext, routes } from "../../ConnectKit";
-
+import { useContext } from "../../../contexts/ConnectKitContext";
+import { routes } from "../../../constants/routes";
 import {
   ConnectorsContainer,
   ConnectorButton,

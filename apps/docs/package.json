@@ -10,9 +10,12 @@
   },
   "dependencies": {
     "@hyper-gate/connectkit": "*",
+    "@hyper-gate/core": "*",
+    "@hyper-gate/react": "*",
     "@radix-ui/react-separator": "^1.1.0",
     "@radix-ui/react-slot": "^1.1.0",
     "@tailwindcss/vite": "^4.1.6",
+    "@tanstack/react-query": "^5.52.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "lucide-react": "^0.436.0",
@@ -20,7 +23,7 @@
     "react-dom": "^18.3.1",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",
-    "vocs": "^1.0.0-next.20250228T022228"
+    "vocs": "^1.4.1"
   },
   "devDependencies": {
     "@hyper-gate/eslint-config": "*",

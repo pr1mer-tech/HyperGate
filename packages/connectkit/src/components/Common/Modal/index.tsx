@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useCallback, useEffect, useRef, useState } from "react";
 
 import { AnimatePresence, motion, Variants } from "framer-motion";
@@ -32,7 +34,8 @@ import {
   SignInTooltip,
 } from "./styles";
 
-import { routes, useContext } from "../../ConnectKit";
+import { routes } from "../../../constants/routes";
+import { useContext } from "../../../contexts/ConnectKitContext";
 import useLockBodyScroll from "../../../hooks/useLockBodyScroll";
 
 import { useTransition } from "react-transition-state";

@@ -1,3 +1,5 @@
+'use client'
+
 import React, {
   useCallback,
   useEffect,
@@ -5,7 +7,7 @@ import React, {
   useRef,
   useState,
 } from "react";
-import { useContext } from "./../../ConnectKit";
+import { useContext } from "../../../contexts/ConnectKitContext";
 
 import useMeasure from "react-use-measure";
 

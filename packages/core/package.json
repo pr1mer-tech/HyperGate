@@ -41,6 +41,7 @@
   },
   "dependencies": {
     "@gemwallet/api": "^3.8.0",
+    "@tanstack/query-core": "^5.52.1",
     "eventemitter3": "^5.0.1",
     "xrpl": "^4.2.5",
     "xumm": "^1.8.0",

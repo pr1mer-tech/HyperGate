@@ -2,7 +2,7 @@ import { Connector } from "@hyper-gate/core";
 
 import { useConnectors } from "../hooks/useConnectors";
 import { walletConfigs, WalletConfigProps } from "./walletConfigs";
-import { useContext } from "../components/ConnectKit";
+import { useContext } from "../contexts/ConnectKitContext";
 import { isCoinbaseWalletConnector, isInjectedConnector } from "../utils";
 
 export type WalletProps = {

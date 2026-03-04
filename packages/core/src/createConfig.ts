@@ -131,7 +131,7 @@ export function createConfig(options: ConfigOptions): Config {
     const chain = chains.getState().find((x) => x.id === chainId);
 
     // chainId specified and not configured
-    if (config.chainId && !chain) throw new ChainNotConfiguredError(chainId);
+    if (config.chainId != null && !chain) throw new ChainNotConfiguredError(chainId);
 
     // If the target chain is not configured, use the client of the current chain.
     type Return = Client;

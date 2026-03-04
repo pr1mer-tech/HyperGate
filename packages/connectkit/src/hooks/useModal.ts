@@ -1,5 +1,6 @@
 import { useAccount } from "@hyper-gate/react";
-import { routes, useContext } from "../components/ConnectKit";
+import { useContext } from "../contexts/ConnectKitContext";
+import { routes } from "../constants/routes";
 import {
   useConnectCallback,
   useConnectCallbackProps,

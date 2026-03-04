@@ -30,7 +30,7 @@ import { AlertIcon, TickIcon } from "../../../assets/icons";
 import { detectBrowser, isWalletConnectConnector } from "../../../utils";
 import useLocales from "../../../hooks/useLocales";
 import { useConnect } from "../../../hooks/useConnect";
-import { useContext } from "../../ConnectKit";
+import { useContext } from "../../../contexts/ConnectKitContext";
 import { useWallet } from "../../../wallets/useWallets";
 import CircleSpinner from "./CircleSpinner";
 

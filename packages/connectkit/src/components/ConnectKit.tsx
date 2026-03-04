@@ -1,20 +1,13 @@
 "use client";
 
 import React, {
-  createContext,
   createElement,
   useEffect,
   useState,
-  type ReactNode,
 } from "react";
 import { Buffer } from "buffer";
-import type {
-  CustomTheme,
-  Languages,
-  Mode,
-  Theme,
-  CustomAvatarProps,
-} from "../types";
+import type { Languages, Mode, Theme, CustomTheme } from "../types";
+import type { ConnectKitOptions, ContextValue, Connector } from "../types/ConnectKitContext";
 
 import defaultTheme from "../styles/defaultTheme";
 
@@ -33,73 +26,8 @@ import { Web3ContextProvider } from "./contexts/web3";
 import { useChainIsSupported } from "../hooks/useChainIsSupported";
 import type { Config } from "@hyper-gate/core";
 
-export const routes = {
-  ONBOARDING: "onboarding",
-  ABOUT: "about",
-  CONNECTORS: "connectors",
-  MOBILECONNECTORS: "mobileConnectors",
-  CONNECT: "connect",
-  DOWNLOAD: "download",
-  PROFILE: "profile",
-  SWITCHNETWORKS: "switchNetworks",
-  SIGNINWITHETHEREUM: "signInWithEthereum",
-};
-
-type Connector = {
-  id: string;
-};
-type Error = string | React.ReactNode | null;
-
-type ContextValue = {
-  theme: Theme;
-  setTheme: React.Dispatch<React.SetStateAction<Theme>>;
-  mode: Mode;
-  setMode: React.Dispatch<React.SetStateAction<Mode>>;
-  customTheme: CustomTheme | undefined;
-  setCustomTheme: React.Dispatch<React.SetStateAction<CustomTheme | undefined>>;
-  lang: Languages;
-  setLang: React.Dispatch<React.SetStateAction<Languages>>;
-  open: boolean;
-  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  route: string;
-  setRoute: React.Dispatch<React.SetStateAction<string>>;
-  connector: Connector;
-  setConnector: React.Dispatch<React.SetStateAction<Connector>>;
-  errorMessage: Error;
-  options?: ConnectKitOptions;
-  signInWithEthereum: boolean;
-  debugMode?: boolean;
-  log: (...props: any) => void;
-  displayError: (message: string | React.ReactNode | null, code?: any) => void;
-  resize: number;
-  triggerResize: () => void;
-} & useConnectCallbackProps;
-
-export const Context = createContext<ContextValue | null>(null);
-
-export type ConnectKitOptions = {
-  language?: Languages;
-  hideBalance?: boolean;
-  hideTooltips?: boolean;
-  hideQuestionMarkCTA?: boolean;
-  hideNoWalletCTA?: boolean;
-  hideRecentBadge?: boolean;
-  walletConnectCTA?: "link" | "modal" | "both";
-  avoidLayoutShift?: boolean; // Avoids layout shift when the ConnectKit modal is open by adding padding to the body
-  embedGoogleFonts?: boolean; // Automatically embeds Google Font of the current theme. Does not work with custom themes
-  truncateLongENSAddress?: boolean;
-  walletConnectName?: string;
-  reducedMotion?: boolean;
-  disclaimer?: ReactNode | string;
-  bufferPolyfill?: boolean;
-  customAvatar?: React.FC<CustomAvatarProps>;
-  initialChainId?: number;
-  enforceSupportedChains?: boolean;
-  ethereumOnboardingUrl?: string;
-  walletOnboardingUrl?: string;
-  disableSiweRedirect?: boolean; // Disable redirect to SIWE page after a wallet is connected
-  overlayBlur?: number; // Blur the background when the modal is open
-};
+import { routes } from "../constants/routes";
+import { Context } from "../contexts/ConnectKitContext";
 
 type ConnectKitProviderProps = {
   children?: React.ReactNode;
@@ -273,10 +201,4 @@ export const ConnectKitProvider = ({
       </ThemeProvider>
     </Web3ContextProvider>,
   );
-};
-
-export const useContext = () => {
-  const context = React.useContext(Context);
-  if (!context) throw Error("ConnectKit Hook must be inside a Provider.");
-  return context;
 };

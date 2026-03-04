@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 import { useAccount } from "@hyper-gate/react";
 import type { Connector } from "@hyper-gate/core";
-import { useContext } from "../../components/ConnectKit";
+import { useContext } from "../../contexts/ConnectKitContext";
 import { useConnect } from "../useConnect";
 import { useWalletConnectConnector } from "./../useConnectors";
 
