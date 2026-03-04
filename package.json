@@ -12,7 +12,7 @@
     "@changesets/cli": "^2.29.3",
     "@typescript/vfs": "1.3.0",
     "autoprefixer": "^10.4.20",
-    "bunup": "^0.5.14",
+    "bunup": "^0.16.31",
     "changeset": "^0.2.6",
     "postcss": "^8.4.41",
     "prettier": "^3.2.5",
@@ -22,7 +22,7 @@
     "typescript": "^5.4.5"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=22"
   },
   "packageManager": "bun@1.3.10",
   "workspaces": [
