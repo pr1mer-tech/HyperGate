@@ -1,12 +1,11 @@
-export const CONNECTKIT_VERSION = "1.8.2";
-
 export * as Types from "./types";
 export { default as getDefaultConfig } from "./defaultConfig";
 export { wallets } from "./wallets";
 
 export { useModal } from "./hooks/useModal";
 
-export { ConnectKitProvider, Context } from "./components/ConnectKit";
+export { ConnectKitProvider } from "./components/ConnectKit";
+export { Context, useContext } from "./contexts/ConnectKitContext";
 export { ConnectKitButton } from "./components/ConnectButton";
 
 //export { default as NetworkButton } from './components/NetworkButton';

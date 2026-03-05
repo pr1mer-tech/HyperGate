@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { routes, useContext } from "./../../ConnectKit";
+import { useContext } from "../../../contexts/ConnectKitContext";
+import { routes } from "../../../constants/routes";
 
 import { flattenChildren, isMobile } from "./../../../utils";
 
@@ -18,7 +19,11 @@ import { useAccount, useSwitchChain } from "@hyper-gate/react";
 
 const Container = styled(motion.div)``;
 
-const SwitchChainButton = styled(motion.button)`
+interface SwitchChainButtonProps {
+  disabled?: boolean;
+}
+
+const SwitchChainButton = styled(motion.button)<SwitchChainButtonProps>`
   --color: var(
     --ck-dropdown-button-color,
     var(--ck-button-primary-color, var(--ck-body-color))
@@ -85,7 +90,7 @@ const SwitchChainButton = styled(motion.button)`
     display: block;
   }
 
-  ${(props) =>
+  ${(props: SwitchChainButtonProps) =>
     props.disabled
       ? css`
           width: auto;
@@ -113,7 +118,7 @@ const SwitchChainButton = styled(motion.button)`
         `}
 `;
 
-const ChevronDown = ({ ...props }) => (
+const ChevronDown = ({ ...props }: React.SVGAttributes<SVGElement>) => (
   <svg
     aria-hidden="true"
     width="11"
@@ -152,36 +157,34 @@ const ChainSelector: React.FC = () => {
   const disabled = chains.length <= 1;
 
   return (
-    <>
-      <Container>
-        <ChainSelectDropdown
-          offsetX={-12}
-          open={!mobile && isOpen}
-          onClose={() => setIsOpen(false)}
+    <Container>
+      <ChainSelectDropdown
+        offsetX={-12}
+        open={!mobile && isOpen}
+        onClose={() => setIsOpen(false)}
+      >
+        <SwitchChainButton
+          aria-label={flattenChildren(locales.switchNetworks).toString()}
+          disabled={disabled}
+          onClick={() => {
+            if (mobile) {
+              context.setRoute(routes.SWITCHNETWORKS);
+            } else {
+              setIsOpen(!isOpen);
+            }
+          }}
         >
-          <SwitchChainButton
-            aria-label={flattenChildren(locales.switchNetworks).toString()}
-            disabled={disabled}
-            onClick={() => {
-              if (mobile) {
-                context.setRoute(routes.SWITCHNETWORKS);
-              } else {
-                setIsOpen(!isOpen);
-              }
-            }}
-          >
-            {disabled ? (
-              <Tooltip message={locales.chainNetwork} xOffset={-6} delay={0.01}>
-                <Chain id={chain?.id} />
-              </Tooltip>
-            ) : (
+          {disabled ? (
+            <Tooltip message={locales.chainNetwork} xOffset={-6} delay={0.01}>
               <Chain id={chain?.id} />
-            )}
-            {!disabled && <ChevronDown style={{ top: 1, left: -3 }} />}
-          </SwitchChainButton>
-        </ChainSelectDropdown>
-      </Container>
-    </>
+            </Tooltip>
+          ) : (
+            <Chain id={chain?.id} />
+          )}
+          {!disabled && <ChevronDown style={{ top: 1, left: -3 }} />}
+        </SwitchChainButton>
+      </ChainSelectDropdown>
+    </Container>
   );
 };
 

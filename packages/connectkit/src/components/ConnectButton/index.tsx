@@ -1,3 +1,5 @@
+'use client';
+
 import type React from "react";
 import { useAccount, useChains } from "@hyper-gate/react";
 import { truncateENSAddress, truncateXRPAddress } from "./../../utils";
@@ -8,7 +10,8 @@ import {
   TextContainer,
   UnsupportedNetworkContainer,
 } from "./styles";
-import { routes, useContext } from "../ConnectKit";
+import { useContext } from "../../contexts/ConnectKitContext";
+import { routes } from "../../constants/routes";
 import { useModal } from "../../hooks/useModal";
 
 import Avatar from "../Common/Avatar";

@@ -1,5 +1,7 @@
+'use client'
+
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
-import { useContext } from "../../ConnectKit";
+import { useContext } from "../../../contexts/ConnectKitContext";
 import useMeasure from "react-use-measure";
 
 import { TooltipProps, TooltipSizeProps } from "./types";

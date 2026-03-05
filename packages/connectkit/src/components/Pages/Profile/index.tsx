@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useContext } from "../../ConnectKit";
+import { useContext } from "../../../contexts/ConnectKitContext";
 import {
   isSafeConnector,
   nFormatter,

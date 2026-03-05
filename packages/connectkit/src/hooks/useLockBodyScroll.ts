@@ -1,5 +1,7 @@
+'use client';
+
 import { useEffect, useState, useLayoutEffect } from "react";
-import { useContext } from "../components/ConnectKit";
+import { useContext } from "../contexts/ConnectKitContext";
 
 const useIsomorphicLayoutEffect =
   typeof window !== "undefined" ? useLayoutEffect : useEffect;

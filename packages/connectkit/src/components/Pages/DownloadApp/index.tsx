@@ -9,7 +9,7 @@ import {
 import CustomQRCode from "../../Common/CustomQRCode";
 
 import useLocales from "../../../hooks/useLocales";
-import { useContext } from "../../ConnectKit";
+import { useContext } from "../../../contexts/ConnectKitContext";
 import { useWallet } from "../../../wallets/useWallets";
 
 const DownloadApp = () => {

@@ -1,5 +1,6 @@
 import React from "react";
-import { routes, useContext } from "../ConnectKit";
+import { routes } from "../../constants/routes";
+import { useContext } from "../../contexts/ConnectKitContext";
 
 import {
   detectBrowser,

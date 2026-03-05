@@ -7,7 +7,7 @@ import {
   type UseConnectParameters,
   useConnect as hypergateUseConnect,
 } from "@hyper-gate/react";
-import { useContext } from "../components/ConnectKit";
+import { useContext } from "../contexts/ConnectKitContext";
 import { useLastConnector } from "./useLastConnector";
 import { Connector } from "@hyper-gate/core";
 
@@ -18,7 +18,7 @@ export function useConnect({ ...props }: UseConnectParameters = {}) {
     ...props,
     mutation: {
       ...props.mutation,
-      onError(err: Error) {
+      onError: (err) => {
         if (err.message) {
           if (err.message !== "User rejected request") {
             context.log(err.message, err);

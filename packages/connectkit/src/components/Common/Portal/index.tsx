@@ -1,6 +1,8 @@
+'use client';
+
 import { useEffect, useState, useRef } from "react";
 import { createPortal } from "react-dom";
-import { CONNECTKIT_VERSION } from "../../..";
+import { CONNECTKIT_VERSION } from "../../../constants";
 
 const Portal = (props: any) => {
   props = {

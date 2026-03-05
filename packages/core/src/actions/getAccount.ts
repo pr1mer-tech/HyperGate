@@ -1,13 +1,12 @@
 import type { Config } from "../createConfig";
 
 export function getAccount(config: Config) {
-  const connection = config.state.current
-    ? config.state.connections.get(config.state.current)
-    : null;
+  const connection = config.state.connections.get(config.state.current || "");
 
   const accounts = connection?.accounts;
-  const chainId = connection?.chainId ? Number(connection.chainId) : undefined;
-  const chain = config.chains.find((chain) => chain.id === chainId);
+  const chainId =
+    connection?.chainId != null ? Number(connection.chainId) : undefined;
+  const chain = config.chains.find((x) => x.id === chainId);
   const connector = connection?.connector;
   const status = config.state.status;
 
